@@ -4,21 +4,32 @@ import gleam/http/request
 import gleam/httpc
 import gleam/json
 import gleam/list
+import gleam/result
 import gleam/string
 import gleamsver.{parse_loosely}
-
-const url = "https://github.com/github/gemoji/raw/v4.1.0/db/emoji.json"
+import simplifile
 
 pub fn main() {
-  let assert Ok(req) = request.to(url)
-  let config = httpc.configure() |> httpc.follow_redirects(True)
-  let assert Ok(res) = httpc.dispatch(config, req)
-  let assert 200 = res.status
-  let json_string = res.body
+  let json_string = emoji_json_string()
   let assert Ok(emojis) = json.parse(from: json_string, using: emojis_decoder())
-  let emojis =
-    emojis |> list.sort(fn(a, b) { string.compare(a.emoji, b.emoji) })
+  let emojis = list.sort(emojis, fn(a, b) { string.compare(a.emoji, b.emoji) })
   let emoji_by_alias = emoji_by_alias(emojis)
+}
+
+fn emoji_json_string() -> String {
+  let emoji_file_path = "./test/emojis.json"
+  simplifile.read(from: emoji_file_path)
+  |> result.lazy_unwrap(fn() {
+    let url = "https://github.com/github/gemoji/raw/v4.1.0/db/emoji.json"
+    let assert Ok(req) = request.to(url)
+    let config = httpc.configure() |> httpc.follow_redirects(True)
+    let assert Ok(res) = httpc.dispatch(config, req)
+    let assert 200 = res.status
+    let json_string = res.body
+    // TODO: Format
+    let assert Ok(_) = simplifile.write(json_string, to: emoji_file_path)
+    json_string
+  })
 }
 
 pub type Category {
@@ -100,7 +111,6 @@ fn emoji_by_alias(emojis: Emojis) -> dict.Dict(String, Emoji) {
 }
 // TODO: Generate: emojis()
 // TODO: Generate: get_by_alias()
-// TODO: Cache JSON
 // TODO: Tests
 // TODO Later: Get "https://unicode.org/Public/emoji/16.0/emoji-test.txt"
 // TODO Later: get()
