@@ -100,6 +100,8 @@ fn emoji_by_alias(emojis: Emojis) -> dict.Dict(String, Emoji) {
 }
 // TODO: Generate: emojis()
 // TODO: Generate: get_by_alias()
+// TODO: Cache JSON
+// TODO: Tests
 // TODO Later: Get "https://unicode.org/Public/emoji/16.0/emoji-test.txt"
 // TODO Later: get()
 // TODO Later: get_emojis_by_category()
