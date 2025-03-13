@@ -1,8 +1,8 @@
-import emojis/internal/helpers.{category_to_string}
 import emojis/types.{
   type Category, type Emoji, type Emojis, type UnicodeVersion, Activities,
   AnimalsAndNature, Emoji, Flags, FoodAndDrink, Objects, PeopleAndBody,
   SmileysAndEmotion, Symbols, TravelAndPlaces, UnicodeVersion,
+  category_to_string,
 }
 import gleam/dict
 import gleam/dynamic/decode

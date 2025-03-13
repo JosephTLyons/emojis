@@ -10,6 +10,21 @@ pub type Category {
   TravelAndPlaces
 }
 
+@internal
+pub fn category_to_string(category: Category) -> String {
+  case category {
+    Activities -> "Activities"
+    AnimalsAndNature -> "AnimalsAndNature"
+    Flags -> "Flags"
+    FoodAndDrink -> "FoodAndDrink"
+    Objects -> "Objects"
+    PeopleAndBody -> "PeopleAndBody"
+    SmileysAndEmotion -> "SmileysAndEmotion"
+    Symbols -> "Symbols"
+    TravelAndPlaces -> "TravelAndPlaces"
+  }
+}
+
 pub type Emoji {
   Emoji(
     emoji: String,
