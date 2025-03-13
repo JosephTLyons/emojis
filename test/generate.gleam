@@ -17,7 +17,7 @@ import gleamsver.{parse_loosely}
 import shellout
 import simplifile
 
-pub fn main() {
+pub fn main() -> Nil {
   let json_string = emoji_json_string()
   let assert Ok(emojis) = json.parse(from: json_string, using: emojis_decoder())
   let emojis = list.sort(emojis, fn(a, b) { string.compare(a.emoji, b.emoji) })
@@ -28,6 +28,7 @@ pub fn main() {
   let arguments = ["format", "./src/emojis.gleam"]
   let assert Ok(_) =
     shellout.command(run: "gleam", with: arguments, in: ".", opt: [])
+  Nil
 }
 
 fn emoji_json_string() -> String {
@@ -97,15 +98,16 @@ fn emoji_by_alias(emojis: Emojis) -> dict.Dict(String, Emoji) {
 fn generate_source_code(
   emojis_code_file_path: String,
   emoji_by_alias: dict.Dict(String, Emoji),
-) {
+) -> Nil {
   let _ = simplifile.delete(emojis_code_file_path)
   let assert Ok(_) = simplifile.create_file(emojis_code_file_path)
   generate_imports(emojis_code_file_path)
   // generate_emojis_functions()
   generate_get_by_alias_function(emojis_code_file_path, emoji_by_alias)
+  Nil
 }
 
-fn generate_imports(emojis_code_file_path: String) {
+fn generate_imports(emojis_code_file_path: String) -> Nil {
   let imports = [
     "import gleam/option.{type Option, None, Some}",
     "import emojis/types.{
@@ -116,12 +118,13 @@ fn generate_imports(emojis_code_file_path: String) {
   ]
   let imports_string = string.join(imports, "\n")
   let assert Ok(_) = simplifile.append(emojis_code_file_path, imports_string)
+  Nil
 }
 
 fn generate_get_by_alias_function(
   emojis_code_file_path: String,
   emoji_by_alias: dict.Dict(String, Emoji),
-) {
+) -> Nil {
   let case_arm_strings =
     emoji_by_alias
     |> dict.to_list
@@ -141,6 +144,7 @@ fn generate_get_by_alias_function(
     |> string.join("\n")
 
   let assert Ok(_) = simplifile.append(emojis_code_file_path, function_string)
+  Nil
 }
 
 fn generate_emoji_record_string(emoji: Emoji) -> String {
