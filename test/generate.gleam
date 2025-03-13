@@ -20,7 +20,6 @@ import simplifile
 pub fn main() -> Nil {
   let json_string = emoji_json_string()
   let assert Ok(emojis) = json.parse(from: json_string, using: emojis_decoder())
-  let emojis = list.sort(emojis, fn(a, b) { string.compare(a.emoji, b.emoji) })
   let emoji_by_alias = emoji_by_alias(emojis)
   let emojis_code_file_path = "./src/emojis.gleam"
   generate_source_code(emojis_code_file_path, emoji_by_alias)
@@ -28,6 +27,7 @@ pub fn main() -> Nil {
   let arguments = ["format", "./src/emojis.gleam"]
   let assert Ok(_) =
     shellout.command(run: "gleam", with: arguments, in: ".", opt: [])
+
   Nil
 }
 
@@ -41,7 +41,7 @@ fn emoji_json_string() -> String {
     let assert Ok(res) = httpc.dispatch(config, req)
     let assert 200 = res.status
     let json_string = res.body
-    // TODO: Format
+    // TODO: Format JSON
     let assert Ok(_) = simplifile.write(json_string, to: emoji_data_file_path)
     json_string
   })
@@ -125,11 +125,11 @@ fn generate_get_by_alias_function(
   emojis_code_file_path: String,
   emoji_by_alias: dict.Dict(String, Emoji),
 ) -> Nil {
+  let aliases = dict.keys(emoji_by_alias) |> list.sort(string.compare)
   let case_arm_strings =
-    emoji_by_alias
-    |> dict.to_list
-    |> list.map(fn(pair) {
-      let #(alias, emoji) = pair
+    aliases
+    |> list.map(fn(alias) {
+      let assert Ok(emoji) = dict.get(emoji_by_alias, alias)
       let alias_string = surround_string_with_quotes(alias)
       let emoji_record_string = generate_emoji_record_string(emoji)
       alias_string <> " -> " <> "Some(" <> emoji_record_string <> ")"
