@@ -1,7 +1,14 @@
+import emojis/internal/helpers.{category_to_string}
+import emojis/types.{
+  type Category, type Emoji, type Emojis, type UnicodeVersion, Activities,
+  AnimalsAndNature, Emoji, Flags, FoodAndDrink, Objects, PeopleAndBody,
+  SmileysAndEmotion, Symbols, TravelAndPlaces, UnicodeVersion,
+}
 import gleam/dict
 import gleam/dynamic/decode
 import gleam/http/request
 import gleam/httpc
+import gleam/int
 import gleam/json
 import gleam/list
 import gleam/result
@@ -14,11 +21,12 @@ pub fn main() {
   let assert Ok(emojis) = json.parse(from: json_string, using: emojis_decoder())
   let emojis = list.sort(emojis, fn(a, b) { string.compare(a.emoji, b.emoji) })
   let emoji_by_alias = emoji_by_alias(emojis)
+  generate(emoji_by_alias)
 }
 
 fn emoji_json_string() -> String {
-  let emoji_file_path = "./test/emojis.json"
-  simplifile.read(from: emoji_file_path)
+  let emoji_data_file_path = "./test/emojis.json"
+  simplifile.read(from: emoji_data_file_path)
   |> result.lazy_unwrap(fn() {
     let url = "https://github.com/github/gemoji/raw/v4.1.0/db/emoji.json"
     let assert Ok(req) = request.to(url)
@@ -27,40 +35,10 @@ fn emoji_json_string() -> String {
     let assert 200 = res.status
     let json_string = res.body
     // TODO: Format
-    let assert Ok(_) = simplifile.write(json_string, to: emoji_file_path)
+    let assert Ok(_) = simplifile.write(json_string, to: emoji_data_file_path)
     json_string
   })
 }
-
-pub type Category {
-  Activities
-  AnimalsAndNature
-  Flags
-  FoodAndDrink
-  Objects
-  PeopleAndBody
-  SmileysAndEmotion
-  Symbols
-  TravelAndPlaces
-}
-
-pub type UnicodeVersion {
-  UnicodeVersion(major: Int, minor: Int)
-}
-
-pub type Emoji {
-  Emoji(
-    emoji: String,
-    description: String,
-    category: Category,
-    aliases: List(String),
-    tags: List(String),
-    unicode_version: UnicodeVersion,
-  )
-}
-
-pub type Emojis =
-  List(Emoji)
 
 fn get_category(category: String) -> Category {
   case category {
@@ -109,8 +87,93 @@ fn emoji_by_alias(emojis: Emojis) -> dict.Dict(String, Emoji) {
     list.fold(emoji.aliases, d, fn(d, alias) { dict.insert(d, alias, emoji) })
   })
 }
+
+fn generate(emoji_by_alias: dict.Dict(String, Emoji)) {
+  let emojis_code_file_path = "./src/emojis.gleam"
+  let _ = simplifile.delete(emojis_code_file_path)
+  let assert Ok(_) = simplifile.create_file(emojis_code_file_path)
+  generate_imports(emojis_code_file_path)
+  // generate_emojis_functions()
+  generate_get_by_alias_function(emojis_code_file_path, emoji_by_alias)
+}
+
+fn generate_imports(emojis_code_file_path: String) {
+  let imports = [
+    "import gleam/option.{type Option, None, Some}",
+    "import emojis/types.{
+      type Emoji, type UnicodeVersion, Activities,
+      AnimalsAndNature, Emoji, Flags, FoodAndDrink, Objects, PeopleAndBody,
+      SmileysAndEmotion, Symbols, TravelAndPlaces, UnicodeVersion,
+    }",
+  ]
+  let imports_string = string.join(imports, "\n")
+  let assert Ok(_) = simplifile.append(emojis_code_file_path, imports_string)
+}
+
+fn generate_get_by_alias_function(
+  emojis_code_file_path: String,
+  emoji_by_alias: dict.Dict(String, Emoji),
+) {
+  let case_arm_strings =
+    emoji_by_alias
+    |> dict.to_list
+    |> list.map(fn(pair) {
+      let #(alias, emoji) = pair
+      let alias_string = surround_string_with_quotes(alias)
+      let emoji_record_string = generate_emoji_record_string(emoji)
+      alias_string <> " -> " <> "Some(" <> emoji_record_string <> ")"
+    })
+
+  let case_arm_strings = case_arm_strings |> list.append(["_ -> None"])
+
+  let function_string =
+    ["pub fn get_by_alias(alias: String) -> Option(Emoji) {", "case alias {"]
+    |> list.append(case_arm_strings)
+    |> list.append(["}", "}"])
+    |> string.join("\n")
+
+  let assert Ok(_) = simplifile.append(emojis_code_file_path, function_string)
+}
+
+fn generate_emoji_record_string(emoji: Emoji) -> String {
+  let emoji_string = surround_string_with_quotes(emoji.emoji)
+  let description_string = surround_string_with_quotes(emoji.description)
+  let category_string = category_to_string(emoji.category)
+  let aliases_list_string =
+    emoji.aliases |> list.map(surround_string_with_quotes) |> string.join(", ")
+  let tags_list_string =
+    emoji.tags |> list.map(surround_string_with_quotes) |> string.join(", ")
+  let unicode_record_string =
+    generate_unicode_record_string(emoji.unicode_version)
+
+  let field_lines = [
+    { "emoji:" <> emoji_string },
+    { "description:" <> description_string },
+    { "category:" <> category_string },
+    { "aliases:" <> "[" <> aliases_list_string <> "]" },
+    { "tags:" <> "[" <> tags_list_string <> "]" },
+    { "unicode_version:" <> unicode_record_string },
+  ]
+
+  let field_string = string.join(field_lines, ", ")
+
+  "Emoji(" <> field_string <> ")"
+}
+
+fn generate_unicode_record_string(unicode_version: UnicodeVersion) -> String {
+  "UnicodeVersion("
+  <> "major: "
+  <> { int.to_string(unicode_version.major) }
+  <> ", minor: "
+  <> { int.to_string(unicode_version.minor) }
+  <> ")"
+}
+
+fn surround_string_with_quotes(string: String) -> String {
+  "\"" <> string <> "\""
+}
 // TODO: Generate: emojis()
-// TODO: Generate: get_by_alias()
+// TODO: Format: get_by_alias()
 // TODO: Tests
 // TODO Later: Get "https://unicode.org/Public/emoji/16.0/emoji-test.txt"
 // TODO Later: get()
