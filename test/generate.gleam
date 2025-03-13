@@ -187,7 +187,6 @@ fn surround_string_with_quotes(string: String) -> String {
 // TODO: Generate: emojis()
 // TODO: Tests
 // TODO: Docs
-// TODO: License
 // TODO: Test using the lib from GitHub
 
 // Later
