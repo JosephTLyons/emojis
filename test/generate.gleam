@@ -130,7 +130,7 @@ fn generate_get_by_alias_function(
     aliases
     |> list.map(fn(alias) {
       let assert Ok(emoji) = dict.get(emoji_by_alias, alias)
-      let alias_string = surround_string_with_quotes(alias)
+      let alias_string = quote_string(alias)
       let emoji_record_string = generate_emoji_record_string(emoji)
       alias_string <> " -> " <> "Some(" <> emoji_record_string <> ")"
     })
@@ -148,46 +148,48 @@ fn generate_get_by_alias_function(
 }
 
 fn generate_emoji_record_string(emoji: Emoji) -> String {
-  let emoji_string = surround_string_with_quotes(emoji.emoji)
-  let description_string = surround_string_with_quotes(emoji.description)
+  let emoji_string = quote_string(emoji.emoji)
+  let description_string = quote_string(emoji.description)
   let category_string = category_to_string(emoji.category)
-  let aliases_list_string =
-    emoji.aliases |> list.map(surround_string_with_quotes) |> string.join(", ")
-  let tags_list_string =
-    emoji.tags |> list.map(surround_string_with_quotes) |> string.join(", ")
+  let aliases_list_string = generate_list_string(emoji.aliases)
+  let tags_list_string = generate_list_string(emoji.tags)
   let unicode_record_string =
     generate_unicode_record_string(emoji.unicode_version)
 
-  let field_lines = [
+  let fields = [
     { "emoji:" <> emoji_string },
     { "description:" <> description_string },
     { "category:" <> category_string },
-    { "aliases:" <> "[" <> aliases_list_string <> "]" },
-    { "tags:" <> "[" <> tags_list_string <> "]" },
+    { "aliases:" <> aliases_list_string },
+    { "tags:" <> tags_list_string },
     { "unicode_version:" <> unicode_record_string },
   ]
 
-  let field_string = string.join(field_lines, ", ")
-
-  "Emoji(" <> field_string <> ")"
+  "Emoji(" <> string.join(fields, ", ") <> ")"
 }
 
 fn generate_unicode_record_string(unicode_version: UnicodeVersion) -> String {
-  "UnicodeVersion("
-  <> "major: "
-  <> { int.to_string(unicode_version.major) }
-  <> ", minor: "
-  <> { int.to_string(unicode_version.minor) }
-  <> ")"
+  let fields = [
+    { "major:" <> int.to_string(unicode_version.major) },
+    { "minor:" <> int.to_string(unicode_version.minor) },
+  ]
+
+  "UnicodeVersion(" <> string.join(fields, ", ") <> ")"
 }
 
-fn surround_string_with_quotes(string: String) -> String {
+fn generate_list_string(items: List(String)) -> String {
+  let fields = items |> list.map(quote_string)
+  "[" <> string.join(fields, ", ") <> "]"
+}
+
+fn quote_string(string: String) -> String {
   "\"" <> string <> "\""
 }
 // TODO: Generate: emojis()
 // TODO: Tests
 // TODO: Docs
 // TODO: Test using the lib from GitHub
+// TODO: Rename package to something cool?
 
 // Later
 // TODO: Get "https://unicode.org/Public/emoji/16.0/emoji-test.txt"
