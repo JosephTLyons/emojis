@@ -24,9 +24,13 @@ pub fn main() -> Nil {
   let emojis_code_file_path = "./src/emojis.gleam"
   generate_source_code(emojis_code_file_path, emoji_by_alias)
 
-  let arguments = ["format", "./src/emojis.gleam"]
   let assert Ok(_) =
-    shellout.command(run: "gleam", with: arguments, in: ".", opt: [])
+    shellout.command(
+      run: "gleam",
+      with: ["format", "./src/emojis.gleam"],
+      in: ".",
+      opt: [],
+    )
 
   Nil
 }
