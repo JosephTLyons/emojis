@@ -182,7 +182,12 @@ fn surround_string_with_quotes(string: String) -> String {
 }
 // TODO: Generate: emojis()
 // TODO: Tests
-// TODO Later: Get "https://unicode.org/Public/emoji/16.0/emoji-test.txt"
-// TODO Later: get()
-// TODO Later: get_emojis_by_category()
-// TODO Later: get_emojis_by_tags()
+// TODO: Docs
+// TODO: License
+// TODO: Test using the lib from GitHub
+
+// Later
+// TODO: Get "https://unicode.org/Public/emoji/16.0/emoji-test.txt"
+// TODO: get()
+// TODO: get_emojis_by_category()
+// TODO: get_emojis_by_tags()
