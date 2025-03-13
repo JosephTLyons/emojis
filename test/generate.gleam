@@ -14,6 +14,7 @@ import gleam/list
 import gleam/result
 import gleam/string
 import gleamsver.{parse_loosely}
+import shellout
 import simplifile
 
 pub fn main() {
@@ -21,7 +22,12 @@ pub fn main() {
   let assert Ok(emojis) = json.parse(from: json_string, using: emojis_decoder())
   let emojis = list.sort(emojis, fn(a, b) { string.compare(a.emoji, b.emoji) })
   let emoji_by_alias = emoji_by_alias(emojis)
-  generate(emoji_by_alias)
+  let emojis_code_file_path = "./src/emojis.gleam"
+  generate_source_code(emojis_code_file_path, emoji_by_alias)
+
+  let arguments = ["format", "./src/emojis.gleam"]
+  let assert Ok(_) =
+    shellout.command(run: "gleam", with: arguments, in: ".", opt: [])
 }
 
 fn emoji_json_string() -> String {
@@ -88,8 +94,10 @@ fn emoji_by_alias(emojis: Emojis) -> dict.Dict(String, Emoji) {
   })
 }
 
-fn generate(emoji_by_alias: dict.Dict(String, Emoji)) {
-  let emojis_code_file_path = "./src/emojis.gleam"
+fn generate_source_code(
+  emojis_code_file_path: String,
+  emoji_by_alias: dict.Dict(String, Emoji),
+) {
   let _ = simplifile.delete(emojis_code_file_path)
   let assert Ok(_) = simplifile.create_file(emojis_code_file_path)
   generate_imports(emojis_code_file_path)
@@ -173,7 +181,6 @@ fn surround_string_with_quotes(string: String) -> String {
   "\"" <> string <> "\""
 }
 // TODO: Generate: emojis()
-// TODO: Format: get_by_alias()
 // TODO: Tests
 // TODO Later: Get "https://unicode.org/Public/emoji/16.0/emoji-test.txt"
 // TODO Later: get()
