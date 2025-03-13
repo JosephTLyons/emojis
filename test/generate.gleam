@@ -109,7 +109,6 @@ fn generate_source_code(
 
 fn generate_imports(emojis_code_file_path: String) -> Nil {
   let imports = [
-    "import gleam/option.{type Option, None, Some}",
     "import emojis/types.{
       type Emoji, type UnicodeVersion, Activities,
       AnimalsAndNature, Emoji, Flags, FoodAndDrink, Objects, PeopleAndBody,
@@ -132,13 +131,16 @@ fn generate_get_by_alias_function(
       let assert Ok(emoji) = dict.get(emoji_by_alias, alias)
       let alias_string = quote_string(alias)
       let emoji_record_string = generate_emoji_record_string(emoji)
-      alias_string <> " -> " <> "Some(" <> emoji_record_string <> ")"
+      alias_string <> " -> " <> "Ok(" <> emoji_record_string <> ")"
     })
 
-  let case_arm_strings = case_arm_strings |> list.append(["_ -> None"])
+  let case_arm_strings = case_arm_strings |> list.append(["_ -> Error(Nil)"])
 
   let function_string =
-    ["pub fn get_by_alias(alias: String) -> Option(Emoji) {", "case alias {"]
+    [
+      "pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {",
+      "case alias {",
+    ]
     |> list.append(case_arm_strings)
     |> list.append(["}", "}"])
     |> string.join("\n")

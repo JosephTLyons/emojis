@@ -3,12 +3,11 @@ import emojis/types.{
   FoodAndDrink, Objects, PeopleAndBody, SmileysAndEmotion, Symbols,
   TravelAndPlaces, UnicodeVersion,
 }
-import gleam/option.{type Option, None, Some}
 
-pub fn get_by_alias(alias: String) -> Option(Emoji) {
+pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
   case alias {
     "+1" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👍",
         description: "thumbs up",
         category: PeopleAndBody,
@@ -17,7 +16,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "-1" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👎",
         description: "thumbs down",
         category: PeopleAndBody,
@@ -26,7 +25,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "100" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💯",
         description: "hundred points",
         category: SmileysAndEmotion,
@@ -35,7 +34,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "1234" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔢",
         description: "input numbers",
         category: Symbols,
@@ -44,7 +43,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "1st_place_medal" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥇",
         description: "1st place medal",
         category: Activities,
@@ -53,7 +52,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "2nd_place_medal" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥈",
         description: "2nd place medal",
         category: Activities,
@@ -62,7 +61,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "3rd_place_medal" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥉",
         description: "3rd place medal",
         category: Activities,
@@ -71,7 +70,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "8ball" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎱",
         description: "pool 8 ball",
         category: Activities,
@@ -80,7 +79,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "a" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🅰️",
         description: "A button (blood type)",
         category: Symbols,
@@ -89,7 +88,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ab" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🆎",
         description: "AB button (blood type)",
         category: Symbols,
@@ -98,7 +97,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "abacus" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧮",
         description: "abacus",
         category: Objects,
@@ -107,7 +106,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "abc" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔤",
         description: "input latin letters",
         category: Symbols,
@@ -116,7 +115,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "abcd" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔡",
         description: "input latin lowercase",
         category: Symbols,
@@ -125,7 +124,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "accept" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🉑",
         description: "Japanese “acceptable” button",
         category: Symbols,
@@ -134,7 +133,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "accordion" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪗",
         description: "accordion",
         category: Objects,
@@ -143,7 +142,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "adhesive_bandage" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🩹",
         description: "adhesive bandage",
         category: Objects,
@@ -152,7 +151,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "adult" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑",
         description: "person",
         category: PeopleAndBody,
@@ -161,7 +160,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "aerial_tramway" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚡",
         description: "aerial tramway",
         category: TravelAndPlaces,
@@ -170,7 +169,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "afghanistan" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇦🇫",
         description: "flag: Afghanistan",
         category: Flags,
@@ -179,7 +178,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "airplane" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "✈️",
         description: "airplane",
         category: TravelAndPlaces,
@@ -188,7 +187,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "aland_islands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇦🇽",
         description: "flag: Åland Islands",
         category: Flags,
@@ -197,7 +196,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "alarm_clock" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⏰",
         description: "alarm clock",
         category: TravelAndPlaces,
@@ -206,7 +205,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "albania" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇦🇱",
         description: "flag: Albania",
         category: Flags,
@@ -215,7 +214,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "alembic" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⚗️",
         description: "alembic",
         category: Objects,
@@ -224,7 +223,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 1),
       ))
     "algeria" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇩🇿",
         description: "flag: Algeria",
         category: Flags,
@@ -233,7 +232,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "alien" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👽",
         description: "alien",
         category: SmileysAndEmotion,
@@ -242,7 +241,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ambulance" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚑",
         description: "ambulance",
         category: TravelAndPlaces,
@@ -251,7 +250,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "american_samoa" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇦🇸",
         description: "flag: American Samoa",
         category: Flags,
@@ -260,7 +259,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "amphora" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏺",
         description: "amphora",
         category: FoodAndDrink,
@@ -269,7 +268,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "anatomical_heart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫀",
         description: "anatomical heart",
         category: PeopleAndBody,
@@ -278,7 +277,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "anchor" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⚓",
         description: "anchor",
         category: TravelAndPlaces,
@@ -287,7 +286,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 1),
       ))
     "andorra" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇦🇩",
         description: "flag: Andorra",
         category: Flags,
@@ -296,7 +295,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "angel" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👼",
         description: "baby angel",
         category: PeopleAndBody,
@@ -305,7 +304,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "anger" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💢",
         description: "anger symbol",
         category: SmileysAndEmotion,
@@ -314,7 +313,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "angola" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇦🇴",
         description: "flag: Angola",
         category: Flags,
@@ -323,7 +322,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "angry" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😠",
         description: "angry face",
         category: SmileysAndEmotion,
@@ -332,7 +331,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "anguilla" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇦🇮",
         description: "flag: Anguilla",
         category: Flags,
@@ -341,7 +340,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "anguished" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😧",
         description: "anguished face",
         category: SmileysAndEmotion,
@@ -350,7 +349,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 1),
       ))
     "ant" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐜",
         description: "ant",
         category: AnimalsAndNature,
@@ -359,7 +358,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "antarctica" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇦🇶",
         description: "flag: Antarctica",
         category: Flags,
@@ -368,7 +367,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "antigua_barbuda" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇦🇬",
         description: "flag: Antigua & Barbuda",
         category: Flags,
@@ -377,7 +376,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "apple" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍎",
         description: "red apple",
         category: FoodAndDrink,
@@ -386,7 +385,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "aquarius" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♒",
         description: "Aquarius",
         category: Symbols,
@@ -395,7 +394,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "argentina" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇦🇷",
         description: "flag: Argentina",
         category: Flags,
@@ -404,7 +403,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "aries" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♈",
         description: "Aries",
         category: Symbols,
@@ -413,7 +412,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "armenia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇦🇲",
         description: "flag: Armenia",
         category: Flags,
@@ -422,7 +421,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "arrow_backward" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "◀️",
         description: "reverse button",
         category: Symbols,
@@ -431,7 +430,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "arrow_double_down" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⏬",
         description: "fast down button",
         category: Symbols,
@@ -440,7 +439,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "arrow_double_up" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⏫",
         description: "fast up button",
         category: Symbols,
@@ -449,7 +448,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "arrow_down" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⬇️",
         description: "down arrow",
         category: Symbols,
@@ -458,7 +457,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 0),
       ))
     "arrow_down_small" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔽",
         description: "downwards button",
         category: Symbols,
@@ -467,7 +466,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "arrow_forward" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "▶️",
         description: "play button",
         category: Symbols,
@@ -476,7 +475,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "arrow_heading_down" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⤵️",
         description: "right arrow curving down",
         category: Symbols,
@@ -485,7 +484,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "arrow_heading_up" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⤴️",
         description: "right arrow curving up",
         category: Symbols,
@@ -494,7 +493,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "arrow_left" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⬅️",
         description: "left arrow",
         category: Symbols,
@@ -503,7 +502,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 0),
       ))
     "arrow_lower_left" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "↙️",
         description: "down-left arrow",
         category: Symbols,
@@ -512,7 +511,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "arrow_lower_right" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "↘️",
         description: "down-right arrow",
         category: Symbols,
@@ -521,7 +520,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "arrow_right" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "➡️",
         description: "right arrow",
         category: Symbols,
@@ -530,7 +529,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "arrow_right_hook" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "↪️",
         description: "left arrow curving right",
         category: Symbols,
@@ -539,7 +538,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "arrow_up" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⬆️",
         description: "up arrow",
         category: Symbols,
@@ -548,7 +547,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 0),
       ))
     "arrow_up_down" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "↕️",
         description: "up-down arrow",
         category: Symbols,
@@ -557,7 +556,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "arrow_up_small" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔼",
         description: "upwards button",
         category: Symbols,
@@ -566,7 +565,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "arrow_upper_left" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "↖️",
         description: "up-left arrow",
         category: Symbols,
@@ -575,7 +574,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "arrow_upper_right" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "↗️",
         description: "up-right arrow",
         category: Symbols,
@@ -584,7 +583,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "arrows_clockwise" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔃",
         description: "clockwise vertical arrows",
         category: Symbols,
@@ -593,7 +592,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "arrows_counterclockwise" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔄",
         description: "counterclockwise arrows button",
         category: Symbols,
@@ -602,7 +601,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "art" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎨",
         description: "artist palette",
         category: Activities,
@@ -611,7 +610,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "articulated_lorry" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚛",
         description: "articulated lorry",
         category: TravelAndPlaces,
@@ -620,7 +619,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "artificial_satellite" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛰️",
         description: "satellite",
         category: TravelAndPlaces,
@@ -629,7 +628,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "artist" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🎨",
         description: "artist",
         category: PeopleAndBody,
@@ -638,7 +637,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "aruba" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇦🇼",
         description: "flag: Aruba",
         category: Flags,
@@ -647,7 +646,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ascension_island" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇦🇨",
         description: "flag: Ascension Island",
         category: Flags,
@@ -656,7 +655,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "asterisk" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "*️⃣",
         description: "keycap: *",
         category: Symbols,
@@ -665,7 +664,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "astonished" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😲",
         description: "astonished face",
         category: SmileysAndEmotion,
@@ -674,7 +673,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "astronaut" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🚀",
         description: "astronaut",
         category: PeopleAndBody,
@@ -683,7 +682,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "athletic_shoe" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👟",
         description: "running shoe",
         category: Objects,
@@ -692,7 +691,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "atm" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏧",
         description: "ATM sign",
         category: Symbols,
@@ -701,7 +700,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "atom_symbol" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⚛️",
         description: "atom symbol",
         category: Symbols,
@@ -710,7 +709,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 1),
       ))
     "australia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇦🇺",
         description: "flag: Australia",
         category: Flags,
@@ -719,7 +718,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "austria" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇦🇹",
         description: "flag: Austria",
         category: Flags,
@@ -728,7 +727,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "auto_rickshaw" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛺",
         description: "auto rickshaw",
         category: TravelAndPlaces,
@@ -737,7 +736,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "avocado" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥑",
         description: "avocado",
         category: FoodAndDrink,
@@ -746,7 +745,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "axe" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪓",
         description: "axe",
         category: Objects,
@@ -755,7 +754,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "azerbaijan" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇦🇿",
         description: "flag: Azerbaijan",
         category: Flags,
@@ -764,7 +763,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "b" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🅱️",
         description: "B button (blood type)",
         category: Symbols,
@@ -773,7 +772,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "baby" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👶",
         description: "baby",
         category: PeopleAndBody,
@@ -782,7 +781,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "baby_bottle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍼",
         description: "baby bottle",
         category: FoodAndDrink,
@@ -791,7 +790,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "baby_chick" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐤",
         description: "baby chick",
         category: AnimalsAndNature,
@@ -800,7 +799,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "baby_symbol" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚼",
         description: "baby symbol",
         category: Symbols,
@@ -809,7 +808,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "back" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔙",
         description: "BACK arrow",
         category: Symbols,
@@ -818,7 +817,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bacon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥓",
         description: "bacon",
         category: FoodAndDrink,
@@ -827,7 +826,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "badger" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦡",
         description: "badger",
         category: AnimalsAndNature,
@@ -836,7 +835,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "badminton" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏸",
         description: "badminton",
         category: Activities,
@@ -845,7 +844,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "bagel" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥯",
         description: "bagel",
         category: FoodAndDrink,
@@ -854,7 +853,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "baggage_claim" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛄",
         description: "baggage claim",
         category: Symbols,
@@ -863,7 +862,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "baguette_bread" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥖",
         description: "baguette bread",
         category: FoodAndDrink,
@@ -872,7 +871,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "bahamas" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇸",
         description: "flag: Bahamas",
         category: Flags,
@@ -881,7 +880,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bahrain" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇭",
         description: "flag: Bahrain",
         category: Flags,
@@ -890,7 +889,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "balance_scale" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⚖️",
         description: "balance scale",
         category: Objects,
@@ -899,7 +898,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 1),
       ))
     "bald_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍🦲",
         description: "man: bald",
         category: PeopleAndBody,
@@ -908,7 +907,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "bald_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍🦲",
         description: "woman: bald",
         category: PeopleAndBody,
@@ -917,7 +916,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "ballet_shoes" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🩰",
         description: "ballet shoes",
         category: Objects,
@@ -926,7 +925,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "balloon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎈",
         description: "balloon",
         category: Activities,
@@ -935,7 +934,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ballot_box" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗳️",
         description: "ballot box with ballot",
         category: Objects,
@@ -944,7 +943,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "ballot_box_with_check" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☑️",
         description: "check box with check",
         category: Symbols,
@@ -953,7 +952,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "bamboo" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎍",
         description: "pine decoration",
         category: Activities,
@@ -962,7 +961,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "banana" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍌",
         description: "banana",
         category: FoodAndDrink,
@@ -971,7 +970,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bangbang" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "‼️",
         description: "double exclamation mark",
         category: Symbols,
@@ -980,7 +979,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "bangladesh" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇩",
         description: "flag: Bangladesh",
         category: Flags,
@@ -989,7 +988,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "banjo" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪕",
         description: "banjo",
         category: Objects,
@@ -998,7 +997,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "bank" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏦",
         description: "bank",
         category: TravelAndPlaces,
@@ -1007,7 +1006,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bar_chart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📊",
         description: "bar chart",
         category: Objects,
@@ -1016,7 +1015,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "barbados" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇧",
         description: "flag: Barbados",
         category: Flags,
@@ -1025,7 +1024,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "barber" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💈",
         description: "barber pole",
         category: TravelAndPlaces,
@@ -1034,7 +1033,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "baseball" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⚾",
         description: "baseball",
         category: Activities,
@@ -1043,7 +1042,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "basket" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧺",
         description: "basket",
         category: Objects,
@@ -1052,7 +1051,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "basketball" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏀",
         description: "basketball",
         category: Activities,
@@ -1061,7 +1060,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "basketball_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛹️‍♂️",
         description: "man bouncing ball",
         category: PeopleAndBody,
@@ -1070,7 +1069,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "basketball_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛹️‍♀️",
         description: "woman bouncing ball",
         category: PeopleAndBody,
@@ -1079,7 +1078,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "bat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦇",
         description: "bat",
         category: AnimalsAndNature,
@@ -1088,7 +1087,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "bath" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛀",
         description: "person taking bath",
         category: PeopleAndBody,
@@ -1097,7 +1096,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bathtub" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛁",
         description: "bathtub",
         category: Objects,
@@ -1106,7 +1105,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "battery" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔋",
         description: "battery",
         category: Objects,
@@ -1115,7 +1114,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "beach_umbrella" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏖️",
         description: "beach with umbrella",
         category: TravelAndPlaces,
@@ -1124,7 +1123,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "beans" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫘",
         description: "beans",
         category: FoodAndDrink,
@@ -1133,7 +1132,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "bear" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐻",
         description: "bear",
         category: AnimalsAndNature,
@@ -1142,7 +1141,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bearded_person" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧔",
         description: "person: beard",
         category: PeopleAndBody,
@@ -1151,7 +1150,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "beaver" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦫",
         description: "beaver",
         category: AnimalsAndNature,
@@ -1160,7 +1159,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "bed" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛏️",
         description: "bed",
         category: Objects,
@@ -1169,7 +1168,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "bee" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐝",
         description: "honeybee",
         category: AnimalsAndNature,
@@ -1178,7 +1177,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "beer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍺",
         description: "beer mug",
         category: FoodAndDrink,
@@ -1187,7 +1186,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "beers" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍻",
         description: "clinking beer mugs",
         category: FoodAndDrink,
@@ -1196,7 +1195,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "beetle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪲",
         description: "beetle",
         category: AnimalsAndNature,
@@ -1205,7 +1204,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "beginner" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔰",
         description: "Japanese symbol for beginner",
         category: Symbols,
@@ -1214,7 +1213,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "belarus" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇾",
         description: "flag: Belarus",
         category: Flags,
@@ -1223,7 +1222,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "belgium" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇪",
         description: "flag: Belgium",
         category: Flags,
@@ -1232,7 +1231,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "belize" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇿",
         description: "flag: Belize",
         category: Flags,
@@ -1241,7 +1240,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bell" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔔",
         description: "bell",
         category: Objects,
@@ -1250,7 +1249,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bell_pepper" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫑",
         description: "bell pepper",
         category: FoodAndDrink,
@@ -1259,7 +1258,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "bellhop_bell" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛎️",
         description: "bellhop bell",
         category: TravelAndPlaces,
@@ -1268,7 +1267,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "benin" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇯",
         description: "flag: Benin",
         category: Flags,
@@ -1277,7 +1276,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bento" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍱",
         description: "bento box",
         category: FoodAndDrink,
@@ -1286,7 +1285,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bermuda" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇲",
         description: "flag: Bermuda",
         category: Flags,
@@ -1295,7 +1294,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "beverage_box" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧃",
         description: "beverage box",
         category: FoodAndDrink,
@@ -1304,7 +1303,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "bhutan" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇹",
         description: "flag: Bhutan",
         category: Flags,
@@ -1313,7 +1312,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bicyclist" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚴",
         description: "person biking",
         category: PeopleAndBody,
@@ -1322,7 +1321,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bike" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚲",
         description: "bicycle",
         category: TravelAndPlaces,
@@ -1331,7 +1330,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "biking_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚴‍♂️",
         description: "man biking",
         category: PeopleAndBody,
@@ -1340,7 +1339,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "biking_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚴‍♀️",
         description: "woman biking",
         category: PeopleAndBody,
@@ -1349,7 +1348,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bikini" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👙",
         description: "bikini",
         category: Objects,
@@ -1358,7 +1357,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "billed_cap" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧢",
         description: "billed cap",
         category: Objects,
@@ -1367,7 +1366,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "biohazard" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☣️",
         description: "biohazard",
         category: Symbols,
@@ -1376,7 +1375,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "bird" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐦",
         description: "bird",
         category: AnimalsAndNature,
@@ -1385,7 +1384,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "birthday" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎂",
         description: "birthday cake",
         category: FoodAndDrink,
@@ -1394,7 +1393,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bison" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦬",
         description: "bison",
         category: AnimalsAndNature,
@@ -1403,7 +1402,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "biting_lip" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫦",
         description: "biting lip",
         category: PeopleAndBody,
@@ -1412,7 +1411,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "black_bird" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐦‍⬛",
         description: "black bird",
         category: AnimalsAndNature,
@@ -1421,7 +1420,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "black_cat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐈‍⬛",
         description: "black cat",
         category: AnimalsAndNature,
@@ -1430,7 +1429,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "black_circle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⚫",
         description: "black circle",
         category: Symbols,
@@ -1439,7 +1438,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 1),
       ))
     "black_flag" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏴",
         description: "black flag",
         category: Flags,
@@ -1448,7 +1447,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "black_heart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🖤",
         description: "black heart",
         category: SmileysAndEmotion,
@@ -1457,7 +1456,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "black_joker" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🃏",
         description: "joker",
         category: Activities,
@@ -1466,7 +1465,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "black_large_square" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⬛",
         description: "black large square",
         category: Symbols,
@@ -1475,7 +1474,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 1),
       ))
     "black_medium_small_square" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "◾",
         description: "black medium-small square",
         category: Symbols,
@@ -1484,7 +1483,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 3, minor: 2),
       ))
     "black_medium_square" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "◼️",
         description: "black medium square",
         category: Symbols,
@@ -1493,7 +1492,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 3, minor: 2),
       ))
     "black_nib" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "✒️",
         description: "black nib",
         category: Objects,
@@ -1502,7 +1501,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "black_small_square" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "▪️",
         description: "black small square",
         category: Symbols,
@@ -1511,7 +1510,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "black_square_button" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔲",
         description: "black square button",
         category: Symbols,
@@ -1520,7 +1519,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "blond_haired_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👱‍♂️",
         description: "man: blond hair",
         category: PeopleAndBody,
@@ -1529,7 +1528,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "blond_haired_person" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👱",
         description: "person: blond hair",
         category: PeopleAndBody,
@@ -1538,7 +1537,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "blond_haired_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👱‍♀️",
         description: "woman: blond hair",
         category: PeopleAndBody,
@@ -1547,7 +1546,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "blonde_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👱‍♀️",
         description: "woman: blond hair",
         category: PeopleAndBody,
@@ -1556,7 +1555,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "blossom" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌼",
         description: "blossom",
         category: AnimalsAndNature,
@@ -1565,7 +1564,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "blowfish" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐡",
         description: "blowfish",
         category: AnimalsAndNature,
@@ -1574,7 +1573,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "blue_book" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📘",
         description: "blue book",
         category: Objects,
@@ -1583,7 +1582,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "blue_car" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚙",
         description: "sport utility vehicle",
         category: TravelAndPlaces,
@@ -1592,7 +1591,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "blue_heart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💙",
         description: "blue heart",
         category: SmileysAndEmotion,
@@ -1601,7 +1600,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "blue_square" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🟦",
         description: "blue square",
         category: Symbols,
@@ -1610,7 +1609,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "blueberries" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫐",
         description: "blueberries",
         category: FoodAndDrink,
@@ -1619,7 +1618,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "blush" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😊",
         description: "smiling face with smiling eyes",
         category: SmileysAndEmotion,
@@ -1628,7 +1627,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "boar" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐗",
         description: "boar",
         category: AnimalsAndNature,
@@ -1637,7 +1636,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "boat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛵",
         description: "sailboat",
         category: TravelAndPlaces,
@@ -1646,7 +1645,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "bolivia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇴",
         description: "flag: Bolivia",
         category: Flags,
@@ -1655,7 +1654,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bomb" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💣",
         description: "bomb",
         category: Objects,
@@ -1664,7 +1663,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bone" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦴",
         description: "bone",
         category: PeopleAndBody,
@@ -1673,7 +1672,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "book" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📖",
         description: "open book",
         category: Objects,
@@ -1682,7 +1681,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bookmark" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔖",
         description: "bookmark",
         category: Objects,
@@ -1691,7 +1690,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bookmark_tabs" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📑",
         description: "bookmark tabs",
         category: Objects,
@@ -1700,7 +1699,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "books" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📚",
         description: "books",
         category: Objects,
@@ -1709,7 +1708,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "boom" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💥",
         description: "collision",
         category: SmileysAndEmotion,
@@ -1718,7 +1717,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "boomerang" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪃",
         description: "boomerang",
         category: Objects,
@@ -1727,7 +1726,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "boot" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👢",
         description: "woman’s boot",
         category: Objects,
@@ -1736,7 +1735,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bosnia_herzegovina" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇦",
         description: "flag: Bosnia & Herzegovina",
         category: Flags,
@@ -1745,7 +1744,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "botswana" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇼",
         description: "flag: Botswana",
         category: Flags,
@@ -1754,7 +1753,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bouncing_ball_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛹️‍♂️",
         description: "man bouncing ball",
         category: PeopleAndBody,
@@ -1763,7 +1762,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "bouncing_ball_person" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛹️",
         description: "person bouncing ball",
         category: PeopleAndBody,
@@ -1772,7 +1771,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "bouncing_ball_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛹️‍♀️",
         description: "woman bouncing ball",
         category: PeopleAndBody,
@@ -1781,7 +1780,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "bouquet" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💐",
         description: "bouquet",
         category: AnimalsAndNature,
@@ -1790,7 +1789,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bouvet_island" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇻",
         description: "flag: Bouvet Island",
         category: Flags,
@@ -1799,7 +1798,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "bow" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙇",
         description: "person bowing",
         category: PeopleAndBody,
@@ -1808,7 +1807,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bow_and_arrow" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏹",
         description: "bow and arrow",
         category: Objects,
@@ -1817,7 +1816,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "bowing_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙇‍♂️",
         description: "man bowing",
         category: PeopleAndBody,
@@ -1826,7 +1825,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "bowing_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙇‍♀️",
         description: "woman bowing",
         category: PeopleAndBody,
@@ -1835,7 +1834,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bowl_with_spoon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥣",
         description: "bowl with spoon",
         category: FoodAndDrink,
@@ -1844,7 +1843,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "bowling" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎳",
         description: "bowling",
         category: Activities,
@@ -1853,7 +1852,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "boxing_glove" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥊",
         description: "boxing glove",
         category: Activities,
@@ -1862,7 +1861,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "boy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👦",
         description: "boy",
         category: PeopleAndBody,
@@ -1871,7 +1870,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "brain" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧠",
         description: "brain",
         category: PeopleAndBody,
@@ -1880,7 +1879,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "brazil" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇷",
         description: "flag: Brazil",
         category: Flags,
@@ -1889,7 +1888,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bread" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍞",
         description: "bread",
         category: FoodAndDrink,
@@ -1898,7 +1897,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "breast_feeding" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤱",
         description: "breast-feeding",
         category: PeopleAndBody,
@@ -1907,7 +1906,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "bricks" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧱",
         description: "brick",
         category: TravelAndPlaces,
@@ -1916,7 +1915,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "bride_with_veil" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👰‍♀️",
         description: "woman with veil",
         category: PeopleAndBody,
@@ -1925,7 +1924,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "bridge_at_night" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌉",
         description: "bridge at night",
         category: TravelAndPlaces,
@@ -1934,7 +1933,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "briefcase" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💼",
         description: "briefcase",
         category: Objects,
@@ -1943,7 +1942,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "british_indian_ocean_territory" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇮🇴",
         description: "flag: British Indian Ocean Territory",
         category: Flags,
@@ -1952,7 +1951,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "british_virgin_islands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇻🇬",
         description: "flag: British Virgin Islands",
         category: Flags,
@@ -1961,7 +1960,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "broccoli" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥦",
         description: "broccoli",
         category: FoodAndDrink,
@@ -1970,7 +1969,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "broken_heart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💔",
         description: "broken heart",
         category: SmileysAndEmotion,
@@ -1979,7 +1978,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "broom" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧹",
         description: "broom",
         category: Objects,
@@ -1988,7 +1987,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "brown_circle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🟤",
         description: "brown circle",
         category: Symbols,
@@ -1997,7 +1996,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "brown_heart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤎",
         description: "brown heart",
         category: SmileysAndEmotion,
@@ -2006,7 +2005,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "brown_square" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🟫",
         description: "brown square",
         category: Symbols,
@@ -2015,7 +2014,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "brunei" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇳",
         description: "flag: Brunei",
         category: Flags,
@@ -2024,7 +2023,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bubble_tea" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧋",
         description: "bubble tea",
         category: FoodAndDrink,
@@ -2033,7 +2032,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "bubbles" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫧",
         description: "bubbles",
         category: Objects,
@@ -2042,7 +2041,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "bucket" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪣",
         description: "bucket",
         category: Objects,
@@ -2051,7 +2050,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "bug" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐛",
         description: "bug",
         category: AnimalsAndNature,
@@ -2060,7 +2059,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "building_construction" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏗️",
         description: "building construction",
         category: TravelAndPlaces,
@@ -2069,7 +2068,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "bulb" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💡",
         description: "light bulb",
         category: Objects,
@@ -2078,7 +2077,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bulgaria" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇬",
         description: "flag: Bulgaria",
         category: Flags,
@@ -2087,7 +2086,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bullettrain_front" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚅",
         description: "bullet train",
         category: TravelAndPlaces,
@@ -2096,7 +2095,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bullettrain_side" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚄",
         description: "high-speed train",
         category: TravelAndPlaces,
@@ -2105,7 +2104,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "burkina_faso" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇫",
         description: "flag: Burkina Faso",
         category: Flags,
@@ -2114,7 +2113,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "burrito" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌯",
         description: "burrito",
         category: FoodAndDrink,
@@ -2123,7 +2122,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "burundi" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇮",
         description: "flag: Burundi",
         category: Flags,
@@ -2132,7 +2131,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bus" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚌",
         description: "bus",
         category: TravelAndPlaces,
@@ -2141,7 +2140,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "business_suit_levitating" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕴️",
         description: "person in suit levitating",
         category: PeopleAndBody,
@@ -2150,7 +2149,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "busstop" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚏",
         description: "bus stop",
         category: TravelAndPlaces,
@@ -2159,7 +2158,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "bust_in_silhouette" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👤",
         description: "bust in silhouette",
         category: PeopleAndBody,
@@ -2168,7 +2167,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "busts_in_silhouette" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👥",
         description: "busts in silhouette",
         category: PeopleAndBody,
@@ -2177,7 +2176,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "butter" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧈",
         description: "butter",
         category: FoodAndDrink,
@@ -2186,7 +2185,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "butterfly" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦋",
         description: "butterfly",
         category: AnimalsAndNature,
@@ -2195,7 +2194,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "cactus" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌵",
         description: "cactus",
         category: AnimalsAndNature,
@@ -2204,7 +2203,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cake" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍰",
         description: "shortcake",
         category: FoodAndDrink,
@@ -2213,7 +2212,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "calendar" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📆",
         description: "tear-off calendar",
         category: Objects,
@@ -2222,7 +2221,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "call_me_hand" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤙",
         description: "call me hand",
         category: PeopleAndBody,
@@ -2231,7 +2230,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "calling" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📲",
         description: "mobile phone with arrow",
         category: Objects,
@@ -2240,7 +2239,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cambodia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇰🇭",
         description: "flag: Cambodia",
         category: Flags,
@@ -2249,7 +2248,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "camel" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐫",
         description: "two-hump camel",
         category: AnimalsAndNature,
@@ -2258,7 +2257,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "camera" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📷",
         description: "camera",
         category: Objects,
@@ -2267,7 +2266,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "camera_flash" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📸",
         description: "camera with flash",
         category: Objects,
@@ -2276,7 +2275,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "cameroon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇲",
         description: "flag: Cameroon",
         category: Flags,
@@ -2285,7 +2284,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "camping" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏕️",
         description: "camping",
         category: TravelAndPlaces,
@@ -2294,7 +2293,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "canada" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇦",
         description: "flag: Canada",
         category: Flags,
@@ -2303,7 +2302,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "canary_islands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇮🇨",
         description: "flag: Canary Islands",
         category: Flags,
@@ -2312,7 +2311,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cancer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♋",
         description: "Cancer",
         category: Symbols,
@@ -2321,7 +2320,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "candle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕯️",
         description: "candle",
         category: Objects,
@@ -2330,7 +2329,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "candy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍬",
         description: "candy",
         category: FoodAndDrink,
@@ -2339,7 +2338,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "canned_food" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥫",
         description: "canned food",
         category: FoodAndDrink,
@@ -2348,7 +2347,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "canoe" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛶",
         description: "canoe",
         category: TravelAndPlaces,
@@ -2357,7 +2356,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "cape_verde" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇻",
         description: "flag: Cape Verde",
         category: Flags,
@@ -2366,7 +2365,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "capital_abcd" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔠",
         description: "input latin uppercase",
         category: Symbols,
@@ -2375,7 +2374,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "capricorn" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♑",
         description: "Capricorn",
         category: Symbols,
@@ -2384,7 +2383,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "car" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚗",
         description: "automobile",
         category: TravelAndPlaces,
@@ -2393,7 +2392,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "card_file_box" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗃️",
         description: "card file box",
         category: Objects,
@@ -2402,7 +2401,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "card_index" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📇",
         description: "card index",
         category: Objects,
@@ -2411,7 +2410,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "card_index_dividers" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗂️",
         description: "card index dividers",
         category: Objects,
@@ -2420,7 +2419,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "caribbean_netherlands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇶",
         description: "flag: Caribbean Netherlands",
         category: Flags,
@@ -2429,7 +2428,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "carousel_horse" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎠",
         description: "carousel horse",
         category: TravelAndPlaces,
@@ -2438,7 +2437,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "carpentry_saw" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪚",
         description: "carpentry saw",
         category: Objects,
@@ -2447,7 +2446,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "carrot" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥕",
         description: "carrot",
         category: FoodAndDrink,
@@ -2456,7 +2455,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "cartwheeling" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤸",
         description: "person cartwheeling",
         category: PeopleAndBody,
@@ -2465,7 +2464,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "cat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐱",
         description: "cat face",
         category: AnimalsAndNature,
@@ -2474,7 +2473,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cat2" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐈",
         description: "cat",
         category: AnimalsAndNature,
@@ -2483,7 +2482,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cayman_islands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇰🇾",
         description: "flag: Cayman Islands",
         category: Flags,
@@ -2492,7 +2491,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cd" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💿",
         description: "optical disk",
         category: Objects,
@@ -2501,7 +2500,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "central_african_republic" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇫",
         description: "flag: Central African Republic",
         category: Flags,
@@ -2510,7 +2509,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ceuta_melilla" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇪🇦",
         description: "flag: Ceuta & Melilla",
         category: Flags,
@@ -2519,7 +2518,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "chad" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇹🇩",
         description: "flag: Chad",
         category: Flags,
@@ -2528,7 +2527,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "chains" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛓️",
         description: "chains",
         category: Objects,
@@ -2537,7 +2536,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "chair" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪑",
         description: "chair",
         category: Objects,
@@ -2546,7 +2545,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "champagne" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍾",
         description: "bottle with popping cork",
         category: FoodAndDrink,
@@ -2555,7 +2554,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "chart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💹",
         description: "chart increasing with yen",
         category: Objects,
@@ -2564,7 +2563,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "chart_with_downwards_trend" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📉",
         description: "chart decreasing",
         category: Objects,
@@ -2573,7 +2572,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "chart_with_upwards_trend" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📈",
         description: "chart increasing",
         category: Objects,
@@ -2582,7 +2581,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "checkered_flag" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏁",
         description: "chequered flag",
         category: Flags,
@@ -2591,7 +2590,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cheese" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧀",
         description: "cheese wedge",
         category: FoodAndDrink,
@@ -2600,7 +2599,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "cherries" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍒",
         description: "cherries",
         category: FoodAndDrink,
@@ -2609,7 +2608,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cherry_blossom" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌸",
         description: "cherry blossom",
         category: AnimalsAndNature,
@@ -2618,7 +2617,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "chess_pawn" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♟️",
         description: "chess pawn",
         category: Activities,
@@ -2627,7 +2626,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "chestnut" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌰",
         description: "chestnut",
         category: FoodAndDrink,
@@ -2636,7 +2635,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "chicken" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐔",
         description: "chicken",
         category: AnimalsAndNature,
@@ -2645,7 +2644,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "child" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧒",
         description: "child",
         category: PeopleAndBody,
@@ -2654,7 +2653,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "children_crossing" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚸",
         description: "children crossing",
         category: Symbols,
@@ -2663,7 +2662,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "chile" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇱",
         description: "flag: Chile",
         category: Flags,
@@ -2672,7 +2671,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "chipmunk" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐿️",
         description: "chipmunk",
         category: AnimalsAndNature,
@@ -2681,7 +2680,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "chocolate_bar" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍫",
         description: "chocolate bar",
         category: FoodAndDrink,
@@ -2690,7 +2689,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "chopsticks" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥢",
         description: "chopsticks",
         category: FoodAndDrink,
@@ -2699,7 +2698,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "christmas_island" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇽",
         description: "flag: Christmas Island",
         category: Flags,
@@ -2708,7 +2707,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "christmas_tree" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎄",
         description: "Christmas tree",
         category: Activities,
@@ -2717,7 +2716,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "church" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛪",
         description: "church",
         category: TravelAndPlaces,
@@ -2726,7 +2725,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "cinema" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎦",
         description: "cinema",
         category: Symbols,
@@ -2735,7 +2734,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "circus_tent" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎪",
         description: "circus tent",
         category: TravelAndPlaces,
@@ -2744,7 +2743,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "city_sunrise" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌇",
         description: "sunset",
         category: TravelAndPlaces,
@@ -2753,7 +2752,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "city_sunset" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌆",
         description: "cityscape at dusk",
         category: TravelAndPlaces,
@@ -2762,7 +2761,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cityscape" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏙️",
         description: "cityscape",
         category: TravelAndPlaces,
@@ -2771,7 +2770,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "cl" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🆑",
         description: "CL button",
         category: Symbols,
@@ -2780,7 +2779,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clamp" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗜️",
         description: "clamp",
         category: Objects,
@@ -2789,7 +2788,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "clap" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👏",
         description: "clapping hands",
         category: PeopleAndBody,
@@ -2798,7 +2797,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clapper" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎬",
         description: "clapper board",
         category: Objects,
@@ -2807,7 +2806,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "classical_building" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏛️",
         description: "classical building",
         category: TravelAndPlaces,
@@ -2816,7 +2815,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "climbing" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧗",
         description: "person climbing",
         category: PeopleAndBody,
@@ -2825,7 +2824,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "climbing_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧗‍♂️",
         description: "man climbing",
         category: PeopleAndBody,
@@ -2834,7 +2833,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "climbing_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧗‍♀️",
         description: "woman climbing",
         category: PeopleAndBody,
@@ -2843,7 +2842,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "clinking_glasses" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥂",
         description: "clinking glasses",
         category: FoodAndDrink,
@@ -2852,7 +2851,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "clipboard" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📋",
         description: "clipboard",
         category: Objects,
@@ -2861,7 +2860,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clipperton_island" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇵",
         description: "flag: Clipperton Island",
         category: Flags,
@@ -2870,7 +2869,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "clock1" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕐",
         description: "one o’clock",
         category: TravelAndPlaces,
@@ -2879,7 +2878,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock10" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕙",
         description: "ten o’clock",
         category: TravelAndPlaces,
@@ -2888,7 +2887,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock1030" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕥",
         description: "ten-thirty",
         category: TravelAndPlaces,
@@ -2897,7 +2896,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock11" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕚",
         description: "eleven o’clock",
         category: TravelAndPlaces,
@@ -2906,7 +2905,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock1130" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕦",
         description: "eleven-thirty",
         category: TravelAndPlaces,
@@ -2915,7 +2914,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock12" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕛",
         description: "twelve o’clock",
         category: TravelAndPlaces,
@@ -2924,7 +2923,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock1230" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕧",
         description: "twelve-thirty",
         category: TravelAndPlaces,
@@ -2933,7 +2932,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock130" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕜",
         description: "one-thirty",
         category: TravelAndPlaces,
@@ -2942,7 +2941,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock2" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕑",
         description: "two o’clock",
         category: TravelAndPlaces,
@@ -2951,7 +2950,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock230" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕝",
         description: "two-thirty",
         category: TravelAndPlaces,
@@ -2960,7 +2959,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock3" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕒",
         description: "three o’clock",
         category: TravelAndPlaces,
@@ -2969,7 +2968,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock330" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕞",
         description: "three-thirty",
         category: TravelAndPlaces,
@@ -2978,7 +2977,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock4" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕓",
         description: "four o’clock",
         category: TravelAndPlaces,
@@ -2987,7 +2986,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock430" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕟",
         description: "four-thirty",
         category: TravelAndPlaces,
@@ -2996,7 +2995,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock5" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕔",
         description: "five o’clock",
         category: TravelAndPlaces,
@@ -3005,7 +3004,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock530" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕠",
         description: "five-thirty",
         category: TravelAndPlaces,
@@ -3014,7 +3013,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock6" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕕",
         description: "six o’clock",
         category: TravelAndPlaces,
@@ -3023,7 +3022,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock630" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕡",
         description: "six-thirty",
         category: TravelAndPlaces,
@@ -3032,7 +3031,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock7" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕖",
         description: "seven o’clock",
         category: TravelAndPlaces,
@@ -3041,7 +3040,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock730" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕢",
         description: "seven-thirty",
         category: TravelAndPlaces,
@@ -3050,7 +3049,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock8" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕗",
         description: "eight o’clock",
         category: TravelAndPlaces,
@@ -3059,7 +3058,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock830" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕣",
         description: "eight-thirty",
         category: TravelAndPlaces,
@@ -3068,7 +3067,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock9" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕘",
         description: "nine o’clock",
         category: TravelAndPlaces,
@@ -3077,7 +3076,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "clock930" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕤",
         description: "nine-thirty",
         category: TravelAndPlaces,
@@ -3086,7 +3085,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "closed_book" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📕",
         description: "closed book",
         category: Objects,
@@ -3095,7 +3094,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "closed_lock_with_key" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔐",
         description: "locked with key",
         category: Objects,
@@ -3104,7 +3103,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "closed_umbrella" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌂",
         description: "closed umbrella",
         category: TravelAndPlaces,
@@ -3113,7 +3112,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cloud" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☁️",
         description: "cloud",
         category: TravelAndPlaces,
@@ -3122,7 +3121,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "cloud_with_lightning" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌩️",
         description: "cloud with lightning",
         category: TravelAndPlaces,
@@ -3131,7 +3130,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "cloud_with_lightning_and_rain" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛈️",
         description: "cloud with lightning and rain",
         category: TravelAndPlaces,
@@ -3140,7 +3139,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "cloud_with_rain" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌧️",
         description: "cloud with rain",
         category: TravelAndPlaces,
@@ -3149,7 +3148,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "cloud_with_snow" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌨️",
         description: "cloud with snow",
         category: TravelAndPlaces,
@@ -3158,7 +3157,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "clown_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤡",
         description: "clown face",
         category: SmileysAndEmotion,
@@ -3167,7 +3166,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "clubs" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♣️",
         description: "club suit",
         category: Activities,
@@ -3176,7 +3175,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "cn" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇳",
         description: "flag: China",
         category: Flags,
@@ -3185,7 +3184,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "coat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧥",
         description: "coat",
         category: Objects,
@@ -3194,7 +3193,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "cockroach" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪳",
         description: "cockroach",
         category: AnimalsAndNature,
@@ -3203,7 +3202,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "cocktail" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍸",
         description: "cocktail glass",
         category: FoodAndDrink,
@@ -3212,7 +3211,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "coconut" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥥",
         description: "coconut",
         category: FoodAndDrink,
@@ -3221,7 +3220,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "cocos_islands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇨",
         description: "flag: Cocos (Keeling) Islands",
         category: Flags,
@@ -3230,7 +3229,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "coffee" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☕",
         description: "hot beverage",
         category: FoodAndDrink,
@@ -3239,7 +3238,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 0),
       ))
     "coffin" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⚰️",
         description: "coffin",
         category: Objects,
@@ -3248,7 +3247,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 1),
       ))
     "coin" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪙",
         description: "coin",
         category: Objects,
@@ -3257,7 +3256,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "cold_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥶",
         description: "cold face",
         category: SmileysAndEmotion,
@@ -3266,7 +3265,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "cold_sweat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😰",
         description: "anxious face with sweat",
         category: SmileysAndEmotion,
@@ -3275,7 +3274,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "collision" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💥",
         description: "collision",
         category: SmileysAndEmotion,
@@ -3284,7 +3283,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "colombia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇴",
         description: "flag: Colombia",
         category: Flags,
@@ -3293,7 +3292,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "comet" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☄️",
         description: "comet",
         category: TravelAndPlaces,
@@ -3302,7 +3301,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "comoros" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇰🇲",
         description: "flag: Comoros",
         category: Flags,
@@ -3311,7 +3310,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "compass" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧭",
         description: "compass",
         category: TravelAndPlaces,
@@ -3320,7 +3319,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "computer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💻",
         description: "laptop",
         category: Objects,
@@ -3329,7 +3328,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "computer_mouse" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🖱️",
         description: "computer mouse",
         category: Objects,
@@ -3338,7 +3337,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "confetti_ball" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎊",
         description: "confetti ball",
         category: Activities,
@@ -3347,7 +3346,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "confounded" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😖",
         description: "confounded face",
         category: SmileysAndEmotion,
@@ -3356,7 +3355,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "confused" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😕",
         description: "confused face",
         category: SmileysAndEmotion,
@@ -3365,7 +3364,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 1),
       ))
     "congo_brazzaville" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇬",
         description: "flag: Congo - Brazzaville",
         category: Flags,
@@ -3374,7 +3373,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "congo_kinshasa" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇩",
         description: "flag: Congo - Kinshasa",
         category: Flags,
@@ -3383,7 +3382,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "congratulations" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "㊗️",
         description: "Japanese “congratulations” button",
         category: Symbols,
@@ -3392,7 +3391,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "construction" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚧",
         description: "construction",
         category: TravelAndPlaces,
@@ -3401,7 +3400,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "construction_worker" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👷",
         description: "construction worker",
         category: PeopleAndBody,
@@ -3410,7 +3409,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "construction_worker_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👷‍♂️",
         description: "man construction worker",
         category: PeopleAndBody,
@@ -3419,7 +3418,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "construction_worker_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👷‍♀️",
         description: "woman construction worker",
         category: PeopleAndBody,
@@ -3428,7 +3427,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "control_knobs" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎛️",
         description: "control knobs",
         category: Objects,
@@ -3437,7 +3436,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "convenience_store" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏪",
         description: "convenience store",
         category: TravelAndPlaces,
@@ -3446,7 +3445,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cook" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🍳",
         description: "cook",
         category: PeopleAndBody,
@@ -3455,7 +3454,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "cook_islands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇰",
         description: "flag: Cook Islands",
         category: Flags,
@@ -3464,7 +3463,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cookie" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍪",
         description: "cookie",
         category: FoodAndDrink,
@@ -3473,7 +3472,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cool" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🆒",
         description: "COOL button",
         category: Symbols,
@@ -3482,7 +3481,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cop" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👮",
         description: "police officer",
         category: PeopleAndBody,
@@ -3491,7 +3490,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "copyright" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "©️",
         description: "copyright",
         category: Symbols,
@@ -3500,7 +3499,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "coral" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪸",
         description: "coral",
         category: AnimalsAndNature,
@@ -3509,7 +3508,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "corn" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌽",
         description: "ear of corn",
         category: FoodAndDrink,
@@ -3518,7 +3517,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "costa_rica" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇷",
         description: "flag: Costa Rica",
         category: Flags,
@@ -3527,7 +3526,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cote_divoire" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇮",
         description: "flag: Côte d’Ivoire",
         category: Flags,
@@ -3536,7 +3535,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "couch_and_lamp" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛋️",
         description: "couch and lamp",
         category: Objects,
@@ -3545,7 +3544,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "couple" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👫",
         description: "woman and man holding hands",
         category: PeopleAndBody,
@@ -3554,7 +3553,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "couple_with_heart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💑",
         description: "couple with heart",
         category: PeopleAndBody,
@@ -3563,7 +3562,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "couple_with_heart_man_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍❤️‍👨",
         description: "couple with heart: man, man",
         category: PeopleAndBody,
@@ -3572,7 +3571,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "couple_with_heart_woman_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍❤️‍👨",
         description: "couple with heart: woman, man",
         category: PeopleAndBody,
@@ -3581,7 +3580,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "couple_with_heart_woman_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍❤️‍👩",
         description: "couple with heart: woman, woman",
         category: PeopleAndBody,
@@ -3590,7 +3589,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "couplekiss" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💏",
         description: "kiss",
         category: PeopleAndBody,
@@ -3599,7 +3598,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "couplekiss_man_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍❤️‍💋‍👨",
         description: "kiss: man, man",
         category: PeopleAndBody,
@@ -3608,7 +3607,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "couplekiss_man_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍❤️‍💋‍👨",
         description: "kiss: woman, man",
         category: PeopleAndBody,
@@ -3617,7 +3616,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "couplekiss_woman_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍❤️‍💋‍👩",
         description: "kiss: woman, woman",
         category: PeopleAndBody,
@@ -3626,7 +3625,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cow" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐮",
         description: "cow face",
         category: AnimalsAndNature,
@@ -3635,7 +3634,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cow2" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐄",
         description: "cow",
         category: AnimalsAndNature,
@@ -3644,7 +3643,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cowboy_hat_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤠",
         description: "cowboy hat face",
         category: SmileysAndEmotion,
@@ -3653,7 +3652,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "crab" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦀",
         description: "crab",
         category: FoodAndDrink,
@@ -3662,7 +3661,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "crayon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🖍️",
         description: "crayon",
         category: Objects,
@@ -3671,7 +3670,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "credit_card" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💳",
         description: "credit card",
         category: Objects,
@@ -3680,7 +3679,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "crescent_moon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌙",
         description: "crescent moon",
         category: TravelAndPlaces,
@@ -3689,7 +3688,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cricket" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦗",
         description: "cricket",
         category: AnimalsAndNature,
@@ -3698,7 +3697,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "cricket_game" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏏",
         description: "cricket game",
         category: Activities,
@@ -3707,7 +3706,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "croatia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇭🇷",
         description: "flag: Croatia",
         category: Flags,
@@ -3716,7 +3715,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "crocodile" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐊",
         description: "crocodile",
         category: AnimalsAndNature,
@@ -3725,7 +3724,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "croissant" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥐",
         description: "croissant",
         category: FoodAndDrink,
@@ -3734,7 +3733,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "crossed_fingers" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤞",
         description: "crossed fingers",
         category: PeopleAndBody,
@@ -3743,7 +3742,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "crossed_flags" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎌",
         description: "crossed flags",
         category: Flags,
@@ -3752,7 +3751,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "crossed_swords" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⚔️",
         description: "crossed swords",
         category: Objects,
@@ -3761,7 +3760,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 1),
       ))
     "crown" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👑",
         description: "crown",
         category: Objects,
@@ -3770,7 +3769,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "crutch" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🩼",
         description: "crutch",
         category: Objects,
@@ -3779,7 +3778,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "cry" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😢",
         description: "crying face",
         category: SmileysAndEmotion,
@@ -3788,7 +3787,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "crying_cat_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😿",
         description: "crying cat",
         category: SmileysAndEmotion,
@@ -3797,7 +3796,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "crystal_ball" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔮",
         description: "crystal ball",
         category: Activities,
@@ -3806,7 +3805,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cuba" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇺",
         description: "flag: Cuba",
         category: Flags,
@@ -3815,7 +3814,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cucumber" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥒",
         description: "cucumber",
         category: FoodAndDrink,
@@ -3824,7 +3823,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "cup_with_straw" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥤",
         description: "cup with straw",
         category: FoodAndDrink,
@@ -3833,7 +3832,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "cupcake" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧁",
         description: "cupcake",
         category: FoodAndDrink,
@@ -3842,7 +3841,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "cupid" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💘",
         description: "heart with arrow",
         category: SmileysAndEmotion,
@@ -3851,7 +3850,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "curacao" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇼",
         description: "flag: Curaçao",
         category: Flags,
@@ -3860,7 +3859,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "curling_stone" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥌",
         description: "curling stone",
         category: Activities,
@@ -3869,7 +3868,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "curly_haired_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍🦱",
         description: "man: curly hair",
         category: PeopleAndBody,
@@ -3878,7 +3877,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "curly_haired_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍🦱",
         description: "woman: curly hair",
         category: PeopleAndBody,
@@ -3887,7 +3886,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "curly_loop" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "➰",
         description: "curly loop",
         category: Symbols,
@@ -3896,7 +3895,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "currency_exchange" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💱",
         description: "currency exchange",
         category: Symbols,
@@ -3905,7 +3904,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "curry" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍛",
         description: "curry rice",
         category: FoodAndDrink,
@@ -3914,7 +3913,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cursing_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤬",
         description: "face with symbols on mouth",
         category: SmileysAndEmotion,
@@ -3923,7 +3922,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "custard" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍮",
         description: "custard",
         category: FoodAndDrink,
@@ -3932,7 +3931,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "customs" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛃",
         description: "customs",
         category: Symbols,
@@ -3941,7 +3940,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cut_of_meat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥩",
         description: "cut of meat",
         category: FoodAndDrink,
@@ -3950,7 +3949,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "cyclone" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌀",
         description: "cyclone",
         category: TravelAndPlaces,
@@ -3959,7 +3958,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "cyprus" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇾",
         description: "flag: Cyprus",
         category: Flags,
@@ -3968,7 +3967,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "czech_republic" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇿",
         description: "flag: Czechia",
         category: Flags,
@@ -3977,7 +3976,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dagger" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗡️",
         description: "dagger",
         category: Objects,
@@ -3986,7 +3985,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "dancer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💃",
         description: "woman dancing",
         category: PeopleAndBody,
@@ -3995,7 +3994,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dancers" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👯",
         description: "people with bunny ears",
         category: PeopleAndBody,
@@ -4004,7 +4003,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dancing_men" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👯‍♂️",
         description: "men with bunny ears",
         category: PeopleAndBody,
@@ -4013,7 +4012,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dancing_women" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👯‍♀️",
         description: "women with bunny ears",
         category: PeopleAndBody,
@@ -4022,7 +4021,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "dango" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍡",
         description: "dango",
         category: FoodAndDrink,
@@ -4031,7 +4030,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dark_sunglasses" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕶️",
         description: "sunglasses",
         category: Objects,
@@ -4040,7 +4039,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "dart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎯",
         description: "bullseye",
         category: Activities,
@@ -4049,7 +4048,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dash" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💨",
         description: "dashing away",
         category: SmileysAndEmotion,
@@ -4058,7 +4057,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "date" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📅",
         description: "calendar",
         category: Objects,
@@ -4067,7 +4066,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "de" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇩🇪",
         description: "flag: Germany",
         category: Flags,
@@ -4076,7 +4075,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "deaf_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧏‍♂️",
         description: "deaf man",
         category: PeopleAndBody,
@@ -4085,7 +4084,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "deaf_person" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧏",
         description: "deaf person",
         category: PeopleAndBody,
@@ -4094,7 +4093,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "deaf_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧏‍♀️",
         description: "deaf woman",
         category: PeopleAndBody,
@@ -4103,7 +4102,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "deciduous_tree" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌳",
         description: "deciduous tree",
         category: AnimalsAndNature,
@@ -4112,7 +4111,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "deer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦌",
         description: "deer",
         category: AnimalsAndNature,
@@ -4121,7 +4120,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "denmark" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇩🇰",
         description: "flag: Denmark",
         category: Flags,
@@ -4130,7 +4129,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "department_store" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏬",
         description: "department store",
         category: TravelAndPlaces,
@@ -4139,7 +4138,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "derelict_house" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏚️",
         description: "derelict house",
         category: TravelAndPlaces,
@@ -4148,7 +4147,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "desert" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏜️",
         description: "desert",
         category: TravelAndPlaces,
@@ -4157,7 +4156,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "desert_island" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏝️",
         description: "desert island",
         category: TravelAndPlaces,
@@ -4166,7 +4165,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "desktop_computer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🖥️",
         description: "desktop computer",
         category: Objects,
@@ -4175,7 +4174,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "detective" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕵️",
         description: "detective",
         category: PeopleAndBody,
@@ -4184,7 +4183,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "diamond_shape_with_a_dot_inside" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💠",
         description: "diamond with a dot",
         category: Symbols,
@@ -4193,7 +4192,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "diamonds" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♦️",
         description: "diamond suit",
         category: Activities,
@@ -4202,7 +4201,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "diego_garcia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇩🇬",
         description: "flag: Diego Garcia",
         category: Flags,
@@ -4211,7 +4210,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "disappointed" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😞",
         description: "disappointed face",
         category: SmileysAndEmotion,
@@ -4220,7 +4219,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "disappointed_relieved" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😥",
         description: "sad but relieved face",
         category: SmileysAndEmotion,
@@ -4229,7 +4228,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "disguised_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥸",
         description: "disguised face",
         category: SmileysAndEmotion,
@@ -4238,7 +4237,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "diving_mask" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤿",
         description: "diving mask",
         category: Activities,
@@ -4247,7 +4246,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "diya_lamp" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪔",
         description: "diya lamp",
         category: Objects,
@@ -4256,7 +4255,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "dizzy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💫",
         description: "dizzy",
         category: SmileysAndEmotion,
@@ -4265,7 +4264,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dizzy_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😵",
         description: "face with crossed-out eyes",
         category: SmileysAndEmotion,
@@ -4274,7 +4273,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "djibouti" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇩🇯",
         description: "flag: Djibouti",
         category: Flags,
@@ -4283,7 +4282,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dna" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧬",
         description: "dna",
         category: Objects,
@@ -4292,7 +4291,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "do_not_litter" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚯",
         description: "no littering",
         category: Symbols,
@@ -4301,7 +4300,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dodo" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦤",
         description: "dodo",
         category: AnimalsAndNature,
@@ -4310,7 +4309,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "dog" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐶",
         description: "dog face",
         category: AnimalsAndNature,
@@ -4319,7 +4318,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dog2" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐕",
         description: "dog",
         category: AnimalsAndNature,
@@ -4328,7 +4327,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dollar" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💵",
         description: "dollar banknote",
         category: Objects,
@@ -4337,7 +4336,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dolls" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎎",
         description: "Japanese dolls",
         category: Activities,
@@ -4346,7 +4345,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dolphin" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐬",
         description: "dolphin",
         category: AnimalsAndNature,
@@ -4355,7 +4354,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dominica" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇩🇲",
         description: "flag: Dominica",
         category: Flags,
@@ -4364,7 +4363,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dominican_republic" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇩🇴",
         description: "flag: Dominican Republic",
         category: Flags,
@@ -4373,7 +4372,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "donkey" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫏",
         description: "donkey",
         category: AnimalsAndNature,
@@ -4382,7 +4381,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "door" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚪",
         description: "door",
         category: Objects,
@@ -4391,7 +4390,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dotted_line_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫥",
         description: "dotted line face",
         category: SmileysAndEmotion,
@@ -4400,7 +4399,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "doughnut" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍩",
         description: "doughnut",
         category: FoodAndDrink,
@@ -4409,7 +4408,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dove" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕊️",
         description: "dove",
         category: AnimalsAndNature,
@@ -4418,7 +4417,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "dragon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐉",
         description: "dragon",
         category: AnimalsAndNature,
@@ -4427,7 +4426,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dragon_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐲",
         description: "dragon face",
         category: AnimalsAndNature,
@@ -4436,7 +4435,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dress" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👗",
         description: "dress",
         category: Objects,
@@ -4445,7 +4444,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "dromedary_camel" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐪",
         description: "camel",
         category: AnimalsAndNature,
@@ -4454,7 +4453,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "drooling_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤤",
         description: "drooling face",
         category: SmileysAndEmotion,
@@ -4463,7 +4462,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "drop_of_blood" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🩸",
         description: "drop of blood",
         category: Objects,
@@ -4472,7 +4471,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "droplet" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💧",
         description: "droplet",
         category: TravelAndPlaces,
@@ -4481,7 +4480,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "drum" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥁",
         description: "drum",
         category: Objects,
@@ -4490,7 +4489,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "duck" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦆",
         description: "duck",
         category: AnimalsAndNature,
@@ -4499,7 +4498,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "dumpling" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥟",
         description: "dumpling",
         category: FoodAndDrink,
@@ -4508,7 +4507,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "dvd" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📀",
         description: "dvd",
         category: Objects,
@@ -4517,7 +4516,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "e-mail" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📧",
         description: "e-mail",
         category: Objects,
@@ -4526,7 +4525,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "eagle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦅",
         description: "eagle",
         category: AnimalsAndNature,
@@ -4535,7 +4534,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "ear" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👂",
         description: "ear",
         category: PeopleAndBody,
@@ -4544,7 +4543,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ear_of_rice" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌾",
         description: "sheaf of rice",
         category: AnimalsAndNature,
@@ -4553,7 +4552,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ear_with_hearing_aid" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦻",
         description: "ear with hearing aid",
         category: PeopleAndBody,
@@ -4562,7 +4561,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "earth_africa" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌍",
         description: "globe showing Europe-Africa",
         category: TravelAndPlaces,
@@ -4571,7 +4570,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "earth_americas" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌎",
         description: "globe showing Americas",
         category: TravelAndPlaces,
@@ -4580,7 +4579,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "earth_asia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌏",
         description: "globe showing Asia-Australia",
         category: TravelAndPlaces,
@@ -4589,7 +4588,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ecuador" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇪🇨",
         description: "flag: Ecuador",
         category: Flags,
@@ -4598,7 +4597,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "egg" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥚",
         description: "egg",
         category: FoodAndDrink,
@@ -4607,7 +4606,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "eggplant" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍆",
         description: "eggplant",
         category: FoodAndDrink,
@@ -4616,7 +4615,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "egypt" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇪🇬",
         description: "flag: Egypt",
         category: Flags,
@@ -4625,7 +4624,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "eight" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "8️⃣",
         description: "keycap: 8",
         category: Symbols,
@@ -4634,7 +4633,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "eight_pointed_black_star" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "✴️",
         description: "eight-pointed star",
         category: Symbols,
@@ -4643,7 +4642,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "eight_spoked_asterisk" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "✳️",
         description: "eight-spoked asterisk",
         category: Symbols,
@@ -4652,7 +4651,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "eject_button" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⏏️",
         description: "eject button",
         category: Symbols,
@@ -4661,7 +4660,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "el_salvador" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇻",
         description: "flag: El Salvador",
         category: Flags,
@@ -4670,7 +4669,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "electric_plug" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔌",
         description: "electric plug",
         category: Objects,
@@ -4679,7 +4678,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "elephant" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐘",
         description: "elephant",
         category: AnimalsAndNature,
@@ -4688,7 +4687,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "elevator" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛗",
         description: "elevator",
         category: Objects,
@@ -4697,7 +4696,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "elf" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧝",
         description: "elf",
         category: PeopleAndBody,
@@ -4706,7 +4705,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "elf_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧝‍♂️",
         description: "man elf",
         category: PeopleAndBody,
@@ -4715,7 +4714,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "elf_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧝‍♀️",
         description: "woman elf",
         category: PeopleAndBody,
@@ -4724,7 +4723,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "email" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📧",
         description: "e-mail",
         category: Objects,
@@ -4733,7 +4732,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "empty_nest" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪹",
         description: "empty nest",
         category: AnimalsAndNature,
@@ -4742,7 +4741,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "end" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔚",
         description: "END arrow",
         category: Symbols,
@@ -4751,7 +4750,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "england" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
         description: "flag: England",
         category: Flags,
@@ -4760,7 +4759,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "envelope" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "✉️",
         description: "envelope",
         category: Objects,
@@ -4769,7 +4768,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "envelope_with_arrow" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📩",
         description: "envelope with arrow",
         category: Objects,
@@ -4778,7 +4777,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "equatorial_guinea" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇶",
         description: "flag: Equatorial Guinea",
         category: Flags,
@@ -4787,7 +4786,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "eritrea" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇪🇷",
         description: "flag: Eritrea",
         category: Flags,
@@ -4796,7 +4795,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "es" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇪🇸",
         description: "flag: Spain",
         category: Flags,
@@ -4805,7 +4804,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "estonia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇪🇪",
         description: "flag: Estonia",
         category: Flags,
@@ -4814,7 +4813,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ethiopia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇪🇹",
         description: "flag: Ethiopia",
         category: Flags,
@@ -4823,7 +4822,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "eu" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇪🇺",
         description: "flag: European Union",
         category: Flags,
@@ -4832,7 +4831,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "euro" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💶",
         description: "euro banknote",
         category: Objects,
@@ -4841,7 +4840,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "european_castle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏰",
         description: "castle",
         category: TravelAndPlaces,
@@ -4850,7 +4849,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "european_post_office" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏤",
         description: "post office",
         category: TravelAndPlaces,
@@ -4859,7 +4858,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "european_union" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇪🇺",
         description: "flag: European Union",
         category: Flags,
@@ -4868,7 +4867,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "evergreen_tree" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌲",
         description: "evergreen tree",
         category: AnimalsAndNature,
@@ -4877,7 +4876,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "exclamation" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "❗",
         description: "red exclamation mark",
         category: Symbols,
@@ -4886,7 +4885,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "exploding_head" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤯",
         description: "exploding head",
         category: SmileysAndEmotion,
@@ -4895,7 +4894,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "expressionless" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😑",
         description: "expressionless face",
         category: SmileysAndEmotion,
@@ -4904,7 +4903,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 1),
       ))
     "eye" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👁️",
         description: "eye",
         category: PeopleAndBody,
@@ -4913,7 +4912,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "eye_speech_bubble" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👁️‍🗨️",
         description: "eye in speech bubble",
         category: SmileysAndEmotion,
@@ -4922,7 +4921,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "eyeglasses" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👓",
         description: "glasses",
         category: Objects,
@@ -4931,7 +4930,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "eyes" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👀",
         description: "eyes",
         category: PeopleAndBody,
@@ -4940,7 +4939,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "face_exhaling" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😮‍💨",
         description: "face exhaling",
         category: SmileysAndEmotion,
@@ -4949,7 +4948,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 1),
       ))
     "face_holding_back_tears" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥹",
         description: "face holding back tears",
         category: SmileysAndEmotion,
@@ -4958,7 +4957,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "face_in_clouds" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😶‍🌫️",
         description: "face in clouds",
         category: SmileysAndEmotion,
@@ -4967,7 +4966,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 1),
       ))
     "face_with_diagonal_mouth" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫤",
         description: "face with diagonal mouth",
         category: SmileysAndEmotion,
@@ -4976,7 +4975,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "face_with_head_bandage" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤕",
         description: "face with head-bandage",
         category: SmileysAndEmotion,
@@ -4985,7 +4984,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "face_with_open_eyes_and_hand_over_mouth" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫢",
         description: "face with open eyes and hand over mouth",
         category: SmileysAndEmotion,
@@ -4994,7 +4993,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "face_with_peeking_eye" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫣",
         description: "face with peeking eye",
         category: SmileysAndEmotion,
@@ -5003,7 +5002,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "face_with_spiral_eyes" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😵‍💫",
         description: "face with spiral eyes",
         category: SmileysAndEmotion,
@@ -5012,7 +5011,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 1),
       ))
     "face_with_thermometer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤒",
         description: "face with thermometer",
         category: SmileysAndEmotion,
@@ -5021,7 +5020,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "facepalm" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤦",
         description: "person facepalming",
         category: PeopleAndBody,
@@ -5030,7 +5029,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "facepunch" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👊",
         description: "oncoming fist",
         category: PeopleAndBody,
@@ -5039,7 +5038,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "factory" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏭",
         description: "factory",
         category: TravelAndPlaces,
@@ -5048,7 +5047,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "factory_worker" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🏭",
         description: "factory worker",
         category: PeopleAndBody,
@@ -5057,7 +5056,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "fairy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧚",
         description: "fairy",
         category: PeopleAndBody,
@@ -5066,7 +5065,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "fairy_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧚‍♂️",
         description: "man fairy",
         category: PeopleAndBody,
@@ -5075,7 +5074,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "fairy_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧚‍♀️",
         description: "woman fairy",
         category: PeopleAndBody,
@@ -5084,7 +5083,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "falafel" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧆",
         description: "falafel",
         category: FoodAndDrink,
@@ -5093,7 +5092,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "falkland_islands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇫🇰",
         description: "flag: Falkland Islands",
         category: Flags,
@@ -5102,7 +5101,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fallen_leaf" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍂",
         description: "fallen leaf",
         category: AnimalsAndNature,
@@ -5111,7 +5110,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👪",
         description: "family",
         category: PeopleAndBody,
@@ -5120,7 +5119,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_man_boy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍👦",
         description: "family: man, boy",
         category: PeopleAndBody,
@@ -5129,7 +5128,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_man_boy_boy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍👦‍👦",
         description: "family: man, boy, boy",
         category: PeopleAndBody,
@@ -5138,7 +5137,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_man_girl" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍👧",
         description: "family: man, girl",
         category: PeopleAndBody,
@@ -5147,7 +5146,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_man_girl_boy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍👧‍👦",
         description: "family: man, girl, boy",
         category: PeopleAndBody,
@@ -5156,7 +5155,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_man_girl_girl" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍👧‍👧",
         description: "family: man, girl, girl",
         category: PeopleAndBody,
@@ -5165,7 +5164,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_man_man_boy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍👨‍👦",
         description: "family: man, man, boy",
         category: PeopleAndBody,
@@ -5174,7 +5173,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_man_man_boy_boy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍👨‍👦‍👦",
         description: "family: man, man, boy, boy",
         category: PeopleAndBody,
@@ -5183,7 +5182,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_man_man_girl" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍👨‍👧",
         description: "family: man, man, girl",
         category: PeopleAndBody,
@@ -5192,7 +5191,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_man_man_girl_boy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍👨‍👧‍👦",
         description: "family: man, man, girl, boy",
         category: PeopleAndBody,
@@ -5201,7 +5200,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_man_man_girl_girl" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍👨‍👧‍👧",
         description: "family: man, man, girl, girl",
         category: PeopleAndBody,
@@ -5210,7 +5209,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_man_woman_boy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍👩‍👦",
         description: "family: man, woman, boy",
         category: PeopleAndBody,
@@ -5219,7 +5218,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "family_man_woman_boy_boy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍👩‍👦‍👦",
         description: "family: man, woman, boy, boy",
         category: PeopleAndBody,
@@ -5228,7 +5227,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_man_woman_girl" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍👩‍👧",
         description: "family: man, woman, girl",
         category: PeopleAndBody,
@@ -5237,7 +5236,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_man_woman_girl_boy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍👩‍👧‍👦",
         description: "family: man, woman, girl, boy",
         category: PeopleAndBody,
@@ -5246,7 +5245,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_man_woman_girl_girl" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍👩‍👧‍👧",
         description: "family: man, woman, girl, girl",
         category: PeopleAndBody,
@@ -5255,7 +5254,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_woman_boy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍👦",
         description: "family: woman, boy",
         category: PeopleAndBody,
@@ -5264,7 +5263,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_woman_boy_boy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍👦‍👦",
         description: "family: woman, boy, boy",
         category: PeopleAndBody,
@@ -5273,7 +5272,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_woman_girl" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍👧",
         description: "family: woman, girl",
         category: PeopleAndBody,
@@ -5282,7 +5281,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_woman_girl_boy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍👧‍👦",
         description: "family: woman, girl, boy",
         category: PeopleAndBody,
@@ -5291,7 +5290,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_woman_girl_girl" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍👧‍👧",
         description: "family: woman, girl, girl",
         category: PeopleAndBody,
@@ -5300,7 +5299,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_woman_woman_boy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍👩‍👦",
         description: "family: woman, woman, boy",
         category: PeopleAndBody,
@@ -5309,7 +5308,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_woman_woman_boy_boy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍👩‍👦‍👦",
         description: "family: woman, woman, boy, boy",
         category: PeopleAndBody,
@@ -5318,7 +5317,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_woman_woman_girl" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍👩‍👧",
         description: "family: woman, woman, girl",
         category: PeopleAndBody,
@@ -5327,7 +5326,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_woman_woman_girl_boy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍👩‍👧‍👦",
         description: "family: woman, woman, girl, boy",
         category: PeopleAndBody,
@@ -5336,7 +5335,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "family_woman_woman_girl_girl" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍👩‍👧‍👧",
         description: "family: woman, woman, girl, girl",
         category: PeopleAndBody,
@@ -5345,7 +5344,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "farmer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🌾",
         description: "farmer",
         category: PeopleAndBody,
@@ -5354,7 +5353,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "faroe_islands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇫🇴",
         description: "flag: Faroe Islands",
         category: Flags,
@@ -5363,7 +5362,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fast_forward" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⏩",
         description: "fast-forward button",
         category: Symbols,
@@ -5372,7 +5371,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fax" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📠",
         description: "fax machine",
         category: Objects,
@@ -5381,7 +5380,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fearful" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😨",
         description: "fearful face",
         category: SmileysAndEmotion,
@@ -5390,7 +5389,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "feather" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪶",
         description: "feather",
         category: AnimalsAndNature,
@@ -5399,7 +5398,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "feet" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐾",
         description: "paw prints",
         category: AnimalsAndNature,
@@ -5408,7 +5407,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "female_detective" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕵️‍♀️",
         description: "woman detective",
         category: PeopleAndBody,
@@ -5417,7 +5416,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "female_sign" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♀️",
         description: "female sign",
         category: Symbols,
@@ -5426,7 +5425,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "ferris_wheel" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎡",
         description: "ferris wheel",
         category: TravelAndPlaces,
@@ -5435,7 +5434,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ferry" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛴️",
         description: "ferry",
         category: TravelAndPlaces,
@@ -5444,7 +5443,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "field_hockey" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏑",
         description: "field hockey",
         category: Activities,
@@ -5453,7 +5452,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "fiji" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇫🇯",
         description: "flag: Fiji",
         category: Flags,
@@ -5462,7 +5461,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "file_cabinet" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗄️",
         description: "file cabinet",
         category: Objects,
@@ -5471,7 +5470,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "file_folder" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📁",
         description: "file folder",
         category: Objects,
@@ -5480,7 +5479,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "film_projector" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📽️",
         description: "film projector",
         category: Objects,
@@ -5489,7 +5488,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "film_strip" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎞️",
         description: "film frames",
         category: Objects,
@@ -5498,7 +5497,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "finland" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇫🇮",
         description: "flag: Finland",
         category: Flags,
@@ -5507,7 +5506,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fire" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔥",
         description: "fire",
         category: TravelAndPlaces,
@@ -5516,7 +5515,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fire_engine" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚒",
         description: "fire engine",
         category: TravelAndPlaces,
@@ -5525,7 +5524,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fire_extinguisher" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧯",
         description: "fire extinguisher",
         category: Objects,
@@ -5534,7 +5533,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "firecracker" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧨",
         description: "firecracker",
         category: Activities,
@@ -5543,7 +5542,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "firefighter" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🚒",
         description: "firefighter",
         category: PeopleAndBody,
@@ -5552,7 +5551,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "fireworks" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎆",
         description: "fireworks",
         category: Activities,
@@ -5561,7 +5560,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "first_quarter_moon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌓",
         description: "first quarter moon",
         category: TravelAndPlaces,
@@ -5570,7 +5569,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "first_quarter_moon_with_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌛",
         description: "first quarter moon face",
         category: TravelAndPlaces,
@@ -5579,7 +5578,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fish" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐟",
         description: "fish",
         category: AnimalsAndNature,
@@ -5588,7 +5587,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fish_cake" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍥",
         description: "fish cake with swirl",
         category: FoodAndDrink,
@@ -5597,7 +5596,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fishing_pole_and_fish" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎣",
         description: "fishing pole",
         category: Activities,
@@ -5606,7 +5605,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fist" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "✊",
         description: "raised fist",
         category: PeopleAndBody,
@@ -5615,7 +5614,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fist_left" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤛",
         description: "left-facing fist",
         category: PeopleAndBody,
@@ -5624,7 +5623,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "fist_oncoming" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👊",
         description: "oncoming fist",
         category: PeopleAndBody,
@@ -5633,7 +5632,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fist_raised" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "✊",
         description: "raised fist",
         category: PeopleAndBody,
@@ -5642,7 +5641,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fist_right" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤜",
         description: "right-facing fist",
         category: PeopleAndBody,
@@ -5651,7 +5650,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "five" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "5️⃣",
         description: "keycap: 5",
         category: Symbols,
@@ -5660,7 +5659,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "flags" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎏",
         description: "carp streamer",
         category: Activities,
@@ -5669,7 +5668,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "flamingo" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦩",
         description: "flamingo",
         category: AnimalsAndNature,
@@ -5678,7 +5677,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "flashlight" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔦",
         description: "flashlight",
         category: Objects,
@@ -5687,7 +5686,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "flat_shoe" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥿",
         description: "flat shoe",
         category: Objects,
@@ -5696,7 +5695,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "flatbread" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫓",
         description: "flatbread",
         category: FoodAndDrink,
@@ -5705,7 +5704,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "fleur_de_lis" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⚜️",
         description: "fleur-de-lis",
         category: Symbols,
@@ -5714,7 +5713,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 1),
       ))
     "flight_arrival" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛬",
         description: "airplane arrival",
         category: TravelAndPlaces,
@@ -5723,7 +5722,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "flight_departure" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛫",
         description: "airplane departure",
         category: TravelAndPlaces,
@@ -5732,7 +5731,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "flipper" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐬",
         description: "dolphin",
         category: AnimalsAndNature,
@@ -5741,7 +5740,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "floppy_disk" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💾",
         description: "floppy disk",
         category: Objects,
@@ -5750,7 +5749,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "flower_playing_cards" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎴",
         description: "flower playing cards",
         category: Activities,
@@ -5759,7 +5758,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "flushed" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😳",
         description: "flushed face",
         category: SmileysAndEmotion,
@@ -5768,7 +5767,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "flute" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪈",
         description: "flute",
         category: Objects,
@@ -5777,7 +5776,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "fly" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪰",
         description: "fly",
         category: AnimalsAndNature,
@@ -5786,7 +5785,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "flying_disc" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥏",
         description: "flying disc",
         category: Activities,
@@ -5795,7 +5794,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "flying_saucer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛸",
         description: "flying saucer",
         category: TravelAndPlaces,
@@ -5804,7 +5803,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "fog" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌫️",
         description: "fog",
         category: TravelAndPlaces,
@@ -5813,7 +5812,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "foggy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌁",
         description: "foggy",
         category: TravelAndPlaces,
@@ -5822,7 +5821,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "folding_hand_fan" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪭",
         description: "folding hand fan",
         category: Objects,
@@ -5831,7 +5830,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "fondue" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫕",
         description: "fondue",
         category: FoodAndDrink,
@@ -5840,7 +5839,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "foot" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦶",
         description: "foot",
         category: PeopleAndBody,
@@ -5849,7 +5848,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "football" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏈",
         description: "american football",
         category: Activities,
@@ -5858,7 +5857,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "footprints" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👣",
         description: "footprints",
         category: PeopleAndBody,
@@ -5867,7 +5866,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fork_and_knife" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍴",
         description: "fork and knife",
         category: FoodAndDrink,
@@ -5876,7 +5875,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fortune_cookie" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥠",
         description: "fortune cookie",
         category: FoodAndDrink,
@@ -5885,7 +5884,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "fountain" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛲",
         description: "fountain",
         category: TravelAndPlaces,
@@ -5894,7 +5893,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "fountain_pen" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🖋️",
         description: "fountain pen",
         category: Objects,
@@ -5903,7 +5902,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "four" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "4️⃣",
         description: "keycap: 4",
         category: Symbols,
@@ -5912,7 +5911,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "four_leaf_clover" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍀",
         description: "four leaf clover",
         category: AnimalsAndNature,
@@ -5921,7 +5920,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fox_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦊",
         description: "fox",
         category: AnimalsAndNature,
@@ -5930,7 +5929,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "fr" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇫🇷",
         description: "flag: France",
         category: Flags,
@@ -5939,7 +5938,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "framed_picture" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🖼️",
         description: "framed picture",
         category: Activities,
@@ -5948,7 +5947,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "free" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🆓",
         description: "FREE button",
         category: Symbols,
@@ -5957,7 +5956,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "french_guiana" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇫",
         description: "flag: French Guiana",
         category: Flags,
@@ -5966,7 +5965,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "french_polynesia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇵🇫",
         description: "flag: French Polynesia",
         category: Flags,
@@ -5975,7 +5974,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "french_southern_territories" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇹🇫",
         description: "flag: French Southern Territories",
         category: Flags,
@@ -5984,7 +5983,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fried_egg" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍳",
         description: "cooking",
         category: FoodAndDrink,
@@ -5993,7 +5992,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fried_shrimp" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍤",
         description: "fried shrimp",
         category: FoodAndDrink,
@@ -6002,7 +6001,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "fries" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍟",
         description: "french fries",
         category: FoodAndDrink,
@@ -6011,7 +6010,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "frog" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐸",
         description: "frog",
         category: AnimalsAndNature,
@@ -6020,7 +6019,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "frowning" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😦",
         description: "frowning face with open mouth",
         category: SmileysAndEmotion,
@@ -6029,7 +6028,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 1),
       ))
     "frowning_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☹️",
         description: "frowning face",
         category: SmileysAndEmotion,
@@ -6038,7 +6037,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "frowning_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙍‍♂️",
         description: "man frowning",
         category: PeopleAndBody,
@@ -6047,7 +6046,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "frowning_person" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙍",
         description: "person frowning",
         category: PeopleAndBody,
@@ -6056,7 +6055,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "frowning_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙍‍♀️",
         description: "woman frowning",
         category: PeopleAndBody,
@@ -6065,7 +6064,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "fu" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🖕",
         description: "middle finger",
         category: PeopleAndBody,
@@ -6074,7 +6073,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "fuelpump" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛽",
         description: "fuel pump",
         category: TravelAndPlaces,
@@ -6083,7 +6082,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "full_moon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌕",
         description: "full moon",
         category: TravelAndPlaces,
@@ -6092,7 +6091,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "full_moon_with_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌝",
         description: "full moon face",
         category: TravelAndPlaces,
@@ -6101,7 +6100,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "funeral_urn" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⚱️",
         description: "funeral urn",
         category: Objects,
@@ -6110,7 +6109,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 1),
       ))
     "gabon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇦",
         description: "flag: Gabon",
         category: Flags,
@@ -6119,7 +6118,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "gambia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇲",
         description: "flag: Gambia",
         category: Flags,
@@ -6128,7 +6127,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "game_die" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎲",
         description: "game die",
         category: Activities,
@@ -6137,7 +6136,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "garlic" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧄",
         description: "garlic",
         category: FoodAndDrink,
@@ -6146,7 +6145,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "gb" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇧",
         description: "flag: United Kingdom",
         category: Flags,
@@ -6155,7 +6154,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "gear" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⚙️",
         description: "gear",
         category: Objects,
@@ -6164,7 +6163,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 1),
       ))
     "gem" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💎",
         description: "gem stone",
         category: Objects,
@@ -6173,7 +6172,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "gemini" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♊",
         description: "Gemini",
         category: Symbols,
@@ -6182,7 +6181,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "genie" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧞",
         description: "genie",
         category: PeopleAndBody,
@@ -6191,7 +6190,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "genie_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧞‍♂️",
         description: "man genie",
         category: PeopleAndBody,
@@ -6200,7 +6199,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "genie_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧞‍♀️",
         description: "woman genie",
         category: PeopleAndBody,
@@ -6209,7 +6208,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "georgia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇪",
         description: "flag: Georgia",
         category: Flags,
@@ -6218,7 +6217,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ghana" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇭",
         description: "flag: Ghana",
         category: Flags,
@@ -6227,7 +6226,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ghost" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👻",
         description: "ghost",
         category: SmileysAndEmotion,
@@ -6236,7 +6235,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "gibraltar" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇮",
         description: "flag: Gibraltar",
         category: Flags,
@@ -6245,7 +6244,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "gift" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎁",
         description: "wrapped gift",
         category: Activities,
@@ -6254,7 +6253,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "gift_heart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💝",
         description: "heart with ribbon",
         category: SmileysAndEmotion,
@@ -6263,7 +6262,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ginger_root" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫚",
         description: "ginger root",
         category: FoodAndDrink,
@@ -6272,7 +6271,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "giraffe" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦒",
         description: "giraffe",
         category: AnimalsAndNature,
@@ -6281,7 +6280,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "girl" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👧",
         description: "girl",
         category: PeopleAndBody,
@@ -6290,7 +6289,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "globe_with_meridians" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌐",
         description: "globe with meridians",
         category: TravelAndPlaces,
@@ -6299,7 +6298,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "gloves" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧤",
         description: "gloves",
         category: Objects,
@@ -6308,7 +6307,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "goal_net" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥅",
         description: "goal net",
         category: Activities,
@@ -6317,7 +6316,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "goat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐐",
         description: "goat",
         category: AnimalsAndNature,
@@ -6326,7 +6325,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "goggles" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥽",
         description: "goggles",
         category: Objects,
@@ -6335,7 +6334,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "golf" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛳",
         description: "flag in hole",
         category: Activities,
@@ -6344,7 +6343,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "golfing" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏌️",
         description: "person golfing",
         category: PeopleAndBody,
@@ -6353,7 +6352,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "golfing_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏌️‍♂️",
         description: "man golfing",
         category: PeopleAndBody,
@@ -6362,7 +6361,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "golfing_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏌️‍♀️",
         description: "woman golfing",
         category: PeopleAndBody,
@@ -6371,7 +6370,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "goose" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪿",
         description: "goose",
         category: AnimalsAndNature,
@@ -6380,7 +6379,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "gorilla" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦍",
         description: "gorilla",
         category: AnimalsAndNature,
@@ -6389,7 +6388,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "grapes" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍇",
         description: "grapes",
         category: FoodAndDrink,
@@ -6398,7 +6397,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "greece" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇷",
         description: "flag: Greece",
         category: Flags,
@@ -6407,7 +6406,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "green_apple" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍏",
         description: "green apple",
         category: FoodAndDrink,
@@ -6416,7 +6415,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "green_book" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📗",
         description: "green book",
         category: Objects,
@@ -6425,7 +6424,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "green_circle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🟢",
         description: "green circle",
         category: Symbols,
@@ -6434,7 +6433,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "green_heart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💚",
         description: "green heart",
         category: SmileysAndEmotion,
@@ -6443,7 +6442,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "green_salad" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥗",
         description: "green salad",
         category: FoodAndDrink,
@@ -6452,7 +6451,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "green_square" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🟩",
         description: "green square",
         category: Symbols,
@@ -6461,7 +6460,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "greenland" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇱",
         description: "flag: Greenland",
         category: Flags,
@@ -6470,7 +6469,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "grenada" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇩",
         description: "flag: Grenada",
         category: Flags,
@@ -6479,7 +6478,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "grey_exclamation" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "❕",
         description: "white exclamation mark",
         category: Symbols,
@@ -6488,7 +6487,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "grey_heart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🩶",
         description: "grey heart",
         category: SmileysAndEmotion,
@@ -6497,7 +6496,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "grey_question" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "❔",
         description: "white question mark",
         category: Symbols,
@@ -6506,7 +6505,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "grimacing" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😬",
         description: "grimacing face",
         category: SmileysAndEmotion,
@@ -6515,7 +6514,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 1),
       ))
     "grin" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😁",
         description: "beaming face with smiling eyes",
         category: SmileysAndEmotion,
@@ -6524,7 +6523,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "grinning" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😀",
         description: "grinning face",
         category: SmileysAndEmotion,
@@ -6533,7 +6532,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 1),
       ))
     "guadeloupe" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇵",
         description: "flag: Guadeloupe",
         category: Flags,
@@ -6542,7 +6541,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "guam" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇺",
         description: "flag: Guam",
         category: Flags,
@@ -6551,7 +6550,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "guard" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💂",
         description: "guard",
         category: PeopleAndBody,
@@ -6560,7 +6559,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "guardsman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💂‍♂️",
         description: "man guard",
         category: PeopleAndBody,
@@ -6569,7 +6568,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "guardswoman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💂‍♀️",
         description: "woman guard",
         category: PeopleAndBody,
@@ -6578,7 +6577,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "guatemala" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇹",
         description: "flag: Guatemala",
         category: Flags,
@@ -6587,7 +6586,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "guernsey" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇬",
         description: "flag: Guernsey",
         category: Flags,
@@ -6596,7 +6595,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "guide_dog" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦮",
         description: "guide dog",
         category: AnimalsAndNature,
@@ -6605,7 +6604,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "guinea" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇳",
         description: "flag: Guinea",
         category: Flags,
@@ -6614,7 +6613,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "guinea_bissau" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇼",
         description: "flag: Guinea-Bissau",
         category: Flags,
@@ -6623,7 +6622,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "guitar" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎸",
         description: "guitar",
         category: Objects,
@@ -6632,7 +6631,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "gun" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔫",
         description: "water pistol",
         category: Activities,
@@ -6641,7 +6640,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "guyana" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇾",
         description: "flag: Guyana",
         category: Flags,
@@ -6650,7 +6649,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "hair_pick" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪮",
         description: "hair pick",
         category: Objects,
@@ -6659,7 +6658,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "haircut" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💇",
         description: "person getting haircut",
         category: PeopleAndBody,
@@ -6668,7 +6667,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "haircut_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💇‍♂️",
         description: "man getting haircut",
         category: PeopleAndBody,
@@ -6677,7 +6676,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "haircut_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💇‍♀️",
         description: "woman getting haircut",
         category: PeopleAndBody,
@@ -6686,7 +6685,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "haiti" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇭🇹",
         description: "flag: Haiti",
         category: Flags,
@@ -6695,7 +6694,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "hamburger" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍔",
         description: "hamburger",
         category: FoodAndDrink,
@@ -6704,7 +6703,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "hammer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔨",
         description: "hammer",
         category: Objects,
@@ -6713,7 +6712,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "hammer_and_pick" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⚒️",
         description: "hammer and pick",
         category: Objects,
@@ -6722,7 +6721,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 1),
       ))
     "hammer_and_wrench" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛠️",
         description: "hammer and wrench",
         category: Objects,
@@ -6731,7 +6730,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "hamsa" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪬",
         description: "hamsa",
         category: Objects,
@@ -6740,7 +6739,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "hamster" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐹",
         description: "hamster",
         category: AnimalsAndNature,
@@ -6749,7 +6748,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "hand" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "✋",
         description: "raised hand",
         category: PeopleAndBody,
@@ -6758,7 +6757,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "hand_over_mouth" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤭",
         description: "face with hand over mouth",
         category: SmileysAndEmotion,
@@ -6767,7 +6766,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "hand_with_index_finger_and_thumb_crossed" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫰",
         description: "hand with index finger and thumb crossed",
         category: PeopleAndBody,
@@ -6776,7 +6775,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "handbag" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👜",
         description: "handbag",
         category: Objects,
@@ -6785,7 +6784,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "handball_person" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤾",
         description: "person playing handball",
         category: PeopleAndBody,
@@ -6794,7 +6793,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "handshake" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤝",
         description: "handshake",
         category: PeopleAndBody,
@@ -6803,7 +6802,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "hankey" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💩",
         description: "pile of poo",
         category: SmileysAndEmotion,
@@ -6812,7 +6811,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "hash" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "#️⃣",
         description: "keycap: #",
         category: Symbols,
@@ -6821,7 +6820,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "hatched_chick" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐥",
         description: "front-facing baby chick",
         category: AnimalsAndNature,
@@ -6830,7 +6829,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "hatching_chick" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐣",
         description: "hatching chick",
         category: AnimalsAndNature,
@@ -6839,7 +6838,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "headphones" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎧",
         description: "headphone",
         category: Objects,
@@ -6848,7 +6847,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "headstone" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪦",
         description: "headstone",
         category: Objects,
@@ -6857,7 +6856,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "health_worker" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍⚕️",
         description: "health worker",
         category: PeopleAndBody,
@@ -6866,7 +6865,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "hear_no_evil" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙉",
         description: "hear-no-evil monkey",
         category: SmileysAndEmotion,
@@ -6875,7 +6874,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "heard_mcdonald_islands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇭🇲",
         description: "flag: Heard & McDonald Islands",
         category: Flags,
@@ -6884,7 +6883,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "heart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "❤️",
         description: "red heart",
         category: SmileysAndEmotion,
@@ -6893,7 +6892,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "heart_decoration" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💟",
         description: "heart decoration",
         category: SmileysAndEmotion,
@@ -6902,7 +6901,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "heart_eyes" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😍",
         description: "smiling face with heart-eyes",
         category: SmileysAndEmotion,
@@ -6911,7 +6910,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "heart_eyes_cat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😻",
         description: "smiling cat with heart-eyes",
         category: SmileysAndEmotion,
@@ -6920,7 +6919,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "heart_hands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫶",
         description: "heart hands",
         category: PeopleAndBody,
@@ -6929,7 +6928,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "heart_on_fire" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "❤️‍🔥",
         description: "heart on fire",
         category: SmileysAndEmotion,
@@ -6938,7 +6937,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 1),
       ))
     "heartbeat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💓",
         description: "beating heart",
         category: SmileysAndEmotion,
@@ -6947,7 +6946,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "heartpulse" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💗",
         description: "growing heart",
         category: SmileysAndEmotion,
@@ -6956,7 +6955,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "hearts" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♥️",
         description: "heart suit",
         category: Activities,
@@ -6965,7 +6964,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "heavy_check_mark" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "✔️",
         description: "check mark",
         category: Symbols,
@@ -6974,7 +6973,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "heavy_division_sign" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "➗",
         description: "divide",
         category: Symbols,
@@ -6983,7 +6982,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "heavy_dollar_sign" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💲",
         description: "heavy dollar sign",
         category: Symbols,
@@ -6992,7 +6991,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "heavy_equals_sign" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🟰",
         description: "heavy equals sign",
         category: Symbols,
@@ -7001,7 +7000,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "heavy_exclamation_mark" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "❗",
         description: "red exclamation mark",
         category: Symbols,
@@ -7010,7 +7009,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "heavy_heart_exclamation" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "❣️",
         description: "heart exclamation",
         category: SmileysAndEmotion,
@@ -7019,7 +7018,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "heavy_minus_sign" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "➖",
         description: "minus",
         category: Symbols,
@@ -7028,7 +7027,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "heavy_multiplication_x" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "✖️",
         description: "multiply",
         category: Symbols,
@@ -7037,7 +7036,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "heavy_plus_sign" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "➕",
         description: "plus",
         category: Symbols,
@@ -7046,7 +7045,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "hedgehog" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦔",
         description: "hedgehog",
         category: AnimalsAndNature,
@@ -7055,7 +7054,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "helicopter" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚁",
         description: "helicopter",
         category: TravelAndPlaces,
@@ -7064,7 +7063,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "herb" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌿",
         description: "herb",
         category: AnimalsAndNature,
@@ -7073,7 +7072,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "hibiscus" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌺",
         description: "hibiscus",
         category: AnimalsAndNature,
@@ -7082,7 +7081,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "high_brightness" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔆",
         description: "bright button",
         category: Symbols,
@@ -7091,7 +7090,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "high_heel" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👠",
         description: "high-heeled shoe",
         category: Objects,
@@ -7100,7 +7099,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "hiking_boot" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥾",
         description: "hiking boot",
         category: Objects,
@@ -7109,7 +7108,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "hindu_temple" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛕",
         description: "hindu temple",
         category: TravelAndPlaces,
@@ -7118,7 +7117,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "hippopotamus" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦛",
         description: "hippopotamus",
         category: AnimalsAndNature,
@@ -7127,7 +7126,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "hocho" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔪",
         description: "kitchen knife",
         category: FoodAndDrink,
@@ -7136,7 +7135,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "hole" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕳️",
         description: "hole",
         category: SmileysAndEmotion,
@@ -7145,7 +7144,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "honduras" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇭🇳",
         description: "flag: Honduras",
         category: Flags,
@@ -7154,7 +7153,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "honey_pot" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍯",
         description: "honey pot",
         category: FoodAndDrink,
@@ -7163,7 +7162,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "honeybee" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐝",
         description: "honeybee",
         category: AnimalsAndNature,
@@ -7172,7 +7171,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "hong_kong" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇭🇰",
         description: "flag: Hong Kong SAR China",
         category: Flags,
@@ -7181,7 +7180,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "hook" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪝",
         description: "hook",
         category: Objects,
@@ -7190,7 +7189,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "horse" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐴",
         description: "horse face",
         category: AnimalsAndNature,
@@ -7199,7 +7198,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "horse_racing" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏇",
         description: "horse racing",
         category: PeopleAndBody,
@@ -7208,7 +7207,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "hospital" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏥",
         description: "hospital",
         category: TravelAndPlaces,
@@ -7217,7 +7216,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "hot_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥵",
         description: "hot face",
         category: SmileysAndEmotion,
@@ -7226,7 +7225,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "hot_pepper" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌶️",
         description: "hot pepper",
         category: FoodAndDrink,
@@ -7235,7 +7234,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "hotdog" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌭",
         description: "hot dog",
         category: FoodAndDrink,
@@ -7244,7 +7243,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "hotel" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏨",
         description: "hotel",
         category: TravelAndPlaces,
@@ -7253,7 +7252,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "hotsprings" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♨️",
         description: "hot springs",
         category: TravelAndPlaces,
@@ -7262,7 +7261,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "hourglass" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⌛",
         description: "hourglass done",
         category: TravelAndPlaces,
@@ -7271,7 +7270,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "hourglass_flowing_sand" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⏳",
         description: "hourglass not done",
         category: TravelAndPlaces,
@@ -7280,7 +7279,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "house" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏠",
         description: "house",
         category: TravelAndPlaces,
@@ -7289,7 +7288,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "house_with_garden" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏡",
         description: "house with garden",
         category: TravelAndPlaces,
@@ -7298,7 +7297,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "houses" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏘️",
         description: "houses",
         category: TravelAndPlaces,
@@ -7307,7 +7306,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "hugs" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤗",
         description: "smiling face with open hands",
         category: SmileysAndEmotion,
@@ -7316,7 +7315,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "hungary" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇭🇺",
         description: "flag: Hungary",
         category: Flags,
@@ -7325,7 +7324,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "hushed" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😯",
         description: "hushed face",
         category: SmileysAndEmotion,
@@ -7334,7 +7333,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 1),
       ))
     "hut" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛖",
         description: "hut",
         category: TravelAndPlaces,
@@ -7343,7 +7342,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "hyacinth" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪻",
         description: "hyacinth",
         category: AnimalsAndNature,
@@ -7352,7 +7351,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "ice_cream" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍨",
         description: "ice cream",
         category: FoodAndDrink,
@@ -7361,7 +7360,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ice_cube" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧊",
         description: "ice",
         category: FoodAndDrink,
@@ -7370,7 +7369,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "ice_hockey" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏒",
         description: "ice hockey",
         category: Activities,
@@ -7379,7 +7378,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "ice_skate" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛸️",
         description: "ice skate",
         category: Activities,
@@ -7388,7 +7387,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "icecream" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍦",
         description: "soft ice cream",
         category: FoodAndDrink,
@@ -7397,7 +7396,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "iceland" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇮🇸",
         description: "flag: Iceland",
         category: Flags,
@@ -7406,7 +7405,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "id" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🆔",
         description: "ID button",
         category: Symbols,
@@ -7415,7 +7414,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "identification_card" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪪",
         description: "identification card",
         category: Objects,
@@ -7424,7 +7423,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "ideograph_advantage" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🉐",
         description: "Japanese “bargain” button",
         category: Symbols,
@@ -7433,7 +7432,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "imp" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👿",
         description: "angry face with horns",
         category: SmileysAndEmotion,
@@ -7442,7 +7441,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "inbox_tray" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📥",
         description: "inbox tray",
         category: Objects,
@@ -7451,7 +7450,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "incoming_envelope" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📨",
         description: "incoming envelope",
         category: Objects,
@@ -7460,7 +7459,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "index_pointing_at_the_viewer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫵",
         description: "index pointing at the viewer",
         category: PeopleAndBody,
@@ -7469,7 +7468,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "india" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇮🇳",
         description: "flag: India",
         category: Flags,
@@ -7478,7 +7477,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "indonesia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇮🇩",
         description: "flag: Indonesia",
         category: Flags,
@@ -7487,7 +7486,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "infinity" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♾️",
         description: "infinity",
         category: Symbols,
@@ -7496,7 +7495,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "information_desk_person" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💁",
         description: "person tipping hand",
         category: PeopleAndBody,
@@ -7505,7 +7504,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "information_source" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "ℹ️",
         description: "information",
         category: Symbols,
@@ -7514,7 +7513,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 3, minor: 0),
       ))
     "innocent" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😇",
         description: "smiling face with halo",
         category: SmileysAndEmotion,
@@ -7523,7 +7522,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "interrobang" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⁉️",
         description: "exclamation question mark",
         category: Symbols,
@@ -7532,7 +7531,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 3, minor: 0),
       ))
     "iphone" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📱",
         description: "mobile phone",
         category: Objects,
@@ -7541,7 +7540,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "iran" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇮🇷",
         description: "flag: Iran",
         category: Flags,
@@ -7550,7 +7549,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "iraq" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇮🇶",
         description: "flag: Iraq",
         category: Flags,
@@ -7559,7 +7558,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ireland" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇮🇪",
         description: "flag: Ireland",
         category: Flags,
@@ -7568,7 +7567,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "isle_of_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇮🇲",
         description: "flag: Isle of Man",
         category: Flags,
@@ -7577,7 +7576,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "israel" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇮🇱",
         description: "flag: Israel",
         category: Flags,
@@ -7586,7 +7585,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "it" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇮🇹",
         description: "flag: Italy",
         category: Flags,
@@ -7595,7 +7594,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "izakaya_lantern" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏮",
         description: "red paper lantern",
         category: Objects,
@@ -7604,7 +7603,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "jack_o_lantern" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎃",
         description: "jack-o-lantern",
         category: Activities,
@@ -7613,7 +7612,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "jamaica" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇯🇲",
         description: "flag: Jamaica",
         category: Flags,
@@ -7622,7 +7621,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "japan" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗾",
         description: "map of Japan",
         category: TravelAndPlaces,
@@ -7631,7 +7630,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "japanese_castle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏯",
         description: "Japanese castle",
         category: TravelAndPlaces,
@@ -7640,7 +7639,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "japanese_goblin" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👺",
         description: "goblin",
         category: SmileysAndEmotion,
@@ -7649,7 +7648,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "japanese_ogre" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👹",
         description: "ogre",
         category: SmileysAndEmotion,
@@ -7658,7 +7657,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "jar" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫙",
         description: "jar",
         category: FoodAndDrink,
@@ -7667,7 +7666,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "jeans" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👖",
         description: "jeans",
         category: Objects,
@@ -7676,7 +7675,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "jellyfish" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪼",
         description: "jellyfish",
         category: AnimalsAndNature,
@@ -7685,7 +7684,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "jersey" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇯🇪",
         description: "flag: Jersey",
         category: Flags,
@@ -7694,7 +7693,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "jigsaw" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧩",
         description: "puzzle piece",
         category: Activities,
@@ -7703,7 +7702,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "jordan" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇯🇴",
         description: "flag: Jordan",
         category: Flags,
@@ -7712,7 +7711,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "joy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😂",
         description: "face with tears of joy",
         category: SmileysAndEmotion,
@@ -7721,7 +7720,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "joy_cat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😹",
         description: "cat with tears of joy",
         category: SmileysAndEmotion,
@@ -7730,7 +7729,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "joystick" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕹️",
         description: "joystick",
         category: Activities,
@@ -7739,7 +7738,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "jp" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇯🇵",
         description: "flag: Japan",
         category: Flags,
@@ -7748,7 +7747,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "judge" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍⚖️",
         description: "judge",
         category: PeopleAndBody,
@@ -7757,7 +7756,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "juggling_person" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤹",
         description: "person juggling",
         category: PeopleAndBody,
@@ -7766,7 +7765,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "kaaba" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕋",
         description: "kaaba",
         category: TravelAndPlaces,
@@ -7775,7 +7774,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "kangaroo" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦘",
         description: "kangaroo",
         category: AnimalsAndNature,
@@ -7784,7 +7783,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "kazakhstan" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇰🇿",
         description: "flag: Kazakhstan",
         category: Flags,
@@ -7793,7 +7792,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "kenya" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇰🇪",
         description: "flag: Kenya",
         category: Flags,
@@ -7802,7 +7801,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "key" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔑",
         description: "key",
         category: Objects,
@@ -7811,7 +7810,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "keyboard" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⌨️",
         description: "keyboard",
         category: Objects,
@@ -7820,7 +7819,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "keycap_ten" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔟",
         description: "keycap: 10",
         category: Symbols,
@@ -7829,7 +7828,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "khanda" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪯",
         description: "khanda",
         category: Symbols,
@@ -7838,7 +7837,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "kick_scooter" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛴",
         description: "kick scooter",
         category: TravelAndPlaces,
@@ -7847,7 +7846,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "kimono" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👘",
         description: "kimono",
         category: Objects,
@@ -7856,7 +7855,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "kiribati" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇰🇮",
         description: "flag: Kiribati",
         category: Flags,
@@ -7865,7 +7864,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "kiss" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💋",
         description: "kiss mark",
         category: SmileysAndEmotion,
@@ -7874,7 +7873,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "kissing" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😗",
         description: "kissing face",
         category: SmileysAndEmotion,
@@ -7883,7 +7882,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 1),
       ))
     "kissing_cat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😽",
         description: "kissing cat",
         category: SmileysAndEmotion,
@@ -7892,7 +7891,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "kissing_closed_eyes" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😚",
         description: "kissing face with closed eyes",
         category: SmileysAndEmotion,
@@ -7901,7 +7900,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "kissing_heart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😘",
         description: "face blowing a kiss",
         category: SmileysAndEmotion,
@@ -7910,7 +7909,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "kissing_smiling_eyes" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😙",
         description: "kissing face with smiling eyes",
         category: SmileysAndEmotion,
@@ -7919,7 +7918,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 1),
       ))
     "kite" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪁",
         description: "kite",
         category: Activities,
@@ -7928,7 +7927,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "kiwi_fruit" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥝",
         description: "kiwi fruit",
         category: FoodAndDrink,
@@ -7937,7 +7936,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "kneeling_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧎‍♂️",
         description: "man kneeling",
         category: PeopleAndBody,
@@ -7946,7 +7945,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "kneeling_person" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧎",
         description: "person kneeling",
         category: PeopleAndBody,
@@ -7955,7 +7954,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "kneeling_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧎‍♀️",
         description: "woman kneeling",
         category: PeopleAndBody,
@@ -7964,7 +7963,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "knife" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔪",
         description: "kitchen knife",
         category: FoodAndDrink,
@@ -7973,7 +7972,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "knot" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪢",
         description: "knot",
         category: Activities,
@@ -7982,7 +7981,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "koala" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐨",
         description: "koala",
         category: AnimalsAndNature,
@@ -7991,7 +7990,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "koko" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🈁",
         description: "Japanese “here” button",
         category: Symbols,
@@ -8000,7 +7999,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "kosovo" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇽🇰",
         description: "flag: Kosovo",
         category: Flags,
@@ -8009,7 +8008,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "kr" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇰🇷",
         description: "flag: South Korea",
         category: Flags,
@@ -8018,7 +8017,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "kuwait" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇰🇼",
         description: "flag: Kuwait",
         category: Flags,
@@ -8027,7 +8026,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "kyrgyzstan" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇰🇬",
         description: "flag: Kyrgyzstan",
         category: Flags,
@@ -8036,7 +8035,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "lab_coat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥼",
         description: "lab coat",
         category: Objects,
@@ -8045,7 +8044,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "label" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏷️",
         description: "label",
         category: Objects,
@@ -8054,7 +8053,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "lacrosse" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥍",
         description: "lacrosse",
         category: Activities,
@@ -8063,7 +8062,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "ladder" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪜",
         description: "ladder",
         category: Objects,
@@ -8072,7 +8071,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "lady_beetle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐞",
         description: "lady beetle",
         category: AnimalsAndNature,
@@ -8081,7 +8080,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "lantern" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏮",
         description: "red paper lantern",
         category: Objects,
@@ -8090,7 +8089,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "laos" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇱🇦",
         description: "flag: Laos",
         category: Flags,
@@ -8099,7 +8098,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "large_blue_circle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔵",
         description: "blue circle",
         category: Symbols,
@@ -8108,7 +8107,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "large_blue_diamond" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔷",
         description: "large blue diamond",
         category: Symbols,
@@ -8117,7 +8116,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "large_orange_diamond" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔶",
         description: "large orange diamond",
         category: Symbols,
@@ -8126,7 +8125,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "last_quarter_moon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌗",
         description: "last quarter moon",
         category: TravelAndPlaces,
@@ -8135,7 +8134,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "last_quarter_moon_with_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌜",
         description: "last quarter moon face",
         category: TravelAndPlaces,
@@ -8144,7 +8143,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "latin_cross" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "✝️",
         description: "latin cross",
         category: Symbols,
@@ -8153,7 +8152,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "latvia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇱🇻",
         description: "flag: Latvia",
         category: Flags,
@@ -8162,7 +8161,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "laughing" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😆",
         description: "grinning squinting face",
         category: SmileysAndEmotion,
@@ -8171,7 +8170,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "leafy_green" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥬",
         description: "leafy green",
         category: FoodAndDrink,
@@ -8180,7 +8179,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "leaves" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍃",
         description: "leaf fluttering in wind",
         category: AnimalsAndNature,
@@ -8189,7 +8188,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "lebanon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇱🇧",
         description: "flag: Lebanon",
         category: Flags,
@@ -8198,7 +8197,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ledger" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📒",
         description: "ledger",
         category: Objects,
@@ -8207,7 +8206,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "left_luggage" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛅",
         description: "left luggage",
         category: Symbols,
@@ -8216,7 +8215,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "left_right_arrow" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "↔️",
         description: "left-right arrow",
         category: Symbols,
@@ -8225,7 +8224,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "left_speech_bubble" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗨️",
         description: "left speech bubble",
         category: SmileysAndEmotion,
@@ -8234,7 +8233,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "leftwards_arrow_with_hook" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "↩️",
         description: "right arrow curving left",
         category: Symbols,
@@ -8243,7 +8242,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "leftwards_hand" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫲",
         description: "leftwards hand",
         category: PeopleAndBody,
@@ -8252,7 +8251,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "leftwards_pushing_hand" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫷",
         description: "leftwards pushing hand",
         category: PeopleAndBody,
@@ -8261,7 +8260,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "leg" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦵",
         description: "leg",
         category: PeopleAndBody,
@@ -8270,7 +8269,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "lemon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍋",
         description: "lemon",
         category: FoodAndDrink,
@@ -8279,7 +8278,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "leo" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♌",
         description: "Leo",
         category: Symbols,
@@ -8288,7 +8287,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "leopard" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐆",
         description: "leopard",
         category: AnimalsAndNature,
@@ -8297,7 +8296,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "lesotho" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇱🇸",
         description: "flag: Lesotho",
         category: Flags,
@@ -8306,7 +8305,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "level_slider" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎚️",
         description: "level slider",
         category: Objects,
@@ -8315,7 +8314,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "liberia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇱🇷",
         description: "flag: Liberia",
         category: Flags,
@@ -8324,7 +8323,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "libra" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♎",
         description: "Libra",
         category: Symbols,
@@ -8333,7 +8332,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "libya" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇱🇾",
         description: "flag: Libya",
         category: Flags,
@@ -8342,7 +8341,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "liechtenstein" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇱🇮",
         description: "flag: Liechtenstein",
         category: Flags,
@@ -8351,7 +8350,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "light_blue_heart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🩵",
         description: "light blue heart",
         category: SmileysAndEmotion,
@@ -8360,7 +8359,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "light_rail" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚈",
         description: "light rail",
         category: TravelAndPlaces,
@@ -8369,7 +8368,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "link" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔗",
         description: "link",
         category: Objects,
@@ -8378,7 +8377,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "lion" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦁",
         description: "lion",
         category: AnimalsAndNature,
@@ -8387,7 +8386,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "lips" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👄",
         description: "mouth",
         category: PeopleAndBody,
@@ -8396,7 +8395,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "lipstick" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💄",
         description: "lipstick",
         category: Objects,
@@ -8405,7 +8404,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "lithuania" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇱🇹",
         description: "flag: Lithuania",
         category: Flags,
@@ -8414,7 +8413,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "lizard" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦎",
         description: "lizard",
         category: AnimalsAndNature,
@@ -8423,7 +8422,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "llama" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦙",
         description: "llama",
         category: AnimalsAndNature,
@@ -8432,7 +8431,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "lobster" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦞",
         description: "lobster",
         category: FoodAndDrink,
@@ -8441,7 +8440,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "lock" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔒",
         description: "locked",
         category: Objects,
@@ -8450,7 +8449,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "lock_with_ink_pen" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔏",
         description: "locked with pen",
         category: Objects,
@@ -8459,7 +8458,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "lollipop" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍭",
         description: "lollipop",
         category: FoodAndDrink,
@@ -8468,7 +8467,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "long_drum" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪘",
         description: "long drum",
         category: Objects,
@@ -8477,7 +8476,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "loop" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "➿",
         description: "double curly loop",
         category: Symbols,
@@ -8486,7 +8485,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "lotion_bottle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧴",
         description: "lotion bottle",
         category: Objects,
@@ -8495,7 +8494,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "lotus" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪷",
         description: "lotus",
         category: AnimalsAndNature,
@@ -8504,7 +8503,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "lotus_position" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧘",
         description: "person in lotus position",
         category: PeopleAndBody,
@@ -8513,7 +8512,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "lotus_position_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧘‍♂️",
         description: "man in lotus position",
         category: PeopleAndBody,
@@ -8522,7 +8521,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "lotus_position_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧘‍♀️",
         description: "woman in lotus position",
         category: PeopleAndBody,
@@ -8531,7 +8530,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "loud_sound" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔊",
         description: "speaker high volume",
         category: Objects,
@@ -8540,7 +8539,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "loudspeaker" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📢",
         description: "loudspeaker",
         category: Objects,
@@ -8549,7 +8548,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "love_hotel" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏩",
         description: "love hotel",
         category: TravelAndPlaces,
@@ -8558,7 +8557,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "love_letter" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💌",
         description: "love letter",
         category: SmileysAndEmotion,
@@ -8567,7 +8566,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "love_you_gesture" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤟",
         description: "love-you gesture",
         category: PeopleAndBody,
@@ -8576,7 +8575,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "low_battery" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪫",
         description: "low battery",
         category: Objects,
@@ -8585,7 +8584,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "low_brightness" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔅",
         description: "dim button",
         category: Symbols,
@@ -8594,7 +8593,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "luggage" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧳",
         description: "luggage",
         category: TravelAndPlaces,
@@ -8603,7 +8602,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "lungs" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫁",
         description: "lungs",
         category: PeopleAndBody,
@@ -8612,7 +8611,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "luxembourg" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇱🇺",
         description: "flag: Luxembourg",
         category: Flags,
@@ -8621,7 +8620,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "lying_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤥",
         description: "lying face",
         category: SmileysAndEmotion,
@@ -8630,7 +8629,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "m" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "Ⓜ️",
         description: "circled M",
         category: Symbols,
@@ -8639,7 +8638,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "macau" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇴",
         description: "flag: Macao SAR China",
         category: Flags,
@@ -8648,7 +8647,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "macedonia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇰",
         description: "flag: North Macedonia",
         category: Flags,
@@ -8657,7 +8656,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "madagascar" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇬",
         description: "flag: Madagascar",
         category: Flags,
@@ -8666,7 +8665,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mag" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔍",
         description: "magnifying glass tilted left",
         category: Objects,
@@ -8675,7 +8674,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mag_right" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔎",
         description: "magnifying glass tilted right",
         category: Objects,
@@ -8684,7 +8683,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mage" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧙",
         description: "mage",
         category: PeopleAndBody,
@@ -8693,7 +8692,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "mage_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧙‍♂️",
         description: "man mage",
         category: PeopleAndBody,
@@ -8702,7 +8701,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "mage_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧙‍♀️",
         description: "woman mage",
         category: PeopleAndBody,
@@ -8711,7 +8710,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "magic_wand" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪄",
         description: "magic wand",
         category: Activities,
@@ -8720,7 +8719,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "magnet" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧲",
         description: "magnet",
         category: Objects,
@@ -8729,7 +8728,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "mahjong" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🀄",
         description: "mahjong red dragon",
         category: Activities,
@@ -8738,7 +8737,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "mailbox" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📫",
         description: "closed mailbox with raised flag",
         category: Objects,
@@ -8747,7 +8746,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mailbox_closed" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📪",
         description: "closed mailbox with lowered flag",
         category: Objects,
@@ -8756,7 +8755,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mailbox_with_mail" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📬",
         description: "open mailbox with raised flag",
         category: Objects,
@@ -8765,7 +8764,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mailbox_with_no_mail" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📭",
         description: "open mailbox with lowered flag",
         category: Objects,
@@ -8774,7 +8773,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "malawi" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇼",
         description: "flag: Malawi",
         category: Flags,
@@ -8783,7 +8782,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "malaysia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇾",
         description: "flag: Malaysia",
         category: Flags,
@@ -8792,7 +8791,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "maldives" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇻",
         description: "flag: Maldives",
         category: Flags,
@@ -8801,7 +8800,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "male_detective" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕵️‍♂️",
         description: "man detective",
         category: PeopleAndBody,
@@ -8810,7 +8809,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "male_sign" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♂️",
         description: "male sign",
         category: Symbols,
@@ -8819,7 +8818,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "mali" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇱",
         description: "flag: Mali",
         category: Flags,
@@ -8828,7 +8827,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "malta" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇹",
         description: "flag: Malta",
         category: Flags,
@@ -8837,7 +8836,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mammoth" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦣",
         description: "mammoth",
         category: AnimalsAndNature,
@@ -8846,7 +8845,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨",
         description: "man",
         category: PeopleAndBody,
@@ -8855,7 +8854,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "man_artist" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍🎨",
         description: "man artist",
         category: PeopleAndBody,
@@ -8864,7 +8863,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "man_astronaut" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍🚀",
         description: "man astronaut",
         category: PeopleAndBody,
@@ -8873,7 +8872,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "man_beard" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧔‍♂️",
         description: "man: beard",
         category: PeopleAndBody,
@@ -8882,7 +8881,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 1),
       ))
     "man_cartwheeling" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤸‍♂️",
         description: "man cartwheeling",
         category: PeopleAndBody,
@@ -8891,7 +8890,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "man_cook" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍🍳",
         description: "man cook",
         category: PeopleAndBody,
@@ -8900,7 +8899,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "man_dancing" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕺",
         description: "man dancing",
         category: PeopleAndBody,
@@ -8909,7 +8908,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "man_facepalming" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤦‍♂️",
         description: "man facepalming",
         category: PeopleAndBody,
@@ -8918,7 +8917,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "man_factory_worker" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍🏭",
         description: "man factory worker",
         category: PeopleAndBody,
@@ -8927,7 +8926,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "man_farmer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍🌾",
         description: "man farmer",
         category: PeopleAndBody,
@@ -8936,7 +8935,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "man_feeding_baby" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍🍼",
         description: "man feeding baby",
         category: PeopleAndBody,
@@ -8945,7 +8944,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "man_firefighter" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍🚒",
         description: "man firefighter",
         category: PeopleAndBody,
@@ -8954,7 +8953,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "man_health_worker" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍⚕️",
         description: "man health worker",
         category: PeopleAndBody,
@@ -8963,7 +8962,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "man_in_manual_wheelchair" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍🦽",
         description: "man in manual wheelchair",
         category: PeopleAndBody,
@@ -8972,7 +8971,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "man_in_motorized_wheelchair" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍🦼",
         description: "man in motorized wheelchair",
         category: PeopleAndBody,
@@ -8981,7 +8980,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "man_in_tuxedo" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤵‍♂️",
         description: "man in tuxedo",
         category: PeopleAndBody,
@@ -8990,7 +8989,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "man_judge" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍⚖️",
         description: "man judge",
         category: PeopleAndBody,
@@ -8999,7 +8998,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "man_juggling" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤹‍♂️",
         description: "man juggling",
         category: PeopleAndBody,
@@ -9008,7 +9007,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "man_mechanic" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍🔧",
         description: "man mechanic",
         category: PeopleAndBody,
@@ -9017,7 +9016,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "man_office_worker" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍💼",
         description: "man office worker",
         category: PeopleAndBody,
@@ -9026,7 +9025,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "man_pilot" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍✈️",
         description: "man pilot",
         category: PeopleAndBody,
@@ -9035,7 +9034,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "man_playing_handball" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤾‍♂️",
         description: "man playing handball",
         category: PeopleAndBody,
@@ -9044,7 +9043,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "man_playing_water_polo" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤽‍♂️",
         description: "man playing water polo",
         category: PeopleAndBody,
@@ -9053,7 +9052,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "man_scientist" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍🔬",
         description: "man scientist",
         category: PeopleAndBody,
@@ -9062,7 +9061,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "man_shrugging" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤷‍♂️",
         description: "man shrugging",
         category: PeopleAndBody,
@@ -9071,7 +9070,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "man_singer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍🎤",
         description: "man singer",
         category: PeopleAndBody,
@@ -9080,7 +9079,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "man_student" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍🎓",
         description: "man student",
         category: PeopleAndBody,
@@ -9089,7 +9088,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "man_teacher" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍🏫",
         description: "man teacher",
         category: PeopleAndBody,
@@ -9098,7 +9097,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "man_technologist" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍💻",
         description: "man technologist",
         category: PeopleAndBody,
@@ -9107,7 +9106,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "man_with_gua_pi_mao" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👲",
         description: "person with skullcap",
         category: PeopleAndBody,
@@ -9116,7 +9115,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "man_with_probing_cane" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍🦯",
         description: "man with white cane",
         category: PeopleAndBody,
@@ -9125,7 +9124,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "man_with_turban" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👳‍♂️",
         description: "man wearing turban",
         category: PeopleAndBody,
@@ -9134,7 +9133,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "man_with_veil" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👰‍♂️",
         description: "man with veil",
         category: PeopleAndBody,
@@ -9143,7 +9142,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "mandarin" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍊",
         description: "tangerine",
         category: FoodAndDrink,
@@ -9152,7 +9151,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mango" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥭",
         description: "mango",
         category: FoodAndDrink,
@@ -9161,7 +9160,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "mans_shoe" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👞",
         description: "man’s shoe",
         category: Objects,
@@ -9170,7 +9169,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mantelpiece_clock" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕰️",
         description: "mantelpiece clock",
         category: TravelAndPlaces,
@@ -9179,7 +9178,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "manual_wheelchair" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦽",
         description: "manual wheelchair",
         category: TravelAndPlaces,
@@ -9188,7 +9187,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "maple_leaf" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍁",
         description: "maple leaf",
         category: AnimalsAndNature,
@@ -9197,7 +9196,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "maracas" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪇",
         description: "maracas",
         category: Objects,
@@ -9206,7 +9205,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "marshall_islands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇭",
         description: "flag: Marshall Islands",
         category: Flags,
@@ -9215,7 +9214,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "martial_arts_uniform" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥋",
         description: "martial arts uniform",
         category: Activities,
@@ -9224,7 +9223,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "martinique" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇶",
         description: "flag: Martinique",
         category: Flags,
@@ -9233,7 +9232,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mask" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😷",
         description: "face with medical mask",
         category: SmileysAndEmotion,
@@ -9242,7 +9241,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "massage" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💆",
         description: "person getting massage",
         category: PeopleAndBody,
@@ -9251,7 +9250,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "massage_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💆‍♂️",
         description: "man getting massage",
         category: PeopleAndBody,
@@ -9260,7 +9259,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "massage_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💆‍♀️",
         description: "woman getting massage",
         category: PeopleAndBody,
@@ -9269,7 +9268,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "mate" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧉",
         description: "mate",
         category: FoodAndDrink,
@@ -9278,7 +9277,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "mauritania" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇷",
         description: "flag: Mauritania",
         category: Flags,
@@ -9287,7 +9286,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mauritius" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇺",
         description: "flag: Mauritius",
         category: Flags,
@@ -9296,7 +9295,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mayotte" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇾🇹",
         description: "flag: Mayotte",
         category: Flags,
@@ -9305,7 +9304,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "meat_on_bone" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍖",
         description: "meat on bone",
         category: FoodAndDrink,
@@ -9314,7 +9313,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mechanic" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🔧",
         description: "mechanic",
         category: PeopleAndBody,
@@ -9323,7 +9322,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "mechanical_arm" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦾",
         description: "mechanical arm",
         category: PeopleAndBody,
@@ -9332,7 +9331,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "mechanical_leg" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦿",
         description: "mechanical leg",
         category: PeopleAndBody,
@@ -9341,7 +9340,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "medal_military" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎖️",
         description: "military medal",
         category: Activities,
@@ -9350,7 +9349,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "medal_sports" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏅",
         description: "sports medal",
         category: Activities,
@@ -9359,7 +9358,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "medical_symbol" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⚕️",
         description: "medical symbol",
         category: Symbols,
@@ -9368,7 +9367,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "mega" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📣",
         description: "megaphone",
         category: Objects,
@@ -9377,7 +9376,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "melon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍈",
         description: "melon",
         category: FoodAndDrink,
@@ -9386,7 +9385,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "melting_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫠",
         description: "melting face",
         category: SmileysAndEmotion,
@@ -9395,7 +9394,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "memo" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📝",
         description: "memo",
         category: Objects,
@@ -9404,7 +9403,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "men_wrestling" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤼‍♂️",
         description: "men wrestling",
         category: PeopleAndBody,
@@ -9413,7 +9412,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "mending_heart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "❤️‍🩹",
         description: "mending heart",
         category: SmileysAndEmotion,
@@ -9422,7 +9421,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 1),
       ))
     "menorah" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕎",
         description: "menorah",
         category: Symbols,
@@ -9431,7 +9430,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "mens" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚹",
         description: "men’s room",
         category: Symbols,
@@ -9440,7 +9439,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mermaid" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧜‍♀️",
         description: "mermaid",
         category: PeopleAndBody,
@@ -9449,7 +9448,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "merman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧜‍♂️",
         description: "merman",
         category: PeopleAndBody,
@@ -9458,7 +9457,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "merperson" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧜",
         description: "merperson",
         category: PeopleAndBody,
@@ -9467,7 +9466,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "metal" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤘",
         description: "sign of the horns",
         category: PeopleAndBody,
@@ -9476,7 +9475,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "metro" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚇",
         description: "metro",
         category: TravelAndPlaces,
@@ -9485,7 +9484,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mexico" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇽",
         description: "flag: Mexico",
         category: Flags,
@@ -9494,7 +9493,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "microbe" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦠",
         description: "microbe",
         category: AnimalsAndNature,
@@ -9503,7 +9502,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "micronesia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇫🇲",
         description: "flag: Micronesia",
         category: Flags,
@@ -9512,7 +9511,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "microphone" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎤",
         description: "microphone",
         category: Objects,
@@ -9521,7 +9520,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "microscope" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔬",
         description: "microscope",
         category: Objects,
@@ -9530,7 +9529,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "middle_finger" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🖕",
         description: "middle finger",
         category: PeopleAndBody,
@@ -9539,7 +9538,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "military_helmet" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪖",
         description: "military helmet",
         category: Objects,
@@ -9548,7 +9547,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "milk_glass" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥛",
         description: "glass of milk",
         category: FoodAndDrink,
@@ -9557,7 +9556,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "milky_way" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌌",
         description: "milky way",
         category: TravelAndPlaces,
@@ -9566,7 +9565,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "minibus" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚐",
         description: "minibus",
         category: TravelAndPlaces,
@@ -9575,7 +9574,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "minidisc" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💽",
         description: "computer disk",
         category: Objects,
@@ -9584,7 +9583,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mirror" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪞",
         description: "mirror",
         category: Objects,
@@ -9593,7 +9592,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "mirror_ball" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪩",
         description: "mirror ball",
         category: Activities,
@@ -9602,7 +9601,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "mobile_phone_off" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📴",
         description: "mobile phone off",
         category: Symbols,
@@ -9611,7 +9610,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "moldova" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇩",
         description: "flag: Moldova",
         category: Flags,
@@ -9620,7 +9619,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "monaco" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇨",
         description: "flag: Monaco",
         category: Flags,
@@ -9629,7 +9628,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "money_mouth_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤑",
         description: "money-mouth face",
         category: SmileysAndEmotion,
@@ -9638,7 +9637,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "money_with_wings" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💸",
         description: "money with wings",
         category: Objects,
@@ -9647,7 +9646,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "moneybag" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💰",
         description: "money bag",
         category: Objects,
@@ -9656,7 +9655,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mongolia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇳",
         description: "flag: Mongolia",
         category: Flags,
@@ -9665,7 +9664,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "monkey" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐒",
         description: "monkey",
         category: AnimalsAndNature,
@@ -9674,7 +9673,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "monkey_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐵",
         description: "monkey face",
         category: AnimalsAndNature,
@@ -9683,7 +9682,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "monocle_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧐",
         description: "face with monocle",
         category: SmileysAndEmotion,
@@ -9692,7 +9691,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "monorail" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚝",
         description: "monorail",
         category: TravelAndPlaces,
@@ -9701,7 +9700,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "montenegro" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇪",
         description: "flag: Montenegro",
         category: Flags,
@@ -9710,7 +9709,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "montserrat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇸",
         description: "flag: Montserrat",
         category: Flags,
@@ -9719,7 +9718,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "moon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌔",
         description: "waxing gibbous moon",
         category: TravelAndPlaces,
@@ -9728,7 +9727,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "moon_cake" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥮",
         description: "moon cake",
         category: FoodAndDrink,
@@ -9737,7 +9736,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "moose" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫎",
         description: "moose",
         category: AnimalsAndNature,
@@ -9746,7 +9745,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "morocco" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇦",
         description: "flag: Morocco",
         category: Flags,
@@ -9755,7 +9754,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mortar_board" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎓",
         description: "graduation cap",
         category: Objects,
@@ -9764,7 +9763,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mosque" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕌",
         description: "mosque",
         category: TravelAndPlaces,
@@ -9773,7 +9772,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "mosquito" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦟",
         description: "mosquito",
         category: AnimalsAndNature,
@@ -9782,7 +9781,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "motor_boat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛥️",
         description: "motor boat",
         category: TravelAndPlaces,
@@ -9791,7 +9790,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "motor_scooter" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛵",
         description: "motor scooter",
         category: TravelAndPlaces,
@@ -9800,7 +9799,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "motorcycle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏍️",
         description: "motorcycle",
         category: TravelAndPlaces,
@@ -9809,7 +9808,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "motorized_wheelchair" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦼",
         description: "motorized wheelchair",
         category: TravelAndPlaces,
@@ -9818,7 +9817,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "motorway" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛣️",
         description: "motorway",
         category: TravelAndPlaces,
@@ -9827,7 +9826,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "mount_fuji" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗻",
         description: "mount fuji",
         category: TravelAndPlaces,
@@ -9836,7 +9835,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mountain" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛰️",
         description: "mountain",
         category: TravelAndPlaces,
@@ -9845,7 +9844,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "mountain_bicyclist" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚵",
         description: "person mountain biking",
         category: PeopleAndBody,
@@ -9854,7 +9853,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mountain_biking_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚵‍♂️",
         description: "man mountain biking",
         category: PeopleAndBody,
@@ -9863,7 +9862,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "mountain_biking_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚵‍♀️",
         description: "woman mountain biking",
         category: PeopleAndBody,
@@ -9872,7 +9871,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mountain_cableway" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚠",
         description: "mountain cableway",
         category: TravelAndPlaces,
@@ -9881,7 +9880,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mountain_railway" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚞",
         description: "mountain railway",
         category: TravelAndPlaces,
@@ -9890,7 +9889,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mountain_snow" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏔️",
         description: "snow-capped mountain",
         category: TravelAndPlaces,
@@ -9899,7 +9898,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "mouse" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐭",
         description: "mouse face",
         category: AnimalsAndNature,
@@ -9908,7 +9907,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mouse2" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐁",
         description: "mouse",
         category: AnimalsAndNature,
@@ -9917,7 +9916,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mouse_trap" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪤",
         description: "mouse trap",
         category: Objects,
@@ -9926,7 +9925,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "movie_camera" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎥",
         description: "movie camera",
         category: Objects,
@@ -9935,7 +9934,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "moyai" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗿",
         description: "moai",
         category: Objects,
@@ -9944,7 +9943,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mozambique" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇿",
         description: "flag: Mozambique",
         category: Flags,
@@ -9953,7 +9952,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mrs_claus" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤶",
         description: "Mrs. Claus",
         category: PeopleAndBody,
@@ -9962,7 +9961,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "muscle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💪",
         description: "flexed biceps",
         category: PeopleAndBody,
@@ -9971,7 +9970,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mushroom" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍄",
         description: "mushroom",
         category: AnimalsAndNature,
@@ -9980,7 +9979,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "musical_keyboard" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎹",
         description: "musical keyboard",
         category: Objects,
@@ -9989,7 +9988,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "musical_note" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎵",
         description: "musical note",
         category: Objects,
@@ -9998,7 +9997,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "musical_score" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎼",
         description: "musical score",
         category: Objects,
@@ -10007,7 +10006,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mute" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔇",
         description: "muted speaker",
         category: Objects,
@@ -10016,7 +10015,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "mx_claus" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🎄",
         description: "mx claus",
         category: PeopleAndBody,
@@ -10025,7 +10024,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "myanmar" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇲",
         description: "flag: Myanmar (Burma)",
         category: Flags,
@@ -10034,7 +10033,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "nail_care" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💅",
         description: "nail polish",
         category: PeopleAndBody,
@@ -10043,7 +10042,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "name_badge" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📛",
         description: "name badge",
         category: Symbols,
@@ -10052,7 +10051,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "namibia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇳🇦",
         description: "flag: Namibia",
         category: Flags,
@@ -10061,7 +10060,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "national_park" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏞️",
         description: "national park",
         category: TravelAndPlaces,
@@ -10070,7 +10069,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "nauru" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇳🇷",
         description: "flag: Nauru",
         category: Flags,
@@ -10079,7 +10078,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "nauseated_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤢",
         description: "nauseated face",
         category: SmileysAndEmotion,
@@ -10088,7 +10087,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "nazar_amulet" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧿",
         description: "nazar amulet",
         category: Objects,
@@ -10097,7 +10096,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "necktie" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👔",
         description: "necktie",
         category: Objects,
@@ -10106,7 +10105,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "negative_squared_cross_mark" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "❎",
         description: "cross mark button",
         category: Symbols,
@@ -10115,7 +10114,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "nepal" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇳🇵",
         description: "flag: Nepal",
         category: Flags,
@@ -10124,7 +10123,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "nerd_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤓",
         description: "nerd face",
         category: SmileysAndEmotion,
@@ -10133,7 +10132,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "nest_with_eggs" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪺",
         description: "nest with eggs",
         category: AnimalsAndNature,
@@ -10142,7 +10141,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "nesting_dolls" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪆",
         description: "nesting dolls",
         category: Activities,
@@ -10151,7 +10150,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "netherlands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇳🇱",
         description: "flag: Netherlands",
         category: Flags,
@@ -10160,7 +10159,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "neutral_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😐",
         description: "neutral face",
         category: SmileysAndEmotion,
@@ -10169,7 +10168,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "new" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🆕",
         description: "NEW button",
         category: Symbols,
@@ -10178,7 +10177,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "new_caledonia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇳🇨",
         description: "flag: New Caledonia",
         category: Flags,
@@ -10187,7 +10186,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "new_moon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌑",
         description: "new moon",
         category: TravelAndPlaces,
@@ -10196,7 +10195,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "new_moon_with_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌚",
         description: "new moon face",
         category: TravelAndPlaces,
@@ -10205,7 +10204,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "new_zealand" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇳🇿",
         description: "flag: New Zealand",
         category: Flags,
@@ -10214,7 +10213,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "newspaper" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📰",
         description: "newspaper",
         category: Objects,
@@ -10223,7 +10222,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "newspaper_roll" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗞️",
         description: "rolled-up newspaper",
         category: Objects,
@@ -10232,7 +10231,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "next_track_button" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⏭️",
         description: "next track button",
         category: Symbols,
@@ -10241,7 +10240,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ng" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🆖",
         description: "NG button",
         category: Symbols,
@@ -10250,7 +10249,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ng_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙅‍♂️",
         description: "man gesturing NO",
         category: PeopleAndBody,
@@ -10259,7 +10258,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ng_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙅‍♀️",
         description: "woman gesturing NO",
         category: PeopleAndBody,
@@ -10268,7 +10267,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "nicaragua" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇳🇮",
         description: "flag: Nicaragua",
         category: Flags,
@@ -10277,7 +10276,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "niger" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇳🇪",
         description: "flag: Niger",
         category: Flags,
@@ -10286,7 +10285,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "nigeria" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇳🇬",
         description: "flag: Nigeria",
         category: Flags,
@@ -10295,7 +10294,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "night_with_stars" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌃",
         description: "night with stars",
         category: TravelAndPlaces,
@@ -10304,7 +10303,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "nine" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "9️⃣",
         description: "keycap: 9",
         category: Symbols,
@@ -10313,7 +10312,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "ninja" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥷",
         description: "ninja",
         category: PeopleAndBody,
@@ -10322,7 +10321,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "niue" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇳🇺",
         description: "flag: Niue",
         category: Flags,
@@ -10331,7 +10330,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "no_bell" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔕",
         description: "bell with slash",
         category: Objects,
@@ -10340,7 +10339,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "no_bicycles" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚳",
         description: "no bicycles",
         category: Symbols,
@@ -10349,7 +10348,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "no_entry" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛔",
         description: "no entry",
         category: Symbols,
@@ -10358,7 +10357,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "no_entry_sign" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚫",
         description: "prohibited",
         category: Symbols,
@@ -10367,7 +10366,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "no_good" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙅",
         description: "person gesturing NO",
         category: PeopleAndBody,
@@ -10376,7 +10375,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "no_good_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙅‍♂️",
         description: "man gesturing NO",
         category: PeopleAndBody,
@@ -10385,7 +10384,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "no_good_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙅‍♀️",
         description: "woman gesturing NO",
         category: PeopleAndBody,
@@ -10394,7 +10393,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "no_mobile_phones" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📵",
         description: "no mobile phones",
         category: Symbols,
@@ -10403,7 +10402,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "no_mouth" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😶",
         description: "face without mouth",
         category: SmileysAndEmotion,
@@ -10412,7 +10411,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "no_pedestrians" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚷",
         description: "no pedestrians",
         category: Symbols,
@@ -10421,7 +10420,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "no_smoking" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚭",
         description: "no smoking",
         category: Symbols,
@@ -10430,7 +10429,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "non-potable_water" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚱",
         description: "non-potable water",
         category: Symbols,
@@ -10439,7 +10438,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "norfolk_island" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇳🇫",
         description: "flag: Norfolk Island",
         category: Flags,
@@ -10448,7 +10447,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "north_korea" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇰🇵",
         description: "flag: North Korea",
         category: Flags,
@@ -10457,7 +10456,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "northern_mariana_islands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇵",
         description: "flag: Northern Mariana Islands",
         category: Flags,
@@ -10466,7 +10465,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "norway" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇳🇴",
         description: "flag: Norway",
         category: Flags,
@@ -10475,7 +10474,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "nose" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👃",
         description: "nose",
         category: PeopleAndBody,
@@ -10484,7 +10483,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "notebook" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📓",
         description: "notebook",
         category: Objects,
@@ -10493,7 +10492,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "notebook_with_decorative_cover" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📔",
         description: "notebook with decorative cover",
         category: Objects,
@@ -10502,7 +10501,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "notes" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎶",
         description: "musical notes",
         category: Objects,
@@ -10511,7 +10510,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "nut_and_bolt" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔩",
         description: "nut and bolt",
         category: Objects,
@@ -10520,7 +10519,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "o" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⭕",
         description: "hollow red circle",
         category: Symbols,
@@ -10529,7 +10528,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "o2" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🅾️",
         description: "O button (blood type)",
         category: Symbols,
@@ -10538,7 +10537,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ocean" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌊",
         description: "water wave",
         category: TravelAndPlaces,
@@ -10547,7 +10546,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "octopus" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐙",
         description: "octopus",
         category: AnimalsAndNature,
@@ -10556,7 +10555,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "oden" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍢",
         description: "oden",
         category: FoodAndDrink,
@@ -10565,7 +10564,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "office" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏢",
         description: "office building",
         category: TravelAndPlaces,
@@ -10574,7 +10573,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "office_worker" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍💼",
         description: "office worker",
         category: PeopleAndBody,
@@ -10583,7 +10582,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "oil_drum" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛢️",
         description: "oil drum",
         category: TravelAndPlaces,
@@ -10592,7 +10591,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "ok" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🆗",
         description: "OK button",
         category: Symbols,
@@ -10601,7 +10600,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ok_hand" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👌",
         description: "OK hand",
         category: PeopleAndBody,
@@ -10610,7 +10609,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ok_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙆‍♂️",
         description: "man gesturing OK",
         category: PeopleAndBody,
@@ -10619,7 +10618,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ok_person" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙆",
         description: "person gesturing OK",
         category: PeopleAndBody,
@@ -10628,7 +10627,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ok_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙆‍♀️",
         description: "woman gesturing OK",
         category: PeopleAndBody,
@@ -10637,7 +10636,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "old_key" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗝️",
         description: "old key",
         category: Objects,
@@ -10646,7 +10645,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "older_adult" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧓",
         description: "older person",
         category: PeopleAndBody,
@@ -10655,7 +10654,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "older_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👴",
         description: "old man",
         category: PeopleAndBody,
@@ -10664,7 +10663,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "older_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👵",
         description: "old woman",
         category: PeopleAndBody,
@@ -10673,7 +10672,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "olive" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫒",
         description: "olive",
         category: FoodAndDrink,
@@ -10682,7 +10681,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "om" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕉️",
         description: "om",
         category: Symbols,
@@ -10691,7 +10690,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "oman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇴🇲",
         description: "flag: Oman",
         category: Flags,
@@ -10700,7 +10699,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "on" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔛",
         description: "ON! arrow",
         category: Symbols,
@@ -10709,7 +10708,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "oncoming_automobile" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚘",
         description: "oncoming automobile",
         category: TravelAndPlaces,
@@ -10718,7 +10717,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "oncoming_bus" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚍",
         description: "oncoming bus",
         category: TravelAndPlaces,
@@ -10727,7 +10726,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "oncoming_police_car" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚔",
         description: "oncoming police car",
         category: TravelAndPlaces,
@@ -10736,7 +10735,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "oncoming_taxi" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚖",
         description: "oncoming taxi",
         category: TravelAndPlaces,
@@ -10745,7 +10744,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "one" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "1️⃣",
         description: "keycap: 1",
         category: Symbols,
@@ -10754,7 +10753,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "one_piece_swimsuit" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🩱",
         description: "one-piece swimsuit",
         category: Objects,
@@ -10763,7 +10762,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "onion" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧅",
         description: "onion",
         category: FoodAndDrink,
@@ -10772,7 +10771,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "open_book" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📖",
         description: "open book",
         category: Objects,
@@ -10781,7 +10780,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "open_file_folder" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📂",
         description: "open file folder",
         category: Objects,
@@ -10790,7 +10789,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "open_hands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👐",
         description: "open hands",
         category: PeopleAndBody,
@@ -10799,7 +10798,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "open_mouth" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😮",
         description: "face with open mouth",
         category: SmileysAndEmotion,
@@ -10808,7 +10807,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 1),
       ))
     "open_umbrella" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☂️",
         description: "umbrella",
         category: TravelAndPlaces,
@@ -10817,7 +10816,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "ophiuchus" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛎",
         description: "Ophiuchus",
         category: Symbols,
@@ -10826,7 +10825,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "orange" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍊",
         description: "tangerine",
         category: FoodAndDrink,
@@ -10835,7 +10834,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "orange_book" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📙",
         description: "orange book",
         category: Objects,
@@ -10844,7 +10843,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "orange_circle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🟠",
         description: "orange circle",
         category: Symbols,
@@ -10853,7 +10852,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "orange_heart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧡",
         description: "orange heart",
         category: SmileysAndEmotion,
@@ -10862,7 +10861,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "orange_square" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🟧",
         description: "orange square",
         category: Symbols,
@@ -10871,7 +10870,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "orangutan" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦧",
         description: "orangutan",
         category: AnimalsAndNature,
@@ -10880,7 +10879,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "orthodox_cross" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☦️",
         description: "orthodox cross",
         category: Symbols,
@@ -10889,7 +10888,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "otter" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦦",
         description: "otter",
         category: AnimalsAndNature,
@@ -10898,7 +10897,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "outbox_tray" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📤",
         description: "outbox tray",
         category: Objects,
@@ -10907,7 +10906,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "owl" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦉",
         description: "owl",
         category: AnimalsAndNature,
@@ -10916,7 +10915,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "ox" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐂",
         description: "ox",
         category: AnimalsAndNature,
@@ -10925,7 +10924,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "oyster" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦪",
         description: "oyster",
         category: FoodAndDrink,
@@ -10934,7 +10933,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "package" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📦",
         description: "package",
         category: Objects,
@@ -10943,7 +10942,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "page_facing_up" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📄",
         description: "page facing up",
         category: Objects,
@@ -10952,7 +10951,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "page_with_curl" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📃",
         description: "page with curl",
         category: Objects,
@@ -10961,7 +10960,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "pager" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📟",
         description: "pager",
         category: Objects,
@@ -10970,7 +10969,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "paintbrush" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🖌️",
         description: "paintbrush",
         category: Objects,
@@ -10979,7 +10978,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "pakistan" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇵🇰",
         description: "flag: Pakistan",
         category: Flags,
@@ -10988,7 +10987,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "palau" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇵🇼",
         description: "flag: Palau",
         category: Flags,
@@ -10997,7 +10996,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "palestinian_territories" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇵🇸",
         description: "flag: Palestinian Territories",
         category: Flags,
@@ -11006,7 +11005,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "palm_down_hand" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫳",
         description: "palm down hand",
         category: PeopleAndBody,
@@ -11015,7 +11014,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "palm_tree" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌴",
         description: "palm tree",
         category: AnimalsAndNature,
@@ -11024,7 +11023,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "palm_up_hand" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫴",
         description: "palm up hand",
         category: PeopleAndBody,
@@ -11033,7 +11032,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "palms_up_together" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤲",
         description: "palms up together",
         category: PeopleAndBody,
@@ -11042,7 +11041,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "panama" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇵🇦",
         description: "flag: Panama",
         category: Flags,
@@ -11051,7 +11050,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "pancakes" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥞",
         description: "pancakes",
         category: FoodAndDrink,
@@ -11060,7 +11059,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "panda_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐼",
         description: "panda",
         category: AnimalsAndNature,
@@ -11069,7 +11068,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "paperclip" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📎",
         description: "paperclip",
         category: Objects,
@@ -11078,7 +11077,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "paperclips" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🖇️",
         description: "linked paperclips",
         category: Objects,
@@ -11087,7 +11086,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "papua_new_guinea" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇵🇬",
         description: "flag: Papua New Guinea",
         category: Flags,
@@ -11096,7 +11095,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "parachute" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪂",
         description: "parachute",
         category: TravelAndPlaces,
@@ -11105,7 +11104,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "paraguay" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇵🇾",
         description: "flag: Paraguay",
         category: Flags,
@@ -11114,7 +11113,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "parasol_on_ground" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛱️",
         description: "umbrella on ground",
         category: TravelAndPlaces,
@@ -11123,7 +11122,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "parking" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🅿️",
         description: "P button",
         category: Symbols,
@@ -11132,7 +11131,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "parrot" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦜",
         description: "parrot",
         category: AnimalsAndNature,
@@ -11141,7 +11140,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "part_alternation_mark" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "〽️",
         description: "part alternation mark",
         category: Symbols,
@@ -11150,7 +11149,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 3, minor: 2),
       ))
     "partly_sunny" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛅",
         description: "sun behind cloud",
         category: TravelAndPlaces,
@@ -11159,7 +11158,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "partying_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥳",
         description: "partying face",
         category: SmileysAndEmotion,
@@ -11168,7 +11167,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "passenger_ship" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛳️",
         description: "passenger ship",
         category: TravelAndPlaces,
@@ -11177,7 +11176,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "passport_control" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛂",
         description: "passport control",
         category: Symbols,
@@ -11186,7 +11185,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "pause_button" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⏸️",
         description: "pause button",
         category: Symbols,
@@ -11195,7 +11194,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "paw_prints" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐾",
         description: "paw prints",
         category: AnimalsAndNature,
@@ -11204,7 +11203,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "pea_pod" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫛",
         description: "pea pod",
         category: FoodAndDrink,
@@ -11213,7 +11212,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "peace_symbol" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☮️",
         description: "peace symbol",
         category: Symbols,
@@ -11222,7 +11221,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "peach" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍑",
         description: "peach",
         category: FoodAndDrink,
@@ -11231,7 +11230,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "peacock" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦚",
         description: "peacock",
         category: AnimalsAndNature,
@@ -11240,7 +11239,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "peanuts" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥜",
         description: "peanuts",
         category: FoodAndDrink,
@@ -11249,7 +11248,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "pear" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍐",
         description: "pear",
         category: FoodAndDrink,
@@ -11258,7 +11257,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "pen" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🖊️",
         description: "pen",
         category: Objects,
@@ -11267,7 +11266,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "pencil" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📝",
         description: "memo",
         category: Objects,
@@ -11276,7 +11275,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "pencil2" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "✏️",
         description: "pencil",
         category: Objects,
@@ -11285,7 +11284,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "penguin" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐧",
         description: "penguin",
         category: AnimalsAndNature,
@@ -11294,7 +11293,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "pensive" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😔",
         description: "pensive face",
         category: SmileysAndEmotion,
@@ -11303,7 +11302,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "people_holding_hands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🤝‍🧑",
         description: "people holding hands",
         category: PeopleAndBody,
@@ -11312,7 +11311,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "people_hugging" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫂",
         description: "people hugging",
         category: PeopleAndBody,
@@ -11321,7 +11320,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "performing_arts" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎭",
         description: "performing arts",
         category: Activities,
@@ -11330,7 +11329,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "persevere" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😣",
         description: "persevering face",
         category: SmileysAndEmotion,
@@ -11339,7 +11338,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "person_bald" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🦲",
         description: "person: bald",
         category: PeopleAndBody,
@@ -11348,7 +11347,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "person_curly_hair" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🦱",
         description: "person: curly hair",
         category: PeopleAndBody,
@@ -11357,7 +11356,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "person_feeding_baby" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🍼",
         description: "person feeding baby",
         category: PeopleAndBody,
@@ -11366,7 +11365,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "person_fencing" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤺",
         description: "person fencing",
         category: PeopleAndBody,
@@ -11375,7 +11374,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "person_in_manual_wheelchair" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🦽",
         description: "person in manual wheelchair",
         category: PeopleAndBody,
@@ -11384,7 +11383,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "person_in_motorized_wheelchair" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🦼",
         description: "person in motorized wheelchair",
         category: PeopleAndBody,
@@ -11393,7 +11392,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "person_in_tuxedo" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤵",
         description: "person in tuxedo",
         category: PeopleAndBody,
@@ -11402,7 +11401,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "person_red_hair" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🦰",
         description: "person: red hair",
         category: PeopleAndBody,
@@ -11411,7 +11410,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "person_white_hair" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🦳",
         description: "person: white hair",
         category: PeopleAndBody,
@@ -11420,7 +11419,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "person_with_crown" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫅",
         description: "person with crown",
         category: PeopleAndBody,
@@ -11429,7 +11428,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "person_with_probing_cane" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🦯",
         description: "person with white cane",
         category: PeopleAndBody,
@@ -11438,7 +11437,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "person_with_turban" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👳",
         description: "person wearing turban",
         category: PeopleAndBody,
@@ -11447,7 +11446,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "person_with_veil" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👰",
         description: "person with veil",
         category: PeopleAndBody,
@@ -11456,7 +11455,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "peru" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇵🇪",
         description: "flag: Peru",
         category: Flags,
@@ -11465,7 +11464,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "petri_dish" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧫",
         description: "petri dish",
         category: Objects,
@@ -11474,7 +11473,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "philippines" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇵🇭",
         description: "flag: Philippines",
         category: Flags,
@@ -11483,7 +11482,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "phone" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☎️",
         description: "telephone",
         category: Objects,
@@ -11492,7 +11491,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "pick" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛏️",
         description: "pick",
         category: Objects,
@@ -11501,7 +11500,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "pickup_truck" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛻",
         description: "pickup truck",
         category: TravelAndPlaces,
@@ -11510,7 +11509,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "pie" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥧",
         description: "pie",
         category: FoodAndDrink,
@@ -11519,7 +11518,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "pig" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐷",
         description: "pig face",
         category: AnimalsAndNature,
@@ -11528,7 +11527,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "pig2" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐖",
         description: "pig",
         category: AnimalsAndNature,
@@ -11537,7 +11536,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "pig_nose" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐽",
         description: "pig nose",
         category: AnimalsAndNature,
@@ -11546,7 +11545,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "pill" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💊",
         description: "pill",
         category: Objects,
@@ -11555,7 +11554,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "pilot" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍✈️",
         description: "pilot",
         category: PeopleAndBody,
@@ -11564,7 +11563,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "pinata" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪅",
         description: "piñata",
         category: Activities,
@@ -11573,7 +11572,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "pinched_fingers" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤌",
         description: "pinched fingers",
         category: PeopleAndBody,
@@ -11582,7 +11581,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "pinching_hand" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤏",
         description: "pinching hand",
         category: PeopleAndBody,
@@ -11591,7 +11590,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "pineapple" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍍",
         description: "pineapple",
         category: FoodAndDrink,
@@ -11600,7 +11599,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ping_pong" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏓",
         description: "ping pong",
         category: Activities,
@@ -11609,7 +11608,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "pink_heart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🩷",
         description: "pink heart",
         category: SmileysAndEmotion,
@@ -11618,7 +11617,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "pirate_flag" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏴‍☠️",
         description: "pirate flag",
         category: Flags,
@@ -11627,7 +11626,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "pisces" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♓",
         description: "Pisces",
         category: Symbols,
@@ -11636,7 +11635,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "pitcairn_islands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇵🇳",
         description: "flag: Pitcairn Islands",
         category: Flags,
@@ -11645,7 +11644,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "pizza" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍕",
         description: "pizza",
         category: FoodAndDrink,
@@ -11654,7 +11653,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "placard" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪧",
         description: "placard",
         category: Objects,
@@ -11663,7 +11662,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "place_of_worship" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛐",
         description: "place of worship",
         category: Symbols,
@@ -11672,7 +11671,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "plate_with_cutlery" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍽️",
         description: "fork and knife with plate",
         category: FoodAndDrink,
@@ -11681,7 +11680,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "play_or_pause_button" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⏯️",
         description: "play or pause button",
         category: Symbols,
@@ -11690,7 +11689,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "playground_slide" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛝",
         description: "playground slide",
         category: TravelAndPlaces,
@@ -11699,7 +11698,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "pleading_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥺",
         description: "pleading face",
         category: SmileysAndEmotion,
@@ -11708,7 +11707,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "plunger" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪠",
         description: "plunger",
         category: Objects,
@@ -11717,7 +11716,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "point_down" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👇",
         description: "backhand index pointing down",
         category: PeopleAndBody,
@@ -11726,7 +11725,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "point_left" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👈",
         description: "backhand index pointing left",
         category: PeopleAndBody,
@@ -11735,7 +11734,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "point_right" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👉",
         description: "backhand index pointing right",
         category: PeopleAndBody,
@@ -11744,7 +11743,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "point_up" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☝️",
         description: "index pointing up",
         category: PeopleAndBody,
@@ -11753,7 +11752,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "point_up_2" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👆",
         description: "backhand index pointing up",
         category: PeopleAndBody,
@@ -11762,7 +11761,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "poland" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇵🇱",
         description: "flag: Poland",
         category: Flags,
@@ -11771,7 +11770,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "polar_bear" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐻‍❄️",
         description: "polar bear",
         category: AnimalsAndNature,
@@ -11780,7 +11779,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "police_car" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚓",
         description: "police car",
         category: TravelAndPlaces,
@@ -11789,7 +11788,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "police_officer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👮",
         description: "police officer",
         category: PeopleAndBody,
@@ -11798,7 +11797,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "policeman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👮‍♂️",
         description: "man police officer",
         category: PeopleAndBody,
@@ -11807,7 +11806,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "policewoman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👮‍♀️",
         description: "woman police officer",
         category: PeopleAndBody,
@@ -11816,7 +11815,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "poodle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐩",
         description: "poodle",
         category: AnimalsAndNature,
@@ -11825,7 +11824,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "poop" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💩",
         description: "pile of poo",
         category: SmileysAndEmotion,
@@ -11834,7 +11833,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "popcorn" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍿",
         description: "popcorn",
         category: FoodAndDrink,
@@ -11843,7 +11842,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "portugal" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇵🇹",
         description: "flag: Portugal",
         category: Flags,
@@ -11852,7 +11851,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "post_office" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏣",
         description: "Japanese post office",
         category: TravelAndPlaces,
@@ -11861,7 +11860,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "postal_horn" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📯",
         description: "postal horn",
         category: Objects,
@@ -11870,7 +11869,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "postbox" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📮",
         description: "postbox",
         category: Objects,
@@ -11879,7 +11878,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "potable_water" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚰",
         description: "potable water",
         category: Symbols,
@@ -11888,7 +11887,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "potato" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥔",
         description: "potato",
         category: FoodAndDrink,
@@ -11897,7 +11896,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "potted_plant" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪴",
         description: "potted plant",
         category: AnimalsAndNature,
@@ -11906,7 +11905,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "pouch" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👝",
         description: "clutch bag",
         category: Objects,
@@ -11915,7 +11914,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "poultry_leg" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍗",
         description: "poultry leg",
         category: FoodAndDrink,
@@ -11924,7 +11923,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "pound" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💷",
         description: "pound banknote",
         category: Objects,
@@ -11933,7 +11932,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "pouring_liquid" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫗",
         description: "pouring liquid",
         category: FoodAndDrink,
@@ -11942,7 +11941,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "pout" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😡",
         description: "enraged face",
         category: SmileysAndEmotion,
@@ -11951,7 +11950,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "pouting_cat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😾",
         description: "pouting cat",
         category: SmileysAndEmotion,
@@ -11960,7 +11959,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "pouting_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙎",
         description: "person pouting",
         category: PeopleAndBody,
@@ -11969,7 +11968,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "pouting_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙎‍♂️",
         description: "man pouting",
         category: PeopleAndBody,
@@ -11978,7 +11977,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "pouting_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙎‍♀️",
         description: "woman pouting",
         category: PeopleAndBody,
@@ -11987,7 +11986,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "pray" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙏",
         description: "folded hands",
         category: PeopleAndBody,
@@ -11996,7 +11995,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "prayer_beads" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📿",
         description: "prayer beads",
         category: Objects,
@@ -12005,7 +12004,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "pregnant_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫃",
         description: "pregnant man",
         category: PeopleAndBody,
@@ -12014,7 +12013,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "pregnant_person" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫄",
         description: "pregnant person",
         category: PeopleAndBody,
@@ -12023,7 +12022,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "pregnant_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤰",
         description: "pregnant woman",
         category: PeopleAndBody,
@@ -12032,7 +12031,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "pretzel" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥨",
         description: "pretzel",
         category: FoodAndDrink,
@@ -12041,7 +12040,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "previous_track_button" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⏮️",
         description: "last track button",
         category: Symbols,
@@ -12050,7 +12049,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "prince" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤴",
         description: "prince",
         category: PeopleAndBody,
@@ -12059,7 +12058,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "princess" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👸",
         description: "princess",
         category: PeopleAndBody,
@@ -12068,7 +12067,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "printer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🖨️",
         description: "printer",
         category: Objects,
@@ -12077,7 +12076,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "probing_cane" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦯",
         description: "white cane",
         category: Objects,
@@ -12086,7 +12085,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "puerto_rico" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇵🇷",
         description: "flag: Puerto Rico",
         category: Flags,
@@ -12095,7 +12094,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "punch" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👊",
         description: "oncoming fist",
         category: PeopleAndBody,
@@ -12104,7 +12103,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "purple_circle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🟣",
         description: "purple circle",
         category: Symbols,
@@ -12113,7 +12112,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "purple_heart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💜",
         description: "purple heart",
         category: SmileysAndEmotion,
@@ -12122,7 +12121,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "purple_square" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🟪",
         description: "purple square",
         category: Symbols,
@@ -12131,7 +12130,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "purse" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👛",
         description: "purse",
         category: Objects,
@@ -12140,7 +12139,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "pushpin" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📌",
         description: "pushpin",
         category: Objects,
@@ -12149,7 +12148,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "put_litter_in_its_place" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚮",
         description: "litter in bin sign",
         category: Symbols,
@@ -12158,7 +12157,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "qatar" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇶🇦",
         description: "flag: Qatar",
         category: Flags,
@@ -12167,7 +12166,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "question" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "❓",
         description: "red question mark",
         category: Symbols,
@@ -12176,7 +12175,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "rabbit" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐰",
         description: "rabbit face",
         category: AnimalsAndNature,
@@ -12185,7 +12184,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "rabbit2" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐇",
         description: "rabbit",
         category: AnimalsAndNature,
@@ -12194,7 +12193,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "raccoon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦝",
         description: "raccoon",
         category: AnimalsAndNature,
@@ -12203,7 +12202,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "racehorse" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐎",
         description: "horse",
         category: AnimalsAndNature,
@@ -12212,7 +12211,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "racing_car" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏎️",
         description: "racing car",
         category: TravelAndPlaces,
@@ -12221,7 +12220,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "radio" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📻",
         description: "radio",
         category: Objects,
@@ -12230,7 +12229,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "radio_button" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔘",
         description: "radio button",
         category: Symbols,
@@ -12239,7 +12238,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "radioactive" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☢️",
         description: "radioactive",
         category: Symbols,
@@ -12248,7 +12247,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "rage" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😡",
         description: "enraged face",
         category: SmileysAndEmotion,
@@ -12257,7 +12256,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "railway_car" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚃",
         description: "railway car",
         category: TravelAndPlaces,
@@ -12266,7 +12265,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "railway_track" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛤️",
         description: "railway track",
         category: TravelAndPlaces,
@@ -12275,7 +12274,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "rainbow" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌈",
         description: "rainbow",
         category: TravelAndPlaces,
@@ -12284,7 +12283,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "rainbow_flag" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏳️‍🌈",
         description: "rainbow flag",
         category: Flags,
@@ -12293,7 +12292,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "raised_back_of_hand" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤚",
         description: "raised back of hand",
         category: PeopleAndBody,
@@ -12302,7 +12301,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "raised_eyebrow" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤨",
         description: "face with raised eyebrow",
         category: SmileysAndEmotion,
@@ -12311,7 +12310,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "raised_hand" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "✋",
         description: "raised hand",
         category: PeopleAndBody,
@@ -12320,7 +12319,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "raised_hand_with_fingers_splayed" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🖐️",
         description: "hand with fingers splayed",
         category: PeopleAndBody,
@@ -12329,7 +12328,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "raised_hands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙌",
         description: "raising hands",
         category: PeopleAndBody,
@@ -12338,7 +12337,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "raising_hand" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙋",
         description: "person raising hand",
         category: PeopleAndBody,
@@ -12347,7 +12346,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "raising_hand_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙋‍♂️",
         description: "man raising hand",
         category: PeopleAndBody,
@@ -12356,7 +12355,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "raising_hand_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙋‍♀️",
         description: "woman raising hand",
         category: PeopleAndBody,
@@ -12365,7 +12364,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "ram" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐏",
         description: "ram",
         category: AnimalsAndNature,
@@ -12374,7 +12373,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ramen" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍜",
         description: "steaming bowl",
         category: FoodAndDrink,
@@ -12383,7 +12382,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "rat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐀",
         description: "rat",
         category: AnimalsAndNature,
@@ -12392,7 +12391,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "razor" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪒",
         description: "razor",
         category: Objects,
@@ -12401,7 +12400,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "receipt" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧾",
         description: "receipt",
         category: Objects,
@@ -12410,7 +12409,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "record_button" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⏺️",
         description: "record button",
         category: Symbols,
@@ -12419,7 +12418,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "recycle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♻️",
         description: "recycling symbol",
         category: Symbols,
@@ -12428,7 +12427,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 3, minor: 2),
       ))
     "red_car" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚗",
         description: "automobile",
         category: TravelAndPlaces,
@@ -12437,7 +12436,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "red_circle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔴",
         description: "red circle",
         category: Symbols,
@@ -12446,7 +12445,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "red_envelope" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧧",
         description: "red envelope",
         category: Activities,
@@ -12455,7 +12454,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "red_haired_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍🦰",
         description: "man: red hair",
         category: PeopleAndBody,
@@ -12464,7 +12463,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "red_haired_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍🦰",
         description: "woman: red hair",
         category: PeopleAndBody,
@@ -12473,7 +12472,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "red_square" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🟥",
         description: "red square",
         category: Symbols,
@@ -12482,7 +12481,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "registered" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "®️",
         description: "registered",
         category: Symbols,
@@ -12491,7 +12490,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "relaxed" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☺️",
         description: "smiling face",
         category: SmileysAndEmotion,
@@ -12500,7 +12499,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "relieved" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😌",
         description: "relieved face",
         category: SmileysAndEmotion,
@@ -12509,7 +12508,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "reminder_ribbon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎗️",
         description: "reminder ribbon",
         category: Activities,
@@ -12518,7 +12517,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "repeat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔁",
         description: "repeat button",
         category: Symbols,
@@ -12527,7 +12526,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "repeat_one" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔂",
         description: "repeat single button",
         category: Symbols,
@@ -12536,7 +12535,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "rescue_worker_helmet" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛑️",
         description: "rescue worker’s helmet",
         category: Objects,
@@ -12545,7 +12544,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "restroom" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚻",
         description: "restroom",
         category: Symbols,
@@ -12554,7 +12553,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "reunion" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇷🇪",
         description: "flag: Réunion",
         category: Flags,
@@ -12563,7 +12562,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "revolving_hearts" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💞",
         description: "revolving hearts",
         category: SmileysAndEmotion,
@@ -12572,7 +12571,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "rewind" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⏪",
         description: "fast reverse button",
         category: Symbols,
@@ -12581,7 +12580,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "rhinoceros" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦏",
         description: "rhinoceros",
         category: AnimalsAndNature,
@@ -12590,7 +12589,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "ribbon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎀",
         description: "ribbon",
         category: Activities,
@@ -12599,7 +12598,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "rice" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍚",
         description: "cooked rice",
         category: FoodAndDrink,
@@ -12608,7 +12607,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "rice_ball" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍙",
         description: "rice ball",
         category: FoodAndDrink,
@@ -12617,7 +12616,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "rice_cracker" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍘",
         description: "rice cracker",
         category: FoodAndDrink,
@@ -12626,7 +12625,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "rice_scene" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎑",
         description: "moon viewing ceremony",
         category: Activities,
@@ -12635,7 +12634,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "right_anger_bubble" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗯️",
         description: "right anger bubble",
         category: SmileysAndEmotion,
@@ -12644,7 +12643,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "rightwards_hand" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫱",
         description: "rightwards hand",
         category: PeopleAndBody,
@@ -12653,7 +12652,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "rightwards_pushing_hand" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫸",
         description: "rightwards pushing hand",
         category: PeopleAndBody,
@@ -12662,7 +12661,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "ring" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💍",
         description: "ring",
         category: Objects,
@@ -12671,7 +12670,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ring_buoy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛟",
         description: "ring buoy",
         category: TravelAndPlaces,
@@ -12680,7 +12679,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "ringed_planet" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪐",
         description: "ringed planet",
         category: TravelAndPlaces,
@@ -12689,7 +12688,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "robot" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤖",
         description: "robot",
         category: SmileysAndEmotion,
@@ -12698,7 +12697,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "rock" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪨",
         description: "rock",
         category: TravelAndPlaces,
@@ -12707,7 +12706,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "rocket" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚀",
         description: "rocket",
         category: TravelAndPlaces,
@@ -12716,7 +12715,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "rofl" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤣",
         description: "rolling on the floor laughing",
         category: SmileysAndEmotion,
@@ -12725,7 +12724,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "roll_eyes" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙄",
         description: "face with rolling eyes",
         category: SmileysAndEmotion,
@@ -12734,7 +12733,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "roll_of_paper" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧻",
         description: "roll of paper",
         category: Objects,
@@ -12743,7 +12742,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "roller_coaster" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎢",
         description: "roller coaster",
         category: TravelAndPlaces,
@@ -12752,7 +12751,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "roller_skate" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛼",
         description: "roller skate",
         category: TravelAndPlaces,
@@ -12761,7 +12760,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "romania" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇷🇴",
         description: "flag: Romania",
         category: Flags,
@@ -12770,7 +12769,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "rooster" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐓",
         description: "rooster",
         category: AnimalsAndNature,
@@ -12779,7 +12778,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "rose" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌹",
         description: "rose",
         category: AnimalsAndNature,
@@ -12788,7 +12787,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "rosette" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏵️",
         description: "rosette",
         category: AnimalsAndNature,
@@ -12797,7 +12796,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "rotating_light" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚨",
         description: "police car light",
         category: TravelAndPlaces,
@@ -12806,7 +12805,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "round_pushpin" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📍",
         description: "round pushpin",
         category: Objects,
@@ -12815,7 +12814,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "rowboat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚣",
         description: "person rowing boat",
         category: PeopleAndBody,
@@ -12824,7 +12823,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "rowing_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚣‍♂️",
         description: "man rowing boat",
         category: PeopleAndBody,
@@ -12833,7 +12832,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "rowing_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚣‍♀️",
         description: "woman rowing boat",
         category: PeopleAndBody,
@@ -12842,7 +12841,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ru" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇷🇺",
         description: "flag: Russia",
         category: Flags,
@@ -12851,7 +12850,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "rugby_football" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏉",
         description: "rugby football",
         category: Activities,
@@ -12860,7 +12859,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "runner" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏃",
         description: "person running",
         category: PeopleAndBody,
@@ -12869,7 +12868,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "running" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏃",
         description: "person running",
         category: PeopleAndBody,
@@ -12878,7 +12877,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "running_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏃‍♂️",
         description: "man running",
         category: PeopleAndBody,
@@ -12887,7 +12886,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "running_shirt_with_sash" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎽",
         description: "running shirt",
         category: Activities,
@@ -12896,7 +12895,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "running_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏃‍♀️",
         description: "woman running",
         category: PeopleAndBody,
@@ -12905,7 +12904,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "rwanda" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇷🇼",
         description: "flag: Rwanda",
         category: Flags,
@@ -12914,7 +12913,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sa" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🈂️",
         description: "Japanese “service charge” button",
         category: Symbols,
@@ -12923,7 +12922,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "safety_pin" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧷",
         description: "safety pin",
         category: Objects,
@@ -12932,7 +12931,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "safety_vest" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦺",
         description: "safety vest",
         category: Objects,
@@ -12941,7 +12940,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "sagittarius" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♐",
         description: "Sagittarius",
         category: Symbols,
@@ -12950,7 +12949,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "sailboat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛵",
         description: "sailboat",
         category: TravelAndPlaces,
@@ -12959,7 +12958,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "sake" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍶",
         description: "sake",
         category: FoodAndDrink,
@@ -12968,7 +12967,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "salt" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧂",
         description: "salt",
         category: FoodAndDrink,
@@ -12977,7 +12976,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "saluting_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫡",
         description: "saluting face",
         category: SmileysAndEmotion,
@@ -12986,7 +12985,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "samoa" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇼🇸",
         description: "flag: Samoa",
         category: Flags,
@@ -12995,7 +12994,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "san_marino" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇲",
         description: "flag: San Marino",
         category: Flags,
@@ -13004,7 +13003,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sandal" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👡",
         description: "woman’s sandal",
         category: Objects,
@@ -13013,7 +13012,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sandwich" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥪",
         description: "sandwich",
         category: FoodAndDrink,
@@ -13022,7 +13021,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "santa" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎅",
         description: "Santa Claus",
         category: PeopleAndBody,
@@ -13031,7 +13030,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sao_tome_principe" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇹",
         description: "flag: São Tomé & Príncipe",
         category: Flags,
@@ -13040,7 +13039,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sari" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥻",
         description: "sari",
         category: Objects,
@@ -13049,7 +13048,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "sassy_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💁‍♂️",
         description: "man tipping hand",
         category: PeopleAndBody,
@@ -13058,7 +13057,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sassy_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💁‍♀️",
         description: "woman tipping hand",
         category: PeopleAndBody,
@@ -13067,7 +13066,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "satellite" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📡",
         description: "satellite antenna",
         category: Objects,
@@ -13076,7 +13075,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "satisfied" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😆",
         description: "grinning squinting face",
         category: SmileysAndEmotion,
@@ -13085,7 +13084,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "saudi_arabia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇦",
         description: "flag: Saudi Arabia",
         category: Flags,
@@ -13094,7 +13093,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sauna_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧖‍♂️",
         description: "man in steamy room",
         category: PeopleAndBody,
@@ -13103,7 +13102,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "sauna_person" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧖",
         description: "person in steamy room",
         category: PeopleAndBody,
@@ -13112,7 +13111,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "sauna_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧖‍♀️",
         description: "woman in steamy room",
         category: PeopleAndBody,
@@ -13121,7 +13120,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "sauropod" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦕",
         description: "sauropod",
         category: AnimalsAndNature,
@@ -13130,7 +13129,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "saxophone" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎷",
         description: "saxophone",
         category: Objects,
@@ -13139,7 +13138,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "scarf" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧣",
         description: "scarf",
         category: Objects,
@@ -13148,7 +13147,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "school" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏫",
         description: "school",
         category: TravelAndPlaces,
@@ -13157,7 +13156,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "school_satchel" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎒",
         description: "backpack",
         category: Objects,
@@ -13166,7 +13165,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "scientist" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🔬",
         description: "scientist",
         category: PeopleAndBody,
@@ -13175,7 +13174,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "scissors" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "✂️",
         description: "scissors",
         category: Objects,
@@ -13184,7 +13183,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "scorpion" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦂",
         description: "scorpion",
         category: AnimalsAndNature,
@@ -13193,7 +13192,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "scorpius" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♏",
         description: "Scorpio",
         category: Symbols,
@@ -13202,7 +13201,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "scotland" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
         description: "flag: Scotland",
         category: Flags,
@@ -13211,7 +13210,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "scream" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😱",
         description: "face screaming in fear",
         category: SmileysAndEmotion,
@@ -13220,7 +13219,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "scream_cat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙀",
         description: "weary cat",
         category: SmileysAndEmotion,
@@ -13229,7 +13228,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "screwdriver" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪛",
         description: "screwdriver",
         category: Objects,
@@ -13238,7 +13237,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "scroll" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📜",
         description: "scroll",
         category: Objects,
@@ -13247,7 +13246,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "seal" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦭",
         description: "seal",
         category: AnimalsAndNature,
@@ -13256,7 +13255,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "seat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💺",
         description: "seat",
         category: TravelAndPlaces,
@@ -13265,7 +13264,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "secret" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "㊙️",
         description: "Japanese “secret” button",
         category: Symbols,
@@ -13274,7 +13273,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "see_no_evil" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙈",
         description: "see-no-evil monkey",
         category: SmileysAndEmotion,
@@ -13283,7 +13282,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "seedling" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌱",
         description: "seedling",
         category: AnimalsAndNature,
@@ -13292,7 +13291,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "selfie" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤳",
         description: "selfie",
         category: PeopleAndBody,
@@ -13301,7 +13300,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "senegal" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇳",
         description: "flag: Senegal",
         category: Flags,
@@ -13310,7 +13309,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "serbia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇷🇸",
         description: "flag: Serbia",
         category: Flags,
@@ -13319,7 +13318,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "service_dog" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐕‍🦺",
         description: "service dog",
         category: AnimalsAndNature,
@@ -13328,7 +13327,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "seven" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "7️⃣",
         description: "keycap: 7",
         category: Symbols,
@@ -13337,7 +13336,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "sewing_needle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪡",
         description: "sewing needle",
         category: Activities,
@@ -13346,7 +13345,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "seychelles" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇨",
         description: "flag: Seychelles",
         category: Flags,
@@ -13355,7 +13354,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "shaking_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫨",
         description: "shaking face",
         category: SmileysAndEmotion,
@@ -13364,7 +13363,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "shallow_pan_of_food" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥘",
         description: "shallow pan of food",
         category: FoodAndDrink,
@@ -13373,7 +13372,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "shamrock" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☘️",
         description: "shamrock",
         category: AnimalsAndNature,
@@ -13382,7 +13381,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 1),
       ))
     "shark" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦈",
         description: "shark",
         category: AnimalsAndNature,
@@ -13391,7 +13390,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "shaved_ice" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍧",
         description: "shaved ice",
         category: FoodAndDrink,
@@ -13400,7 +13399,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sheep" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐑",
         description: "ewe",
         category: AnimalsAndNature,
@@ -13409,7 +13408,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "shell" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐚",
         description: "spiral shell",
         category: AnimalsAndNature,
@@ -13418,7 +13417,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "shield" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛡️",
         description: "shield",
         category: Objects,
@@ -13427,7 +13426,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "shinto_shrine" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛩️",
         description: "shinto shrine",
         category: TravelAndPlaces,
@@ -13436,7 +13435,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "ship" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚢",
         description: "ship",
         category: TravelAndPlaces,
@@ -13445,7 +13444,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "shirt" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👕",
         description: "t-shirt",
         category: Objects,
@@ -13454,7 +13453,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "shit" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💩",
         description: "pile of poo",
         category: SmileysAndEmotion,
@@ -13463,7 +13462,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "shoe" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👞",
         description: "man’s shoe",
         category: Objects,
@@ -13472,7 +13471,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "shopping" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛍️",
         description: "shopping bags",
         category: Objects,
@@ -13481,7 +13480,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "shopping_cart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛒",
         description: "shopping cart",
         category: Objects,
@@ -13490,7 +13489,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "shorts" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🩳",
         description: "shorts",
         category: Objects,
@@ -13499,7 +13498,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "shower" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚿",
         description: "shower",
         category: Objects,
@@ -13508,7 +13507,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "shrimp" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦐",
         description: "shrimp",
         category: FoodAndDrink,
@@ -13517,7 +13516,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "shrug" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤷",
         description: "person shrugging",
         category: PeopleAndBody,
@@ -13526,7 +13525,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "shushing_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤫",
         description: "shushing face",
         category: SmileysAndEmotion,
@@ -13535,7 +13534,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "sierra_leone" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇱",
         description: "flag: Sierra Leone",
         category: Flags,
@@ -13544,7 +13543,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "signal_strength" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📶",
         description: "antenna bars",
         category: Symbols,
@@ -13553,7 +13552,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "singapore" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇬",
         description: "flag: Singapore",
         category: Flags,
@@ -13562,7 +13561,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "singer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🎤",
         description: "singer",
         category: PeopleAndBody,
@@ -13571,7 +13570,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "sint_maarten" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇽",
         description: "flag: Sint Maarten",
         category: Flags,
@@ -13580,7 +13579,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "six" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "6️⃣",
         description: "keycap: 6",
         category: Symbols,
@@ -13589,7 +13588,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "six_pointed_star" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔯",
         description: "dotted six-pointed star",
         category: Symbols,
@@ -13598,7 +13597,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "skateboard" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛹",
         description: "skateboard",
         category: TravelAndPlaces,
@@ -13607,7 +13606,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "ski" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎿",
         description: "skis",
         category: Activities,
@@ -13616,7 +13615,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "skier" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛷️",
         description: "skier",
         category: PeopleAndBody,
@@ -13625,7 +13624,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "skull" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💀",
         description: "skull",
         category: SmileysAndEmotion,
@@ -13634,7 +13633,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "skull_and_crossbones" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☠️",
         description: "skull and crossbones",
         category: SmileysAndEmotion,
@@ -13643,7 +13642,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "skunk" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦨",
         description: "skunk",
         category: AnimalsAndNature,
@@ -13652,7 +13651,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "sled" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛷",
         description: "sled",
         category: Activities,
@@ -13661,7 +13660,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "sleeping" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😴",
         description: "sleeping face",
         category: SmileysAndEmotion,
@@ -13670,7 +13669,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 1),
       ))
     "sleeping_bed" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛌",
         description: "person in bed",
         category: PeopleAndBody,
@@ -13679,7 +13678,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "sleepy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😪",
         description: "sleepy face",
         category: SmileysAndEmotion,
@@ -13688,7 +13687,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "slightly_frowning_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙁",
         description: "slightly frowning face",
         category: SmileysAndEmotion,
@@ -13697,7 +13696,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "slightly_smiling_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙂",
         description: "slightly smiling face",
         category: SmileysAndEmotion,
@@ -13706,7 +13705,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "slot_machine" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎰",
         description: "slot machine",
         category: Activities,
@@ -13715,7 +13714,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sloth" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦥",
         description: "sloth",
         category: AnimalsAndNature,
@@ -13724,7 +13723,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "slovakia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇰",
         description: "flag: Slovakia",
         category: Flags,
@@ -13733,7 +13732,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "slovenia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇮",
         description: "flag: Slovenia",
         category: Flags,
@@ -13742,7 +13741,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "small_airplane" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛩️",
         description: "small airplane",
         category: TravelAndPlaces,
@@ -13751,7 +13750,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "small_blue_diamond" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔹",
         description: "small blue diamond",
         category: Symbols,
@@ -13760,7 +13759,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "small_orange_diamond" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔸",
         description: "small orange diamond",
         category: Symbols,
@@ -13769,7 +13768,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "small_red_triangle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔺",
         description: "red triangle pointed up",
         category: Symbols,
@@ -13778,7 +13777,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "small_red_triangle_down" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔻",
         description: "red triangle pointed down",
         category: Symbols,
@@ -13787,7 +13786,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "smile" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😄",
         description: "grinning face with smiling eyes",
         category: SmileysAndEmotion,
@@ -13796,7 +13795,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "smile_cat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😸",
         description: "grinning cat with smiling eyes",
         category: SmileysAndEmotion,
@@ -13805,7 +13804,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "smiley" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😃",
         description: "grinning face with big eyes",
         category: SmileysAndEmotion,
@@ -13814,7 +13813,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "smiley_cat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😺",
         description: "grinning cat",
         category: SmileysAndEmotion,
@@ -13823,7 +13822,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "smiling_face_with_tear" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥲",
         description: "smiling face with tear",
         category: SmileysAndEmotion,
@@ -13832,7 +13831,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "smiling_face_with_three_hearts" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥰",
         description: "smiling face with hearts",
         category: SmileysAndEmotion,
@@ -13841,7 +13840,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "smiling_imp" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😈",
         description: "smiling face with horns",
         category: SmileysAndEmotion,
@@ -13850,7 +13849,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "smirk" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😏",
         description: "smirking face",
         category: SmileysAndEmotion,
@@ -13859,7 +13858,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "smirk_cat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😼",
         description: "cat with wry smile",
         category: SmileysAndEmotion,
@@ -13868,7 +13867,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "smoking" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚬",
         description: "cigarette",
         category: Objects,
@@ -13877,7 +13876,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "snail" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐌",
         description: "snail",
         category: AnimalsAndNature,
@@ -13886,7 +13885,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "snake" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐍",
         description: "snake",
         category: AnimalsAndNature,
@@ -13895,7 +13894,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sneezing_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤧",
         description: "sneezing face",
         category: SmileysAndEmotion,
@@ -13904,7 +13903,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "snowboarder" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏂",
         description: "snowboarder",
         category: PeopleAndBody,
@@ -13913,7 +13912,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "snowflake" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "❄️",
         description: "snowflake",
         category: TravelAndPlaces,
@@ -13922,7 +13921,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "snowman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛄",
         description: "snowman without snow",
         category: TravelAndPlaces,
@@ -13931,7 +13930,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "snowman_with_snow" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☃️",
         description: "snowman",
         category: TravelAndPlaces,
@@ -13940,7 +13939,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "soap" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧼",
         description: "soap",
         category: Objects,
@@ -13949,7 +13948,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "sob" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😭",
         description: "loudly crying face",
         category: SmileysAndEmotion,
@@ -13958,7 +13957,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "soccer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⚽",
         description: "soccer ball",
         category: Activities,
@@ -13967,7 +13966,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "socks" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧦",
         description: "socks",
         category: Objects,
@@ -13976,7 +13975,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "softball" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥎",
         description: "softball",
         category: Activities,
@@ -13985,7 +13984,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "solomon_islands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇧",
         description: "flag: Solomon Islands",
         category: Flags,
@@ -13994,7 +13993,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "somalia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇴",
         description: "flag: Somalia",
         category: Flags,
@@ -14003,7 +14002,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "soon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔜",
         description: "SOON arrow",
         category: Symbols,
@@ -14012,7 +14011,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sos" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🆘",
         description: "SOS button",
         category: Symbols,
@@ -14021,7 +14020,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sound" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔉",
         description: "speaker medium volume",
         category: Objects,
@@ -14030,7 +14029,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "south_africa" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇿🇦",
         description: "flag: South Africa",
         category: Flags,
@@ -14039,7 +14038,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "south_georgia_south_sandwich_islands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇸",
         description: "flag: South Georgia & South Sandwich Islands",
         category: Flags,
@@ -14048,7 +14047,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "south_sudan" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇸",
         description: "flag: South Sudan",
         category: Flags,
@@ -14057,7 +14056,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "space_invader" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👾",
         description: "alien monster",
         category: SmileysAndEmotion,
@@ -14066,7 +14065,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "spades" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♠️",
         description: "spade suit",
         category: Activities,
@@ -14075,7 +14074,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "spaghetti" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍝",
         description: "spaghetti",
         category: FoodAndDrink,
@@ -14084,7 +14083,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sparkle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "❇️",
         description: "sparkle",
         category: Symbols,
@@ -14093,7 +14092,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "sparkler" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎇",
         description: "sparkler",
         category: Activities,
@@ -14102,7 +14101,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sparkles" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "✨",
         description: "sparkles",
         category: Activities,
@@ -14111,7 +14110,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sparkling_heart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💖",
         description: "sparkling heart",
         category: SmileysAndEmotion,
@@ -14120,7 +14119,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "speak_no_evil" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙊",
         description: "speak-no-evil monkey",
         category: SmileysAndEmotion,
@@ -14129,7 +14128,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "speaker" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔈",
         description: "speaker low volume",
         category: Objects,
@@ -14138,7 +14137,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "speaking_head" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗣️",
         description: "speaking head",
         category: PeopleAndBody,
@@ -14147,7 +14146,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "speech_balloon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💬",
         description: "speech balloon",
         category: SmileysAndEmotion,
@@ -14156,7 +14155,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "speedboat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚤",
         description: "speedboat",
         category: TravelAndPlaces,
@@ -14165,7 +14164,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "spider" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕷️",
         description: "spider",
         category: AnimalsAndNature,
@@ -14174,7 +14173,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "spider_web" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕸️",
         description: "spider web",
         category: AnimalsAndNature,
@@ -14183,7 +14182,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "spiral_calendar" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗓️",
         description: "spiral calendar",
         category: Objects,
@@ -14192,7 +14191,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "spiral_notepad" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗒️",
         description: "spiral notepad",
         category: Objects,
@@ -14201,7 +14200,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "sponge" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧽",
         description: "sponge",
         category: Objects,
@@ -14210,7 +14209,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "spoon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥄",
         description: "spoon",
         category: FoodAndDrink,
@@ -14219,7 +14218,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "squid" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦑",
         description: "squid",
         category: FoodAndDrink,
@@ -14228,7 +14227,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "sri_lanka" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇱🇰",
         description: "flag: Sri Lanka",
         category: Flags,
@@ -14237,7 +14236,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "st_barthelemy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇧🇱",
         description: "flag: St. Barthélemy",
         category: Flags,
@@ -14246,7 +14245,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "st_helena" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇭",
         description: "flag: St. Helena",
         category: Flags,
@@ -14255,7 +14254,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "st_kitts_nevis" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇰🇳",
         description: "flag: St. Kitts & Nevis",
         category: Flags,
@@ -14264,7 +14263,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "st_lucia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇱🇨",
         description: "flag: St. Lucia",
         category: Flags,
@@ -14273,7 +14272,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "st_martin" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇲🇫",
         description: "flag: St. Martin",
         category: Flags,
@@ -14282,7 +14281,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "st_pierre_miquelon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇵🇲",
         description: "flag: St. Pierre & Miquelon",
         category: Flags,
@@ -14291,7 +14290,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "st_vincent_grenadines" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇻🇨",
         description: "flag: St. Vincent & Grenadines",
         category: Flags,
@@ -14300,7 +14299,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "stadium" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏟️",
         description: "stadium",
         category: TravelAndPlaces,
@@ -14309,7 +14308,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "standing_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧍‍♂️",
         description: "man standing",
         category: PeopleAndBody,
@@ -14318,7 +14317,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "standing_person" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧍",
         description: "person standing",
         category: PeopleAndBody,
@@ -14327,7 +14326,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "standing_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧍‍♀️",
         description: "woman standing",
         category: PeopleAndBody,
@@ -14336,7 +14335,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "star" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⭐",
         description: "star",
         category: TravelAndPlaces,
@@ -14345,7 +14344,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 1),
       ))
     "star2" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌟",
         description: "glowing star",
         category: TravelAndPlaces,
@@ -14354,7 +14353,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "star_and_crescent" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☪️",
         description: "star and crescent",
         category: Symbols,
@@ -14363,7 +14362,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "star_of_david" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "✡️",
         description: "star of David",
         category: Symbols,
@@ -14372,7 +14371,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "star_struck" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤩",
         description: "star-struck",
         category: SmileysAndEmotion,
@@ -14381,7 +14380,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "stars" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌠",
         description: "shooting star",
         category: TravelAndPlaces,
@@ -14390,7 +14389,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "station" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚉",
         description: "station",
         category: TravelAndPlaces,
@@ -14399,7 +14398,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "statue_of_liberty" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗽",
         description: "Statue of Liberty",
         category: TravelAndPlaces,
@@ -14408,7 +14407,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "steam_locomotive" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚂",
         description: "locomotive",
         category: TravelAndPlaces,
@@ -14417,7 +14416,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "stethoscope" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🩺",
         description: "stethoscope",
         category: Objects,
@@ -14426,7 +14425,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "stew" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍲",
         description: "pot of food",
         category: FoodAndDrink,
@@ -14435,7 +14434,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "stop_button" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⏹️",
         description: "stop button",
         category: Symbols,
@@ -14444,7 +14443,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "stop_sign" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛑",
         description: "stop sign",
         category: TravelAndPlaces,
@@ -14453,7 +14452,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "stopwatch" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⏱️",
         description: "stopwatch",
         category: TravelAndPlaces,
@@ -14462,7 +14461,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "straight_ruler" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📏",
         description: "straight ruler",
         category: Objects,
@@ -14471,7 +14470,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "strawberry" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍓",
         description: "strawberry",
         category: FoodAndDrink,
@@ -14480,7 +14479,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "stuck_out_tongue" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😛",
         description: "face with tongue",
         category: SmileysAndEmotion,
@@ -14489,7 +14488,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 1),
       ))
     "stuck_out_tongue_closed_eyes" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😝",
         description: "squinting face with tongue",
         category: SmileysAndEmotion,
@@ -14498,7 +14497,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "stuck_out_tongue_winking_eye" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😜",
         description: "winking face with tongue",
         category: SmileysAndEmotion,
@@ -14507,7 +14506,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "student" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🎓",
         description: "student",
         category: PeopleAndBody,
@@ -14516,7 +14515,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "studio_microphone" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎙️",
         description: "studio microphone",
         category: Objects,
@@ -14525,7 +14524,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "stuffed_flatbread" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥙",
         description: "stuffed flatbread",
         category: FoodAndDrink,
@@ -14534,7 +14533,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "sudan" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇩",
         description: "flag: Sudan",
         category: Flags,
@@ -14543,7 +14542,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sun_behind_large_cloud" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌥️",
         description: "sun behind large cloud",
         category: TravelAndPlaces,
@@ -14552,7 +14551,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "sun_behind_rain_cloud" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌦️",
         description: "sun behind rain cloud",
         category: TravelAndPlaces,
@@ -14561,7 +14560,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "sun_behind_small_cloud" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌤️",
         description: "sun behind small cloud",
         category: TravelAndPlaces,
@@ -14570,7 +14569,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "sun_with_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌞",
         description: "sun with face",
         category: TravelAndPlaces,
@@ -14579,7 +14578,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sunflower" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌻",
         description: "sunflower",
         category: AnimalsAndNature,
@@ -14588,7 +14587,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sunglasses" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😎",
         description: "smiling face with sunglasses",
         category: SmileysAndEmotion,
@@ -14597,7 +14596,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sunny" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☀️",
         description: "sun",
         category: TravelAndPlaces,
@@ -14606,7 +14605,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "sunrise" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌅",
         description: "sunrise",
         category: TravelAndPlaces,
@@ -14615,7 +14614,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sunrise_over_mountains" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌄",
         description: "sunrise over mountains",
         category: TravelAndPlaces,
@@ -14624,7 +14623,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "superhero" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦸",
         description: "superhero",
         category: PeopleAndBody,
@@ -14633,7 +14632,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "superhero_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦸‍♂️",
         description: "man superhero",
         category: PeopleAndBody,
@@ -14642,7 +14641,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "superhero_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦸‍♀️",
         description: "woman superhero",
         category: PeopleAndBody,
@@ -14651,7 +14650,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "supervillain" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦹",
         description: "supervillain",
         category: PeopleAndBody,
@@ -14660,7 +14659,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "supervillain_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦹‍♂️",
         description: "man supervillain",
         category: PeopleAndBody,
@@ -14669,7 +14668,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "supervillain_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦹‍♀️",
         description: "woman supervillain",
         category: PeopleAndBody,
@@ -14678,7 +14677,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "surfer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏄",
         description: "person surfing",
         category: PeopleAndBody,
@@ -14687,7 +14686,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "surfing_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏄‍♂️",
         description: "man surfing",
         category: PeopleAndBody,
@@ -14696,7 +14695,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "surfing_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏄‍♀️",
         description: "woman surfing",
         category: PeopleAndBody,
@@ -14705,7 +14704,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "suriname" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇷",
         description: "flag: Suriname",
         category: Flags,
@@ -14714,7 +14713,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sushi" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍣",
         description: "sushi",
         category: FoodAndDrink,
@@ -14723,7 +14722,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "suspension_railway" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚟",
         description: "suspension railway",
         category: TravelAndPlaces,
@@ -14732,7 +14731,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "svalbard_jan_mayen" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇯",
         description: "flag: Svalbard & Jan Mayen",
         category: Flags,
@@ -14741,7 +14740,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "swan" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦢",
         description: "swan",
         category: AnimalsAndNature,
@@ -14750,7 +14749,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "swaziland" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇿",
         description: "flag: Eswatini",
         category: Flags,
@@ -14759,7 +14758,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sweat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😓",
         description: "downcast face with sweat",
         category: SmileysAndEmotion,
@@ -14768,7 +14767,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sweat_drops" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💦",
         description: "sweat droplets",
         category: SmileysAndEmotion,
@@ -14777,7 +14776,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sweat_smile" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😅",
         description: "grinning face with sweat",
         category: SmileysAndEmotion,
@@ -14786,7 +14785,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sweden" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇪",
         description: "flag: Sweden",
         category: Flags,
@@ -14795,7 +14794,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "sweet_potato" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍠",
         description: "roasted sweet potato",
         category: FoodAndDrink,
@@ -14804,7 +14803,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "swim_brief" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🩲",
         description: "briefs",
         category: Objects,
@@ -14813,7 +14812,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "swimmer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏊",
         description: "person swimming",
         category: PeopleAndBody,
@@ -14822,7 +14821,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "swimming_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏊‍♂️",
         description: "man swimming",
         category: PeopleAndBody,
@@ -14831,7 +14830,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "swimming_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏊‍♀️",
         description: "woman swimming",
         category: PeopleAndBody,
@@ -14840,7 +14839,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "switzerland" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇨🇭",
         description: "flag: Switzerland",
         category: Flags,
@@ -14849,7 +14848,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "symbols" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔣",
         description: "input symbols",
         category: Symbols,
@@ -14858,7 +14857,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "synagogue" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🕍",
         description: "synagogue",
         category: TravelAndPlaces,
@@ -14867,7 +14866,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "syria" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇸🇾",
         description: "flag: Syria",
         category: Flags,
@@ -14876,7 +14875,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "syringe" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💉",
         description: "syringe",
         category: Objects,
@@ -14885,7 +14884,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "t-rex" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦖",
         description: "T-Rex",
         category: AnimalsAndNature,
@@ -14894,7 +14893,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "taco" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌮",
         description: "taco",
         category: FoodAndDrink,
@@ -14903,7 +14902,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "tada" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎉",
         description: "party popper",
         category: Activities,
@@ -14912,7 +14911,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "taiwan" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇹🇼",
         description: "flag: Taiwan",
         category: Flags,
@@ -14921,7 +14920,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tajikistan" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇹🇯",
         description: "flag: Tajikistan",
         category: Flags,
@@ -14930,7 +14929,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "takeout_box" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥡",
         description: "takeout box",
         category: FoodAndDrink,
@@ -14939,7 +14938,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "tamale" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫔",
         description: "tamale",
         category: FoodAndDrink,
@@ -14948,7 +14947,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "tanabata_tree" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎋",
         description: "tanabata tree",
         category: Activities,
@@ -14957,7 +14956,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tangerine" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍊",
         description: "tangerine",
         category: FoodAndDrink,
@@ -14966,7 +14965,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tanzania" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇹🇿",
         description: "flag: Tanzania",
         category: Flags,
@@ -14975,7 +14974,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "taurus" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♉",
         description: "Taurus",
         category: Symbols,
@@ -14984,7 +14983,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "taxi" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚕",
         description: "taxi",
         category: TravelAndPlaces,
@@ -14993,7 +14992,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tea" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍵",
         description: "teacup without handle",
         category: FoodAndDrink,
@@ -15002,7 +15001,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "teacher" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍🏫",
         description: "teacher",
         category: PeopleAndBody,
@@ -15011,7 +15010,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "teapot" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🫖",
         description: "teapot",
         category: FoodAndDrink,
@@ -15020,7 +15019,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "technologist" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧑‍💻",
         description: "technologist",
         category: PeopleAndBody,
@@ -15029,7 +15028,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 1),
       ))
     "teddy_bear" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧸",
         description: "teddy bear",
         category: Activities,
@@ -15038,7 +15037,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "telephone" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☎️",
         description: "telephone",
         category: Objects,
@@ -15047,7 +15046,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "telephone_receiver" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📞",
         description: "telephone receiver",
         category: Objects,
@@ -15056,7 +15055,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "telescope" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔭",
         description: "telescope",
         category: Objects,
@@ -15065,7 +15064,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tennis" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎾",
         description: "tennis",
         category: Activities,
@@ -15074,7 +15073,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tent" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⛺",
         description: "tent",
         category: TravelAndPlaces,
@@ -15083,7 +15082,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 2),
       ))
     "test_tube" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧪",
         description: "test tube",
         category: Objects,
@@ -15092,7 +15091,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "thailand" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇹🇭",
         description: "flag: Thailand",
         category: Flags,
@@ -15101,7 +15100,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "thermometer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌡️",
         description: "thermometer",
         category: TravelAndPlaces,
@@ -15110,7 +15109,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "thinking" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤔",
         description: "thinking face",
         category: SmileysAndEmotion,
@@ -15119,7 +15118,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "thong_sandal" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🩴",
         description: "thong sandal",
         category: Objects,
@@ -15128,7 +15127,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "thought_balloon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💭",
         description: "thought balloon",
         category: SmileysAndEmotion,
@@ -15137,7 +15136,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "thread" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧵",
         description: "thread",
         category: Activities,
@@ -15146,7 +15145,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "three" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "3️⃣",
         description: "keycap: 3",
         category: Symbols,
@@ -15155,7 +15154,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "thumbsdown" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👎",
         description: "thumbs down",
         category: PeopleAndBody,
@@ -15164,7 +15163,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "thumbsup" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👍",
         description: "thumbs up",
         category: PeopleAndBody,
@@ -15173,7 +15172,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ticket" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎫",
         description: "ticket",
         category: Activities,
@@ -15182,7 +15181,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tickets" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎟️",
         description: "admission tickets",
         category: Activities,
@@ -15191,7 +15190,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "tiger" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐯",
         description: "tiger face",
         category: AnimalsAndNature,
@@ -15200,7 +15199,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tiger2" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐅",
         description: "tiger",
         category: AnimalsAndNature,
@@ -15209,7 +15208,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "timer_clock" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⏲️",
         description: "timer clock",
         category: TravelAndPlaces,
@@ -15218,7 +15217,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "timor_leste" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇹🇱",
         description: "flag: Timor-Leste",
         category: Flags,
@@ -15227,7 +15226,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tipping_hand_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💁‍♂️",
         description: "man tipping hand",
         category: PeopleAndBody,
@@ -15236,7 +15235,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tipping_hand_person" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💁",
         description: "person tipping hand",
         category: PeopleAndBody,
@@ -15245,7 +15244,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tipping_hand_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💁‍♀️",
         description: "woman tipping hand",
         category: PeopleAndBody,
@@ -15254,7 +15253,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "tired_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😫",
         description: "tired face",
         category: SmileysAndEmotion,
@@ -15263,7 +15262,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tm" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "™️",
         description: "trade mark",
         category: Symbols,
@@ -15272,7 +15271,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "togo" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇹🇬",
         description: "flag: Togo",
         category: Flags,
@@ -15281,7 +15280,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "toilet" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚽",
         description: "toilet",
         category: Objects,
@@ -15290,7 +15289,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tokelau" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇹🇰",
         description: "flag: Tokelau",
         category: Flags,
@@ -15299,7 +15298,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tokyo_tower" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗼",
         description: "Tokyo tower",
         category: TravelAndPlaces,
@@ -15308,7 +15307,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tomato" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍅",
         description: "tomato",
         category: FoodAndDrink,
@@ -15317,7 +15316,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tonga" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇹🇴",
         description: "flag: Tonga",
         category: Flags,
@@ -15326,7 +15325,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tongue" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👅",
         description: "tongue",
         category: PeopleAndBody,
@@ -15335,7 +15334,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "toolbox" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧰",
         description: "toolbox",
         category: Objects,
@@ -15344,7 +15343,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "tooth" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦷",
         description: "tooth",
         category: PeopleAndBody,
@@ -15353,7 +15352,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "toothbrush" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪥",
         description: "toothbrush",
         category: Objects,
@@ -15362,7 +15361,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "top" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔝",
         description: "TOP arrow",
         category: Symbols,
@@ -15371,7 +15370,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tophat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎩",
         description: "top hat",
         category: Objects,
@@ -15380,7 +15379,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tornado" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌪️",
         description: "tornado",
         category: TravelAndPlaces,
@@ -15389,7 +15388,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "tr" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇹🇷",
         description: "flag: Turkey",
         category: Flags,
@@ -15398,7 +15397,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "trackball" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🖲️",
         description: "trackball",
         category: Objects,
@@ -15407,7 +15406,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "tractor" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚜",
         description: "tractor",
         category: TravelAndPlaces,
@@ -15416,7 +15415,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "traffic_light" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚥",
         description: "horizontal traffic light",
         category: TravelAndPlaces,
@@ -15425,7 +15424,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "train" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚋",
         description: "tram car",
         category: TravelAndPlaces,
@@ -15434,7 +15433,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "train2" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚆",
         description: "train",
         category: TravelAndPlaces,
@@ -15443,7 +15442,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tram" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚊",
         description: "tram",
         category: TravelAndPlaces,
@@ -15452,7 +15451,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "transgender_flag" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏳️‍⚧️",
         description: "transgender flag",
         category: Flags,
@@ -15461,7 +15460,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "transgender_symbol" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⚧️",
         description: "transgender symbol",
         category: Symbols,
@@ -15470,7 +15469,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "triangular_flag_on_post" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚩",
         description: "triangular flag",
         category: Flags,
@@ -15479,7 +15478,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "triangular_ruler" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📐",
         description: "triangular ruler",
         category: Objects,
@@ -15488,7 +15487,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "trident" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔱",
         description: "trident emblem",
         category: Symbols,
@@ -15497,7 +15496,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "trinidad_tobago" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇹🇹",
         description: "flag: Trinidad & Tobago",
         category: Flags,
@@ -15506,7 +15505,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tristan_da_cunha" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇹🇦",
         description: "flag: Tristan da Cunha",
         category: Flags,
@@ -15515,7 +15514,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "triumph" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😤",
         description: "face with steam from nose",
         category: SmileysAndEmotion,
@@ -15524,7 +15523,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "troll" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧌",
         description: "troll",
         category: PeopleAndBody,
@@ -15533,7 +15532,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "trolleybus" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚎",
         description: "trolleybus",
         category: TravelAndPlaces,
@@ -15542,7 +15541,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "trophy" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏆",
         description: "trophy",
         category: Activities,
@@ -15551,7 +15550,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tropical_drink" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍹",
         description: "tropical drink",
         category: FoodAndDrink,
@@ -15560,7 +15559,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tropical_fish" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐠",
         description: "tropical fish",
         category: AnimalsAndNature,
@@ -15569,7 +15568,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "truck" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚚",
         description: "delivery truck",
         category: TravelAndPlaces,
@@ -15578,7 +15577,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "trumpet" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎺",
         description: "trumpet",
         category: Objects,
@@ -15587,7 +15586,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tshirt" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👕",
         description: "t-shirt",
         category: Objects,
@@ -15596,7 +15595,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tulip" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌷",
         description: "tulip",
         category: AnimalsAndNature,
@@ -15605,7 +15604,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tumbler_glass" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥃",
         description: "tumbler glass",
         category: FoodAndDrink,
@@ -15614,7 +15613,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "tunisia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇹🇳",
         description: "flag: Tunisia",
         category: Flags,
@@ -15623,7 +15622,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "turkey" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦃",
         description: "turkey",
         category: AnimalsAndNature,
@@ -15632,7 +15631,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "turkmenistan" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇹🇲",
         description: "flag: Turkmenistan",
         category: Flags,
@@ -15641,7 +15640,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "turks_caicos_islands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇹🇨",
         description: "flag: Turks & Caicos Islands",
         category: Flags,
@@ -15650,7 +15649,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "turtle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐢",
         description: "turtle",
         category: AnimalsAndNature,
@@ -15659,7 +15658,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tuvalu" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇹🇻",
         description: "flag: Tuvalu",
         category: Flags,
@@ -15668,7 +15667,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "tv" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📺",
         description: "television",
         category: Objects,
@@ -15677,7 +15676,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "twisted_rightwards_arrows" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔀",
         description: "shuffle tracks button",
         category: Symbols,
@@ -15686,7 +15685,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "two" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "2️⃣",
         description: "keycap: 2",
         category: Symbols,
@@ -15695,7 +15694,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "two_hearts" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💕",
         description: "two hearts",
         category: SmileysAndEmotion,
@@ -15704,7 +15703,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "two_men_holding_hands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👬",
         description: "men holding hands",
         category: PeopleAndBody,
@@ -15713,7 +15712,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "two_women_holding_hands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👭",
         description: "women holding hands",
         category: PeopleAndBody,
@@ -15722,7 +15721,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "u5272" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🈹",
         description: "Japanese “discount” button",
         category: Symbols,
@@ -15731,7 +15730,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "u5408" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🈴",
         description: "Japanese “passing grade” button",
         category: Symbols,
@@ -15740,7 +15739,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "u55b6" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🈺",
         description: "Japanese “open for business” button",
         category: Symbols,
@@ -15749,7 +15748,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "u6307" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🈯",
         description: "Japanese “reserved” button",
         category: Symbols,
@@ -15758,7 +15757,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "u6708" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🈷️",
         description: "Japanese “monthly amount” button",
         category: Symbols,
@@ -15767,7 +15766,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "u6709" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🈶",
         description: "Japanese “not free of charge” button",
         category: Symbols,
@@ -15776,7 +15775,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "u6e80" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🈵",
         description: "Japanese “no vacancy” button",
         category: Symbols,
@@ -15785,7 +15784,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "u7121" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🈚",
         description: "Japanese “free of charge” button",
         category: Symbols,
@@ -15794,7 +15793,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "u7533" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🈸",
         description: "Japanese “application” button",
         category: Symbols,
@@ -15803,7 +15802,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "u7981" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🈲",
         description: "Japanese “prohibited” button",
         category: Symbols,
@@ -15812,7 +15811,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "u7a7a" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🈳",
         description: "Japanese “vacancy” button",
         category: Symbols,
@@ -15821,7 +15820,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "uganda" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇺🇬",
         description: "flag: Uganda",
         category: Flags,
@@ -15830,7 +15829,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "uk" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇬🇧",
         description: "flag: United Kingdom",
         category: Flags,
@@ -15839,7 +15838,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "ukraine" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇺🇦",
         description: "flag: Ukraine",
         category: Flags,
@@ -15848,7 +15847,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "umbrella" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☔",
         description: "umbrella with rain drops",
         category: TravelAndPlaces,
@@ -15857,7 +15856,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 0),
       ))
     "unamused" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😒",
         description: "unamused face",
         category: SmileysAndEmotion,
@@ -15866,7 +15865,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "underage" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔞",
         description: "no one under eighteen",
         category: Symbols,
@@ -15875,7 +15874,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "unicorn" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦄",
         description: "unicorn",
         category: AnimalsAndNature,
@@ -15884,7 +15883,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "united_arab_emirates" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇦🇪",
         description: "flag: United Arab Emirates",
         category: Flags,
@@ -15893,7 +15892,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "united_nations" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇺🇳",
         description: "flag: United Nations",
         category: Flags,
@@ -15902,7 +15901,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "unlock" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔓",
         description: "unlocked",
         category: Objects,
@@ -15911,7 +15910,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "up" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🆙",
         description: "UP! button",
         category: Symbols,
@@ -15920,7 +15919,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "upside_down_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🙃",
         description: "upside-down face",
         category: SmileysAndEmotion,
@@ -15929,7 +15928,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "uruguay" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇺🇾",
         description: "flag: Uruguay",
         category: Flags,
@@ -15938,7 +15937,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "us" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇺🇸",
         description: "flag: United States",
         category: Flags,
@@ -15947,7 +15946,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "us_outlying_islands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇺🇲",
         description: "flag: U.S. Outlying Islands",
         category: Flags,
@@ -15956,7 +15955,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "us_virgin_islands" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇻🇮",
         description: "flag: U.S. Virgin Islands",
         category: Flags,
@@ -15965,7 +15964,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "uzbekistan" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇺🇿",
         description: "flag: Uzbekistan",
         category: Flags,
@@ -15974,7 +15973,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "v" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "✌️",
         description: "victory hand",
         category: PeopleAndBody,
@@ -15983,7 +15982,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "vampire" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧛",
         description: "vampire",
         category: PeopleAndBody,
@@ -15992,7 +15991,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "vampire_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧛‍♂️",
         description: "man vampire",
         category: PeopleAndBody,
@@ -16001,7 +16000,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "vampire_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧛‍♀️",
         description: "woman vampire",
         category: PeopleAndBody,
@@ -16010,7 +16009,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "vanuatu" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇻🇺",
         description: "flag: Vanuatu",
         category: Flags,
@@ -16019,7 +16018,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "vatican_city" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇻🇦",
         description: "flag: Vatican City",
         category: Flags,
@@ -16028,7 +16027,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "venezuela" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇻🇪",
         description: "flag: Venezuela",
         category: Flags,
@@ -16037,7 +16036,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "vertical_traffic_light" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚦",
         description: "vertical traffic light",
         category: TravelAndPlaces,
@@ -16046,7 +16045,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "vhs" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📼",
         description: "videocassette",
         category: Objects,
@@ -16055,7 +16054,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "vibration_mode" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📳",
         description: "vibration mode",
         category: Symbols,
@@ -16064,7 +16063,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "video_camera" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "📹",
         description: "video camera",
         category: Objects,
@@ -16073,7 +16072,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "video_game" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎮",
         description: "video game",
         category: Activities,
@@ -16082,7 +16081,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "vietnam" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇻🇳",
         description: "flag: Vietnam",
         category: Flags,
@@ -16091,7 +16090,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "violin" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎻",
         description: "violin",
         category: Objects,
@@ -16100,7 +16099,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "virgo" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♍",
         description: "Virgo",
         category: Symbols,
@@ -16109,7 +16108,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "volcano" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌋",
         description: "volcano",
         category: TravelAndPlaces,
@@ -16118,7 +16117,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "volleyball" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏐",
         description: "volleyball",
         category: Activities,
@@ -16127,7 +16126,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "vomiting_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤮",
         description: "face vomiting",
         category: SmileysAndEmotion,
@@ -16136,7 +16135,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "vs" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🆚",
         description: "VS button",
         category: Symbols,
@@ -16145,7 +16144,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "vulcan_salute" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🖖",
         description: "vulcan salute",
         category: PeopleAndBody,
@@ -16154,7 +16153,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "waffle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧇",
         description: "waffle",
         category: FoodAndDrink,
@@ -16163,7 +16162,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "wales" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏴󠁧󠁢󠁷󠁬󠁳󠁿",
         description: "flag: Wales",
         category: Flags,
@@ -16172,7 +16171,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "walking" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚶",
         description: "person walking",
         category: PeopleAndBody,
@@ -16181,7 +16180,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "walking_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚶‍♂️",
         description: "man walking",
         category: PeopleAndBody,
@@ -16190,7 +16189,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "walking_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚶‍♀️",
         description: "woman walking",
         category: PeopleAndBody,
@@ -16199,7 +16198,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "wallis_futuna" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇼🇫",
         description: "flag: Wallis & Futuna",
         category: Flags,
@@ -16208,7 +16207,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "waning_crescent_moon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌘",
         description: "waning crescent moon",
         category: TravelAndPlaces,
@@ -16217,7 +16216,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "waning_gibbous_moon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌖",
         description: "waning gibbous moon",
         category: TravelAndPlaces,
@@ -16226,7 +16225,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "warning" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⚠️",
         description: "warning",
         category: Symbols,
@@ -16235,7 +16234,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 0),
       ))
     "wastebasket" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗑️",
         description: "wastebasket",
         category: Objects,
@@ -16244,7 +16243,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "watch" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⌚",
         description: "watch",
         category: TravelAndPlaces,
@@ -16253,7 +16252,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "water_buffalo" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐃",
         description: "water buffalo",
         category: AnimalsAndNature,
@@ -16262,7 +16261,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "water_polo" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤽",
         description: "person playing water polo",
         category: PeopleAndBody,
@@ -16271,7 +16270,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "watermelon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍉",
         description: "watermelon",
         category: FoodAndDrink,
@@ -16280,7 +16279,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "wave" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👋",
         description: "waving hand",
         category: PeopleAndBody,
@@ -16289,7 +16288,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "wavy_dash" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "〰️",
         description: "wavy dash",
         category: Symbols,
@@ -16298,7 +16297,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "waxing_crescent_moon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌒",
         description: "waxing crescent moon",
         category: TravelAndPlaces,
@@ -16307,7 +16306,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "waxing_gibbous_moon" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌔",
         description: "waxing gibbous moon",
         category: TravelAndPlaces,
@@ -16316,7 +16315,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "wc" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚾",
         description: "water closet",
         category: Symbols,
@@ -16325,7 +16324,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "weary" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😩",
         description: "weary face",
         category: SmileysAndEmotion,
@@ -16334,7 +16333,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "wedding" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💒",
         description: "wedding",
         category: TravelAndPlaces,
@@ -16343,7 +16342,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "weight_lifting" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏋️",
         description: "person lifting weights",
         category: PeopleAndBody,
@@ -16352,7 +16351,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "weight_lifting_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏋️‍♂️",
         description: "man lifting weights",
         category: PeopleAndBody,
@@ -16361,7 +16360,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "weight_lifting_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏋️‍♀️",
         description: "woman lifting weights",
         category: PeopleAndBody,
@@ -16370,7 +16369,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "western_sahara" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇪🇭",
         description: "flag: Western Sahara",
         category: Flags,
@@ -16379,7 +16378,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "whale" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐳",
         description: "spouting whale",
         category: AnimalsAndNature,
@@ -16388,7 +16387,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "whale2" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐋",
         description: "whale",
         category: AnimalsAndNature,
@@ -16397,7 +16396,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "wheel" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛞",
         description: "wheel",
         category: TravelAndPlaces,
@@ -16406,7 +16405,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "wheel_of_dharma" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☸️",
         description: "wheel of dharma",
         category: Symbols,
@@ -16415,7 +16414,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "wheelchair" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "♿",
         description: "wheelchair symbol",
         category: Symbols,
@@ -16424,7 +16423,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 1),
       ))
     "white_check_mark" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "✅",
         description: "check mark button",
         category: Symbols,
@@ -16433,7 +16432,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "white_circle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⚪",
         description: "white circle",
         category: Symbols,
@@ -16442,7 +16441,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 1),
       ))
     "white_flag" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🏳️",
         description: "white flag",
         category: Flags,
@@ -16451,7 +16450,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "white_flower" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💮",
         description: "white flower",
         category: AnimalsAndNature,
@@ -16460,7 +16459,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "white_haired_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👨‍🦳",
         description: "man: white hair",
         category: PeopleAndBody,
@@ -16469,7 +16468,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "white_haired_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍🦳",
         description: "woman: white hair",
         category: PeopleAndBody,
@@ -16478,7 +16477,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "white_heart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤍",
         description: "white heart",
         category: SmileysAndEmotion,
@@ -16487,7 +16486,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "white_large_square" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⬜",
         description: "white large square",
         category: Symbols,
@@ -16496,7 +16495,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 5, minor: 1),
       ))
     "white_medium_small_square" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "◽",
         description: "white medium-small square",
         category: Symbols,
@@ -16505,7 +16504,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 3, minor: 2),
       ))
     "white_medium_square" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "◻️",
         description: "white medium square",
         category: Symbols,
@@ -16514,7 +16513,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 3, minor: 2),
       ))
     "white_small_square" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "▫️",
         description: "white small square",
         category: Symbols,
@@ -16523,7 +16522,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "white_square_button" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔳",
         description: "white square button",
         category: Symbols,
@@ -16532,7 +16531,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "wilted_flower" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥀",
         description: "wilted flower",
         category: AnimalsAndNature,
@@ -16541,7 +16540,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "wind_chime" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🎐",
         description: "wind chime",
         category: Activities,
@@ -16550,7 +16549,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "wind_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🌬️",
         description: "wind face",
         category: TravelAndPlaces,
@@ -16559,7 +16558,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "window" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪟",
         description: "window",
         category: Objects,
@@ -16568,7 +16567,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "wine_glass" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🍷",
         description: "wine glass",
         category: FoodAndDrink,
@@ -16577,7 +16576,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "wing" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪽",
         description: "wing",
         category: AnimalsAndNature,
@@ -16586,7 +16585,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "wink" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😉",
         description: "winking face",
         category: SmileysAndEmotion,
@@ -16595,7 +16594,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "wireless" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🛜",
         description: "wireless",
         category: Symbols,
@@ -16604,7 +16603,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 15, minor: 0),
       ))
     "wolf" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🐺",
         description: "wolf",
         category: AnimalsAndNature,
@@ -16613,7 +16612,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩",
         description: "woman",
         category: PeopleAndBody,
@@ -16622,7 +16621,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "woman_artist" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍🎨",
         description: "woman artist",
         category: PeopleAndBody,
@@ -16631,7 +16630,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "woman_astronaut" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍🚀",
         description: "woman astronaut",
         category: PeopleAndBody,
@@ -16640,7 +16639,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "woman_beard" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧔‍♀️",
         description: "woman: beard",
         category: PeopleAndBody,
@@ -16649,7 +16648,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 1),
       ))
     "woman_cartwheeling" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤸‍♀️",
         description: "woman cartwheeling",
         category: PeopleAndBody,
@@ -16658,7 +16657,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "woman_cook" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍🍳",
         description: "woman cook",
         category: PeopleAndBody,
@@ -16667,7 +16666,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "woman_dancing" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💃",
         description: "woman dancing",
         category: PeopleAndBody,
@@ -16676,7 +16675,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "woman_facepalming" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤦‍♀️",
         description: "woman facepalming",
         category: PeopleAndBody,
@@ -16685,7 +16684,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "woman_factory_worker" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍🏭",
         description: "woman factory worker",
         category: PeopleAndBody,
@@ -16694,7 +16693,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "woman_farmer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍🌾",
         description: "woman farmer",
         category: PeopleAndBody,
@@ -16703,7 +16702,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "woman_feeding_baby" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍🍼",
         description: "woman feeding baby",
         category: PeopleAndBody,
@@ -16712,7 +16711,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "woman_firefighter" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍🚒",
         description: "woman firefighter",
         category: PeopleAndBody,
@@ -16721,7 +16720,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "woman_health_worker" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍⚕️",
         description: "woman health worker",
         category: PeopleAndBody,
@@ -16730,7 +16729,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "woman_in_manual_wheelchair" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍🦽",
         description: "woman in manual wheelchair",
         category: PeopleAndBody,
@@ -16739,7 +16738,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "woman_in_motorized_wheelchair" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍🦼",
         description: "woman in motorized wheelchair",
         category: PeopleAndBody,
@@ -16748,7 +16747,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "woman_in_tuxedo" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤵‍♀️",
         description: "woman in tuxedo",
         category: PeopleAndBody,
@@ -16757,7 +16756,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "woman_judge" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍⚖️",
         description: "woman judge",
         category: PeopleAndBody,
@@ -16766,7 +16765,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "woman_juggling" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤹‍♀️",
         description: "woman juggling",
         category: PeopleAndBody,
@@ -16775,7 +16774,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "woman_mechanic" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍🔧",
         description: "woman mechanic",
         category: PeopleAndBody,
@@ -16784,7 +16783,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "woman_office_worker" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍💼",
         description: "woman office worker",
         category: PeopleAndBody,
@@ -16793,7 +16792,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "woman_pilot" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍✈️",
         description: "woman pilot",
         category: PeopleAndBody,
@@ -16802,7 +16801,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "woman_playing_handball" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤾‍♀️",
         description: "woman playing handball",
         category: PeopleAndBody,
@@ -16811,7 +16810,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "woman_playing_water_polo" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤽‍♀️",
         description: "woman playing water polo",
         category: PeopleAndBody,
@@ -16820,7 +16819,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "woman_scientist" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍🔬",
         description: "woman scientist",
         category: PeopleAndBody,
@@ -16829,7 +16828,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "woman_shrugging" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤷‍♀️",
         description: "woman shrugging",
         category: PeopleAndBody,
@@ -16838,7 +16837,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "woman_singer" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍🎤",
         description: "woman singer",
         category: PeopleAndBody,
@@ -16847,7 +16846,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "woman_student" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍🎓",
         description: "woman student",
         category: PeopleAndBody,
@@ -16856,7 +16855,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "woman_teacher" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍🏫",
         description: "woman teacher",
         category: PeopleAndBody,
@@ -16865,7 +16864,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "woman_technologist" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍💻",
         description: "woman technologist",
         category: PeopleAndBody,
@@ -16874,7 +16873,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "woman_with_headscarf" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧕",
         description: "woman with headscarf",
         category: PeopleAndBody,
@@ -16883,7 +16882,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "woman_with_probing_cane" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👩‍🦯",
         description: "woman with white cane",
         category: PeopleAndBody,
@@ -16892,7 +16891,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "woman_with_turban" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👳‍♀️",
         description: "woman wearing turban",
         category: PeopleAndBody,
@@ -16901,7 +16900,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "woman_with_veil" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👰‍♀️",
         description: "woman with veil",
         category: PeopleAndBody,
@@ -16910,7 +16909,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "womans_clothes" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👚",
         description: "woman’s clothes",
         category: Objects,
@@ -16919,7 +16918,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "womans_hat" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "👒",
         description: "woman’s hat",
         category: Objects,
@@ -16928,7 +16927,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "women_wrestling" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤼‍♀️",
         description: "women wrestling",
         category: PeopleAndBody,
@@ -16937,7 +16936,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 9, minor: 0),
       ))
     "womens" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🚺",
         description: "women’s room",
         category: Symbols,
@@ -16946,7 +16945,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "wood" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪵",
         description: "wood",
         category: TravelAndPlaces,
@@ -16955,7 +16954,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "woozy_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥴",
         description: "woozy face",
         category: SmileysAndEmotion,
@@ -16964,7 +16963,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "world_map" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🗺️",
         description: "world map",
         category: TravelAndPlaces,
@@ -16973,7 +16972,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 7, minor: 0),
       ))
     "worm" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪱",
         description: "worm",
         category: AnimalsAndNature,
@@ -16982,7 +16981,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "worried" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😟",
         description: "worried face",
         category: SmileysAndEmotion,
@@ -16991,7 +16990,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 1),
       ))
     "wrench" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🔧",
         description: "wrench",
         category: Objects,
@@ -17000,7 +16999,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "wrestling" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤼",
         description: "people wrestling",
         category: PeopleAndBody,
@@ -17009,7 +17008,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "writing_hand" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "✍️",
         description: "writing hand",
         category: PeopleAndBody,
@@ -17018,7 +17017,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "x" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "❌",
         description: "cross mark",
         category: Symbols,
@@ -17027,7 +17026,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "x_ray" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🩻",
         description: "x-ray",
         category: Objects,
@@ -17036,7 +17035,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
     "yarn" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧶",
         description: "yarn",
         category: Activities,
@@ -17045,7 +17044,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "yawning_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🥱",
         description: "yawning face",
         category: SmileysAndEmotion,
@@ -17054,7 +17053,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "yellow_circle" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🟡",
         description: "yellow circle",
         category: Symbols,
@@ -17063,7 +17062,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "yellow_heart" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💛",
         description: "yellow heart",
         category: SmileysAndEmotion,
@@ -17072,7 +17071,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "yellow_square" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🟨",
         description: "yellow square",
         category: Symbols,
@@ -17081,7 +17080,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "yemen" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇾🇪",
         description: "flag: Yemen",
         category: Flags,
@@ -17090,7 +17089,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "yen" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💴",
         description: "yen banknote",
         category: Objects,
@@ -17099,7 +17098,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "yin_yang" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "☯️",
         description: "yin yang",
         category: Symbols,
@@ -17108,7 +17107,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "yo_yo" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🪀",
         description: "yo-yo",
         category: Activities,
@@ -17117,7 +17116,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
     "yum" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "😋",
         description: "face savoring food",
         category: SmileysAndEmotion,
@@ -17126,7 +17125,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "zambia" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇿🇲",
         description: "flag: Zambia",
         category: Flags,
@@ -17135,7 +17134,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "zany_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤪",
         description: "zany face",
         category: SmileysAndEmotion,
@@ -17144,7 +17143,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "zap" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "⚡",
         description: "high voltage",
         category: TravelAndPlaces,
@@ -17153,7 +17152,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 4, minor: 0),
       ))
     "zebra" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🦓",
         description: "zebra",
         category: AnimalsAndNature,
@@ -17162,7 +17161,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "zero" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "0️⃣",
         description: "keycap: 0",
         category: Symbols,
@@ -17171,7 +17170,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 0, minor: 0),
       ))
     "zimbabwe" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🇿🇼",
         description: "flag: Zimbabwe",
         category: Flags,
@@ -17180,7 +17179,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
     "zipper_mouth_face" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🤐",
         description: "zipper-mouth face",
         category: SmileysAndEmotion,
@@ -17189,7 +17188,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 8, minor: 0),
       ))
     "zombie" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧟",
         description: "zombie",
         category: PeopleAndBody,
@@ -17198,7 +17197,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "zombie_man" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧟‍♂️",
         description: "man zombie",
         category: PeopleAndBody,
@@ -17207,7 +17206,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "zombie_woman" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "🧟‍♀️",
         description: "woman zombie",
         category: PeopleAndBody,
@@ -17216,7 +17215,7 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
     "zzz" ->
-      Some(Emoji(
+      Ok(Emoji(
         emoji: "💤",
         description: "ZZZ",
         category: SmileysAndEmotion,
@@ -17224,6 +17223,6 @@ pub fn get_by_alias(alias: String) -> Option(Emoji) {
         tags: ["sleeping"],
         unicode_version: UnicodeVersion(major: 6, minor: 0),
       ))
-    _ -> None
+    _ -> Error(Nil)
   }
 }
