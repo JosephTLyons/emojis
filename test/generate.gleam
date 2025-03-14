@@ -16,12 +16,13 @@ import gleamsver.{parse_loosely}
 import shellout
 import simplifile
 
+const emojis_code_file_path = "./src/emojis.gleam"
+
 pub fn main() -> Nil {
   let json_string = emoji_json_string()
   let assert Ok(emojis) = json.parse(from: json_string, using: emojis_decoder())
   let emoji_by_alias = emoji_by_alias(emojis)
-  let emojis_code_file_path = "./src/emojis.gleam"
-  generate_source_code(emojis_code_file_path, emoji_by_alias)
+  generate_source_code(emoji_by_alias)
 
   let assert Ok(_) =
     shellout.command(
@@ -105,20 +106,17 @@ fn emoji_by_alias(emojis: List(Emoji)) -> dict.Dict(String, Emoji) {
   })
 }
 
-fn generate_source_code(
-  emojis_code_file_path: String,
-  emoji_by_alias: dict.Dict(String, Emoji),
-) -> Nil {
+fn generate_source_code(emoji_by_alias: dict.Dict(String, Emoji)) -> Nil {
   let _ = simplifile.delete(emojis_code_file_path)
   let assert Ok(_) = simplifile.create_file(emojis_code_file_path)
-  generate_imports(emojis_code_file_path)
-  generate_emojis_function(emojis_code_file_path, emoji_by_alias)
-  generate_get_by_alias_function(emojis_code_file_path, emoji_by_alias)
+  generate_imports()
+  generate_emojis_function(emoji_by_alias)
+  generate_get_by_alias_function(emoji_by_alias)
 
   Nil
 }
 
-fn generate_imports(emojis_code_file_path: String) -> Nil {
+fn generate_imports() -> Nil {
   let imports = [
     "import emojis/types.{
       type Emoji, type UnicodeVersion, Activities,
@@ -132,10 +130,7 @@ fn generate_imports(emojis_code_file_path: String) -> Nil {
   Nil
 }
 
-fn generate_emojis_function(
-  emojis_code_file_path: String,
-  emoji_by_alias: dict.Dict(String, Emoji),
-) {
+fn generate_emojis_function(emoji_by_alias: dict.Dict(String, Emoji)) {
   let emojis = dict.values(emoji_by_alias)
   let list_item_strings =
     emojis
@@ -153,7 +148,6 @@ fn generate_emojis_function(
 }
 
 fn generate_get_by_alias_function(
-  emojis_code_file_path: String,
   emoji_by_alias: dict.Dict(String, Emoji),
 ) -> Nil {
   let aliases = dict.keys(emoji_by_alias) |> list.sort(string.compare)
