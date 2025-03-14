@@ -112,7 +112,7 @@ fn generate_source_code(
   let _ = simplifile.delete(emojis_code_file_path)
   let assert Ok(_) = simplifile.create_file(emojis_code_file_path)
   generate_imports(emojis_code_file_path)
-  generate_emojis_functions(emojis_code_file_path, emoji_by_alias)
+  generate_emojis_function(emojis_code_file_path, emoji_by_alias)
   generate_get_by_alias_function(emojis_code_file_path, emoji_by_alias)
 
   Nil
@@ -132,7 +132,7 @@ fn generate_imports(emojis_code_file_path: String) -> Nil {
   Nil
 }
 
-fn generate_emojis_functions(
+fn generate_emojis_function(
   emojis_code_file_path: String,
   emoji_by_alias: dict.Dict(String, Emoji),
 ) {
