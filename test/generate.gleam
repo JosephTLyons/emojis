@@ -53,6 +53,7 @@ fn emoji_json_string() -> String {
         opt: [],
       )
     let assert Ok(_) = simplifile.write(json_string, to: emoji_data_file_path)
+
     json_string
   })
 }
@@ -114,6 +115,7 @@ fn generate_source_code(
   generate_imports(emojis_code_file_path)
   // generate_emojis_functions()
   generate_get_by_alias_function(emojis_code_file_path, emoji_by_alias)
+
   Nil
 }
 
@@ -156,6 +158,7 @@ fn generate_get_by_alias_function(
     |> string.join("\n")
 
   let assert Ok(_) = simplifile.append(emojis_code_file_path, function_string)
+
   Nil
 }
 
