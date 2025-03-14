@@ -222,11 +222,13 @@ fn quote_string(string: String) -> String {
 }
 // TODO: Tests
 // TODO: Docs
-// TODO: Test using the lib from GitHub
 // TODO: Rename package to something cool?
+// TODO: Should we generate the types directly in emojis.gleam to be more
+//     idiomatic? Will result in duplicated code (types.gleam is currently being
+//     shared between generate.gleam and emojis.gleam)
+//
+//     Separate types into separate modules?
 
 // Later
 // TODO: Get "https://unicode.org/Public/emoji/16.0/emoji-test.txt"
 // TODO: get()
-// TODO: get_emojis_by_category()
-// TODO: get_emojis_by_tags()
