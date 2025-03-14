@@ -113,7 +113,7 @@ fn generate_source_code(
   let _ = simplifile.delete(emojis_code_file_path)
   let assert Ok(_) = simplifile.create_file(emojis_code_file_path)
   generate_imports(emojis_code_file_path)
-  // generate_emojis_functions()
+  generate_emojis_functions(emojis_code_file_path, emoji_by_alias)
   generate_get_by_alias_function(emojis_code_file_path, emoji_by_alias)
 
   Nil
@@ -129,6 +129,27 @@ fn generate_imports(emojis_code_file_path: String) -> Nil {
   ]
   let imports_string = string.join(imports, "\n")
   let assert Ok(_) = simplifile.append(emojis_code_file_path, imports_string)
+
+  Nil
+}
+
+fn generate_emojis_functions(
+  emojis_code_file_path: String,
+  emoji_by_alias: dict.Dict(String, Emoji),
+) {
+  let emojis = dict.values(emoji_by_alias)
+  let list_item_strings =
+    emojis
+    |> list.map(fn(emoji) { generate_emoji_record_string(emoji) <> ", " })
+
+  let function_string =
+    ["pub fn emojis() -> List(Emoji) {", "["]
+    |> list.append(list_item_strings)
+    |> list.append(["]", "}"])
+    |> string.join("\n")
+
+  let assert Ok(_) = simplifile.append(emojis_code_file_path, function_string)
+
   Nil
 }
 
@@ -200,7 +221,6 @@ fn generate_list_string(items: List(String)) -> String {
 fn quote_string(string: String) -> String {
   "\"" <> string <> "\""
 }
-// TODO: Generate: emojis()
 // TODO: Tests
 // TODO: Docs
 // TODO: Test using the lib from GitHub
