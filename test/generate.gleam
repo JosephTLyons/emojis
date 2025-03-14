@@ -45,7 +45,13 @@ fn emoji_json_string() -> String {
     let assert Ok(res) = httpc.dispatch(config, req)
     let assert 200 = res.status
     let json_string = res.body
-    // TODO: Format JSON
+    let assert Ok(json_string) =
+      shellout.command(
+        run: "sh",
+        with: ["-euc", "echo '" <> json_string <> "' | jq -r --indent 4"],
+        in: ".",
+        opt: [],
+      )
     let assert Ok(_) = simplifile.write(json_string, to: emoji_data_file_path)
     json_string
   })
