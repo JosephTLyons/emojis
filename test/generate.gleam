@@ -1,8 +1,7 @@
 import emojis/types.{
-  type Category, type Emoji, type Emojis, type UnicodeVersion, Activities,
-  AnimalsAndNature, Emoji, Flags, FoodAndDrink, Objects, PeopleAndBody,
-  SmileysAndEmotion, Symbols, TravelAndPlaces, UnicodeVersion,
-  category_to_string,
+  type Category, type Emoji, type UnicodeVersion, Activities, AnimalsAndNature,
+  Emoji, Flags, FoodAndDrink, Objects, PeopleAndBody, SmileysAndEmotion, Symbols,
+  TravelAndPlaces, UnicodeVersion, category_to_string,
 }
 import gleam/dict
 import gleam/dynamic/decode
@@ -96,11 +95,11 @@ fn emoji_decoder() -> decode.Decoder(Emoji) {
   ))
 }
 
-fn emojis_decoder() -> decode.Decoder(Emojis) {
+fn emojis_decoder() -> decode.Decoder(List(Emoji)) {
   decode.list(emoji_decoder())
 }
 
-fn emoji_by_alias(emojis: Emojis) -> dict.Dict(String, Emoji) {
+fn emoji_by_alias(emojis: List(Emoji)) -> dict.Dict(String, Emoji) {
   list.fold(emojis, dict.new(), fn(d, emoji) {
     list.fold(emoji.aliases, d, fn(d, alias) { dict.insert(d, alias, emoji) })
   })

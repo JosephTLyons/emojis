@@ -39,6 +39,3 @@ pub type Emoji {
 pub type UnicodeVersion {
   UnicodeVersion(major: Int, minor: Int)
 }
-
-pub type Emojis =
-  List(Emoji)
