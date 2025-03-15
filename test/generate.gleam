@@ -131,7 +131,9 @@ fn generate_imports() -> Nil {
 }
 
 fn generate_emojis_function(emoji_by_alias: dict.Dict(String, Emoji)) {
-  let emojis = dict.values(emoji_by_alias)
+  let emojis =
+    dict.values(emoji_by_alias)
+    |> list.sort(fn(a, b) { string.compare(a.emoji, b.emoji) })
   let list_item_strings =
     emojis
     |> list.map(fn(emoji) { generate_emoji_record_string(emoji) <> ", " })
