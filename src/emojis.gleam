@@ -7,14 +7,14 @@ import emojis/types.{
 /// Fetch a sorted list of all emojis.
 ///
 /// ```gleam
-/// emojis.emojis()
+/// emojis.all()
 /// |> list.filter(fn(emoji) { emoji.category == Flags })
 /// |> list.map(fn(emoji) { emoji.emoji })
 /// |> list.take(10)
 /// ["🇦🇨", "🇦🇩", "🇦🇪", "🇦🇫", "🇦🇬", "🇦🇮", "🇦🇱", "🇦🇲", "🇦🇴", "🇦🇶"]
 /// ```
 ///
-pub fn emojis() -> List(Emoji) {
+pub fn all() -> List(Emoji) {
   [
     Emoji(
       emoji: "#️⃣",

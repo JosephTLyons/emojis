@@ -110,7 +110,7 @@ fn generate_source_code(emoji_by_alias: dict.Dict(String, Emoji)) -> Nil {
   let _ = simplifile.delete(emojis_code_file_path)
   let assert Ok(_) = simplifile.create_file(emojis_code_file_path)
   generate_imports()
-  generate_emojis_function(emoji_by_alias)
+  generate_all_function(emoji_by_alias)
   generate_get_by_alias_function(emoji_by_alias)
 
   Nil
@@ -131,10 +131,10 @@ fn generate_imports() -> Nil {
   Nil
 }
 
-fn generate_emojis_function(emoji_by_alias: dict.Dict(String, Emoji)) {
+fn generate_all_function(emoji_by_alias: dict.Dict(String, Emoji)) {
   let doc_string =
     [
-      "Fetch a sorted list of all emojis.", "", "```gleam", "emojis.emojis()",
+      "Fetch a sorted list of all emojis.", "", "```gleam", "emojis.all()",
       "|> list.filter(fn(emoji) { emoji.category == Flags })",
       "|> list.map(fn(emoji) { emoji.emoji })", "|> list.take(10)",
       "[\"🇦🇨\", \"🇦🇩\", \"🇦🇪\", \"🇦🇫\", \"🇦🇬\", \"🇦🇮\", \"🇦🇱\", \"🇦🇲\", \"🇦🇴\", \"🇦🇶\"]",
@@ -154,7 +154,7 @@ fn generate_emojis_function(emoji_by_alias: dict.Dict(String, Emoji)) {
     |> list.map(fn(emoji) { generate_emoji_record_string(emoji) <> ", " })
 
   let function_string =
-    ["pub fn emojis() -> List(Emoji) {", "["]
+    ["pub fn all() -> List(Emoji) {", "["]
     |> list.append(list_item_strings)
     |> list.append(["]", "}"])
     |> string.join("\n")

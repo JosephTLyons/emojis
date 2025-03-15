@@ -20,15 +20,15 @@ pub fn get_by_alias_test() {
   should.equal(cat.emoji, "🐱")
 }
 
-pub fn emojis_test() {
-  emojis.emojis()
+pub fn all_test() {
+  emojis.all()
   |> list.filter(fn(emoji) { emoji.category == SmileysAndEmotion })
   |> list.map(fn(emoji) { emoji.emoji })
   |> list.sort(string.compare)
   |> list.take(10)
   |> should.equal(["☠️", "☹️", "☺️", "❣️", "❤️", "❤️‍🔥", "❤️‍🩹", "👁️‍🗨️", "👹", "👺"])
 
-  emojis.emojis()
+  emojis.all()
   |> list.filter(fn(emoji) { emoji.category == Flags })
   |> list.map(fn(emoji) { emoji.emoji })
   |> list.take(10)
