@@ -31,7 +31,6 @@ pub fn emojis_test() {
   emojis.emojis()
   |> list.filter(fn(emoji) { emoji.category == Flags })
   |> list.map(fn(emoji) { emoji.emoji })
-  |> list.sort(string.compare)
   |> list.take(10)
   |> should.equal(["🇦🇨", "🇦🇩", "🇦🇪", "🇦🇫", "🇦🇬", "🇦🇮", "🇦🇱", "🇦🇲", "🇦🇴", "🇦🇶"])
 }
