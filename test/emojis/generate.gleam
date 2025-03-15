@@ -22,7 +22,7 @@ pub fn main() -> Nil {
   let json_string = emoji_json_string()
   let assert Ok(emojis) = json.parse(from: json_string, using: emojis_decoder())
   let emoji_by_alias = emoji_by_alias(emojis)
-  generate_source_code(emoji_by_alias)
+  generate_source_code_file(emoji_by_alias)
 
   let assert Ok(_) =
     shellout.command(
@@ -120,17 +120,18 @@ fn emoji_by_alias(emojis: List(Emoji)) -> dict.Dict(String, Emoji) {
   })
 }
 
-fn generate_source_code(emoji_by_alias: dict.Dict(String, Emoji)) -> Nil {
+fn generate_source_code_file(emoji_by_alias: dict.Dict(String, Emoji)) -> Nil {
   let _ = simplifile.delete(emojis_code_file_path)
   let assert Ok(_) = simplifile.create_file(emojis_code_file_path)
-  generate_types()
-  generate_all_function(emoji_by_alias)
-  generate_get_by_alias_function(emoji_by_alias)
+
+  append_types()
+  append_all_function(emoji_by_alias)
+  append_get_by_alias_function(emoji_by_alias)
 
   Nil
 }
 
-fn generate_types() -> Nil {
+fn append_types() -> Nil {
   let assert Ok(types_string) = simplifile.read("./test/emojis/types.gleam")
   let assert Ok(_) =
     simplifile.append(emojis_code_file_path, types_string <> "\n")
@@ -138,7 +139,7 @@ fn generate_types() -> Nil {
   Nil
 }
 
-fn generate_all_function(emoji_by_alias: dict.Dict(String, Emoji)) {
+fn append_all_function(emoji_by_alias: dict.Dict(String, Emoji)) {
   let doc_string =
     [
       "Fetch a sorted list of all emojis.", "", "```gleam", "emojis.all()",
@@ -172,9 +173,7 @@ fn generate_all_function(emoji_by_alias: dict.Dict(String, Emoji)) {
   Nil
 }
 
-fn generate_get_by_alias_function(
-  emoji_by_alias: dict.Dict(String, Emoji),
-) -> Nil {
+fn append_get_by_alias_function(emoji_by_alias: dict.Dict(String, Emoji)) -> Nil {
   let doc_string =
     [
       "Fetch an emoji by alias / shortcode.", "", "```gleam",
