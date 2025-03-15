@@ -167,6 +167,18 @@ fn generate_emojis_function(emoji_by_alias: dict.Dict(String, Emoji)) {
 fn generate_get_by_alias_function(
   emoji_by_alias: dict.Dict(String, Emoji),
 ) -> Nil {
+  let doc_string =
+    [
+      "Fetch an emoji by alias / shortcode.", "", "```gleam",
+      "let assert Ok(rocket) = emojis.get_by_alias(\"rocket\")",
+      "rocket.emoji", "\"🚀\"", "```", "",
+    ]
+    |> list.map(docify_string)
+    |> string.join("\n")
+
+  let assert Ok(_) =
+    simplifile.append(emojis_code_file_path, doc_string <> "\n")
+
   let aliases = dict.keys(emoji_by_alias) |> list.sort(string.compare)
   let case_arm_strings =
     aliases

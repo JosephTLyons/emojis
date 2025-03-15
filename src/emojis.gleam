@@ -15323,6 +15323,14 @@ pub fn emojis() -> List(Emoji) {
   ]
 }
 
+/// Fetch an emoji by alias / shortcode.
+///
+/// ```gleam
+/// let assert Ok(rocket) = emojis.get_by_alias("rocket")
+/// rocket.emoji
+/// "🚀"
+/// ```
+///
 pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
   case alias {
     "+1" ->
