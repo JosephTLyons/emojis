@@ -217,6 +217,7 @@ fn quote_string(string: String) -> String {
 // TODO: Tests
 // TODO: Docs
 // TODO: Rename package to something cool?
+// TODO: Test package hosted from GitHub before publishing
 // TODO: Should we generate the types directly in emojis.gleam to be more
 //     idiomatic? Will result in duplicated code (types.gleam is currently being
 //     shared between generate.gleam and emojis.gleam)
@@ -226,3 +227,4 @@ fn quote_string(string: String) -> String {
 // Later
 // TODO: Get "https://unicode.org/Public/emoji/16.0/emoji-test.txt"
 // TODO: get()
+// TODO: Add optional skin_tone field
