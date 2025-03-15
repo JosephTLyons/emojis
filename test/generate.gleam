@@ -159,7 +159,7 @@ fn generate_emojis_function(emoji_by_alias: dict.Dict(String, Emoji)) {
     |> list.append(["]", "}"])
     |> string.join("\n")
 
-  let assert Ok(_) = simplifile.append(emojis_code_file_path, function_string)
+  let assert Ok(_) = simplifile.append(emojis_code_file_path, function_string <> "\n")
 
   Nil
 }
