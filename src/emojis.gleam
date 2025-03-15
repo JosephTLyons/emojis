@@ -4,6 +4,17 @@ import emojis/types.{
   TravelAndPlaces, UnicodeVersion,
 }
 
+/// Fetch a sorted list of all emojis.
+///
+/// ```gleam
+/// emojis.emojis()
+/// |> list.filter(fn(emoji) { emoji.category == Flags })
+/// |> list.map(fn(emoji) { emoji.emoji })
+/// |> list.sort(string.compare)
+/// |> list.take(10)
+/// |> should.equal(["🇦🇨", "🇦🇩", "🇦🇪", "🇦🇫", "🇦🇬", "🇦🇮", "🇦🇱", "🇦🇲", "🇦🇴", "🇦🇶"])
+/// ```
+///
 pub fn emojis() -> List(Emoji) {
   [
     Emoji(

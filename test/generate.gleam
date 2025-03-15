@@ -125,12 +125,28 @@ fn generate_imports() -> Nil {
     }",
   ]
   let imports_string = string.join(imports, "\n")
-  let assert Ok(_) = simplifile.append(emojis_code_file_path, imports_string)
+  let assert Ok(_) =
+    simplifile.append(emojis_code_file_path, imports_string <> "\n")
 
   Nil
 }
 
 fn generate_emojis_function(emoji_by_alias: dict.Dict(String, Emoji)) {
+  let doc_string =
+    [
+      "Fetch a sorted list of all emojis.", "", "```gleam", "emojis.emojis()",
+      "|> list.filter(fn(emoji) { emoji.category == Flags })",
+      "|> list.map(fn(emoji) { emoji.emoji })", "|> list.sort(string.compare)",
+      "|> list.take(10)",
+      "|> should.equal([\"🇦🇨\", \"🇦🇩\", \"🇦🇪\", \"🇦🇫\", \"🇦🇬\", \"🇦🇮\", \"🇦🇱\", \"🇦🇲\", \"🇦🇴\", \"🇦🇶\"])",
+      "```", "",
+    ]
+    |> list.map(docify_string)
+    |> string.join("\n")
+
+  let assert Ok(_) =
+    simplifile.append(emojis_code_file_path, doc_string <> "\n")
+
   let emojis =
     dict.values(emoji_by_alias)
     |> list.sort(fn(a, b) { string.compare(a.emoji, b.emoji) })
@@ -173,7 +189,8 @@ fn generate_get_by_alias_function(
     |> list.append(["}", "}"])
     |> string.join("\n")
 
-  let assert Ok(_) = simplifile.append(emojis_code_file_path, function_string)
+  let assert Ok(_) =
+    simplifile.append(emojis_code_file_path, function_string <> "\n")
 
   Nil
 }
@@ -215,6 +232,10 @@ fn generate_list_string(items: List(String)) -> String {
 
 fn quote_string(string: String) -> String {
   "\"" <> string <> "\""
+}
+
+fn docify_string(string: String) -> String {
+  { "/// " <> string } |> string.trim
 }
 // TODO: Tests
 // TODO: Docs
