@@ -18,6 +18,8 @@ import simplifile
 
 const emojis_code_file_path = "./src/emojis.gleam"
 
+const test_emojis_namespace_path = "./test/emojis/"
+
 pub fn main() -> Nil {
   let json_string = emoji_json_string()
   let assert Ok(emojis) = json.parse(from: json_string, using: emojis_decoder())
@@ -27,7 +29,7 @@ pub fn main() -> Nil {
   let assert Ok(_) =
     shellout.command(
       run: "gleam",
-      with: ["format", "./src/emojis.gleam"],
+      with: ["format", emojis_code_file_path],
       in: ".",
       opt: [],
     )
@@ -36,7 +38,7 @@ pub fn main() -> Nil {
 }
 
 fn emoji_json_string() -> String {
-  let emoji_data_file_path = "./test/emojis.json"
+  let emoji_data_file_path = test_emojis_namespace_path <> "emojis.json"
   simplifile.read(from: emoji_data_file_path)
   |> result.lazy_unwrap(fn() {
     let url = "https://github.com/github/gemoji/raw/v4.1.0/db/emoji.json"
@@ -132,7 +134,8 @@ fn generate_source_code_file(emoji_by_alias: dict.Dict(String, Emoji)) -> Nil {
 }
 
 fn append_types() -> Nil {
-  let assert Ok(types_string) = simplifile.read("./test/emojis/types.gleam")
+  let assert Ok(types_string) =
+    simplifile.read(test_emojis_namespace_path <> "types.gleam")
   let assert Ok(_) =
     simplifile.append(emojis_code_file_path, types_string <> "\n")
 
