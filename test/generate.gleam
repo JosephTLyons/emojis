@@ -140,7 +140,7 @@ fn generate_emojis_function(emoji_by_alias: dict.Dict(String, Emoji)) {
       "[\"🇦🇨\", \"🇦🇩\", \"🇦🇪\", \"🇦🇫\", \"🇦🇬\", \"🇦🇮\", \"🇦🇱\", \"🇦🇲\", \"🇦🇴\", \"🇦🇶\"]",
       "```", "",
     ]
-    |> list.map(docify_string)
+    |> list.map(comment_string)
     |> string.join("\n")
 
   let assert Ok(_) =
@@ -173,7 +173,7 @@ fn generate_get_by_alias_function(
       "let assert Ok(rocket) = emojis.get_by_alias(\"rocket\")",
       "rocket.emoji", "\"🚀\"", "```", "",
     ]
-    |> list.map(docify_string)
+    |> list.map(comment_string)
     |> string.join("\n")
 
   let assert Ok(_) =
@@ -245,7 +245,7 @@ fn quote_string(string: String) -> String {
   "\"" <> string <> "\""
 }
 
-fn docify_string(string: String) -> String {
+fn comment_string(string: String) -> String {
   { "/// " <> string } |> string.trim
 }
 // TODO: Tests
