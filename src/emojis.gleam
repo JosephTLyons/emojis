@@ -1,7 +1,28 @@
-import emojis/types.{
-  type Emoji, type UnicodeVersion, Activities, AnimalsAndNature, Emoji, Flags,
-  FoodAndDrink, Objects, PeopleAndBody, SmileysAndEmotion, Symbols,
-  TravelAndPlaces, UnicodeVersion,
+pub type Category {
+  Activities
+  AnimalsAndNature
+  Flags
+  FoodAndDrink
+  Objects
+  PeopleAndBody
+  SmileysAndEmotion
+  Symbols
+  TravelAndPlaces
+}
+
+pub type Emoji {
+  Emoji(
+    emoji: String,
+    description: String,
+    category: Category,
+    aliases: List(String),
+    tags: List(String),
+    unicode_version: UnicodeVersion,
+  )
+}
+
+pub type UnicodeVersion {
+  UnicodeVersion(major: Int, minor: Int)
 }
 
 /// Fetch a sorted list of all emojis.

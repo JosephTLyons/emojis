@@ -1,7 +1,7 @@
 import emojis/types.{
   type Category, type Emoji, type UnicodeVersion, Activities, AnimalsAndNature,
   Emoji, Flags, FoodAndDrink, Objects, PeopleAndBody, SmileysAndEmotion, Symbols,
-  TravelAndPlaces, UnicodeVersion, category_to_string,
+  TravelAndPlaces, UnicodeVersion,
 }
 import gleam/dict
 import gleam/dynamic/decode
@@ -58,7 +58,7 @@ fn emoji_json_string() -> String {
   })
 }
 
-fn get_category(category: String) -> Category {
+fn string_to_category(category: String) -> Category {
   case category {
     "Activities" -> Activities
     "Animals & Nature" -> AnimalsAndNature
@@ -73,6 +73,20 @@ fn get_category(category: String) -> Category {
   }
 }
 
+fn category_to_string(category: Category) -> String {
+  case category {
+    Activities -> "Activities"
+    AnimalsAndNature -> "AnimalsAndNature"
+    Flags -> "Flags"
+    FoodAndDrink -> "FoodAndDrink"
+    Objects -> "Objects"
+    PeopleAndBody -> "PeopleAndBody"
+    SmileysAndEmotion -> "SmileysAndEmotion"
+    Symbols -> "Symbols"
+    TravelAndPlaces -> "TravelAndPlaces"
+  }
+}
+
 fn emoji_decoder() -> decode.Decoder(Emoji) {
   use emoji <- decode.field("emoji", decode.string)
   use description <- decode.field("description", decode.string)
@@ -81,7 +95,7 @@ fn emoji_decoder() -> decode.Decoder(Emoji) {
   use tags <- decode.field("tags", decode.list(decode.string))
   use unicode_version <- decode.field("unicode_version", decode.string)
 
-  let category = get_category(category)
+  let category = string_to_category(category)
   let assert Ok(unicode_version) = parse_loosely(unicode_version)
   let unicode_version =
     UnicodeVersion(unicode_version.major, unicode_version.minor)
@@ -109,24 +123,17 @@ fn emoji_by_alias(emojis: List(Emoji)) -> dict.Dict(String, Emoji) {
 fn generate_source_code(emoji_by_alias: dict.Dict(String, Emoji)) -> Nil {
   let _ = simplifile.delete(emojis_code_file_path)
   let assert Ok(_) = simplifile.create_file(emojis_code_file_path)
-  generate_imports()
+  generate_types()
   generate_all_function(emoji_by_alias)
   generate_get_by_alias_function(emoji_by_alias)
 
   Nil
 }
 
-fn generate_imports() -> Nil {
-  let imports = [
-    "import emojis/types.{
-      type Emoji, type UnicodeVersion, Activities,
-      AnimalsAndNature, Emoji, Flags, FoodAndDrink, Objects, PeopleAndBody,
-      SmileysAndEmotion, Symbols, TravelAndPlaces, UnicodeVersion,
-    }",
-  ]
-  let imports_string = string.join(imports, "\n")
+fn generate_types() -> Nil {
+  let assert Ok(types_string) = simplifile.read("./test/emojis/types.gleam")
   let assert Ok(_) =
-    simplifile.append(emojis_code_file_path, imports_string <> "\n")
+    simplifile.append(emojis_code_file_path, types_string <> "\n")
 
   Nil
 }

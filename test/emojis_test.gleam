@@ -1,5 +1,4 @@
-import emojis
-import emojis/types.{Flags, SmileysAndEmotion}
+import emojis.{Flags, SmileysAndEmotion}
 import gleam/list
 import gleam/string
 import gleeunit
