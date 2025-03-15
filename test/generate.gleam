@@ -249,10 +249,6 @@ fn quote_string(string: String) -> String {
 fn comment_string(string: String) -> String {
   { "/// " <> string } |> string.trim
 }
-// TODO: Tests
-// TODO: Docs
-// TODO: Rename package to something cool?
-// TODO: Test package hosted from GitHub before publishing
 // TODO: Should we generate the types directly in emojis.gleam to be more
 //     idiomatic? Will result in duplicated code (types.gleam is currently being
 //     shared between generate.gleam and emojis.gleam)
