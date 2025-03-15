@@ -12,8 +12,7 @@ gleam add emojis
 ## Usage
 
 ```gleam
-import emojis
-import emojis/types.{Flags}
+import emojis.{Flags}
 import gleam/list
 import gleeunit/should
 
