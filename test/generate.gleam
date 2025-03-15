@@ -137,7 +137,7 @@ fn generate_emojis_function(emoji_by_alias: dict.Dict(String, Emoji)) {
       "Fetch a sorted list of all emojis.", "", "```gleam", "emojis.emojis()",
       "|> list.filter(fn(emoji) { emoji.category == Flags })",
       "|> list.map(fn(emoji) { emoji.emoji })", "|> list.take(10)",
-      "|> should.equal([\"🇦🇨\", \"🇦🇩\", \"🇦🇪\", \"🇦🇫\", \"🇦🇬\", \"🇦🇮\", \"🇦🇱\", \"🇦🇲\", \"🇦🇴\", \"🇦🇶\"])",
+      "[\"🇦🇨\", \"🇦🇩\", \"🇦🇪\", \"🇦🇫\", \"🇦🇬\", \"🇦🇮\", \"🇦🇱\", \"🇦🇲\", \"🇦🇴\", \"🇦🇶\"]",
       "```", "",
     ]
     |> list.map(docify_string)
