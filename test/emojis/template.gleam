@@ -12,13 +12,7 @@ pub type Category {
   TravelAndPlaces
 }
 
-/// An emoji. Contains the following fields:
-/// - emoji
-/// - description
-/// - category
-/// - aliases
-/// - tags
-/// - unicode_version
+/// An emoji.
 ///
 pub type Emoji {
   Emoji(
@@ -31,9 +25,7 @@ pub type Emoji {
   )
 }
 
-/// The Unicode version of an emoji. Contains the following fields:
-/// - major
-/// - minor
+/// The version in which an emoji was added.
 ///
 pub type UnicodeVersion {
   UnicodeVersion(major: Int, minor: Int)
