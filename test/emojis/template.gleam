@@ -38,3 +38,34 @@ pub type Emoji {
 pub type UnicodeVersion {
   UnicodeVersion(major: Int, minor: Int)
 }
+
+/// Fetch a sorted list of all emojis.
+///
+/// ```gleam
+/// emojis.all()
+/// |> list.filter(fn(emoji) { emoji.category == Flags })
+/// |> list.map(fn(emoji) { emoji.emoji })
+/// |> list.take(10)
+/// ["🇦🇨", "🇦🇩", "🇦🇪", "🇦🇫", "🇦🇬", "🇦🇮", "🇦🇱", "🇦🇲", "🇦🇴", "🇦🇶"]
+/// ```
+///
+pub fn all() -> List(Emoji) {
+  [
+    // all()
+  ]
+}
+
+/// Fetch an emoji by alias / shortcode.
+///
+/// ```gleam
+/// let assert Ok(rocket) = emojis.get_by_alias("rocket")
+/// rocket.emoji
+/// "🚀"
+/// ```
+///
+pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
+  case alias {
+    // get_by_alias()
+    _ -> Error(Nil)
+  }
+}
