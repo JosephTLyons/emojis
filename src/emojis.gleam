@@ -15350,7 +15350,7 @@ pub fn all() -> List(Emoji) {
   ]
 }
 
-/// Fetch an emoji by alias / shortcode.
+/// Fetch an emoji by alias (shortcode).
 ///
 /// ```gleam
 /// let assert Ok(rocket) = emojis.get_by_alias("rocket")
