@@ -138,7 +138,7 @@ fn source_code(emoji_by_alias: dict.Dict(String, Emoji)) -> String {
   )
   |> string.replace(
     "// get_by_alias_function_emoji_case_arms",
-    get_by_alias_function_case_arm_strings(emoji_by_alias) |> string.join("\n"),
+    string.join(get_by_alias_function_case_arm_strings(emoji_by_alias), "\n"),
   )
 }
 
