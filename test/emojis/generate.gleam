@@ -23,6 +23,7 @@ const test_emojis_namespace_path = "./test/emojis/"
 pub fn main() -> Nil {
   let json_string = emoji_json_string()
   let assert Ok(emojis) = json.parse(from: json_string, using: emojis_decoder())
+  let emojis = list.sort(emojis, fn(a, b) { string.compare(a.emoji, b.emoji) })
   let source_code = source_code(emojis)
   let assert Ok(_) =
     shellout.command(
@@ -136,9 +137,7 @@ fn source_code(emojis: List(Emoji)) -> String {
 }
 
 fn all_function_list_item_strings(emojis: List(Emoji)) -> List(String) {
-  emojis
-  |> list.sort(fn(a, b) { string.compare(a.emoji, b.emoji) })
-  |> list.map(fn(emoji) { generate_emoji_record_string(emoji) <> ", " })
+  emojis |> list.map(fn(emoji) { generate_emoji_record_string(emoji) <> ", " })
 }
 
 fn get_by_alias_function_case_arm_strings(emojis: List(Emoji)) -> List(String) {
