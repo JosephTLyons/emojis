@@ -1,4 +1,4 @@
-import emojis/types.{
+import emojis/template.{
   type Category, type Emoji, type UnicodeVersion, Activities, AnimalsAndNature,
   Emoji, Flags, FoodAndDrink, Objects, PeopleAndBody, SmileysAndEmotion, Symbols,
   TravelAndPlaces, UnicodeVersion,
@@ -24,7 +24,11 @@ pub fn main() -> Nil {
   let json_string = emoji_json_string()
   let assert Ok(emojis) = json.parse(from: json_string, using: emojis_decoder())
   let emoji_by_alias = emoji_by_alias(emojis)
-  generate_source_code_file(emoji_by_alias)
+  let source_code = source_code(emoji_by_alias)
+
+  let _ = simplifile.delete(emojis_code_file_path)
+  let _ = simplifile.create_file(emojis_code_file_path)
+  let _ = simplifile.write(source_code, to: emojis_code_file_path)
 
   let assert Ok(_) =
     shellout.command(
@@ -122,98 +126,41 @@ fn emoji_by_alias(emojis: List(Emoji)) -> dict.Dict(String, Emoji) {
   })
 }
 
-fn generate_source_code_file(emoji_by_alias: dict.Dict(String, Emoji)) -> Nil {
-  let _ = simplifile.delete(emojis_code_file_path)
-  let assert Ok(_) = simplifile.create_file(emojis_code_file_path)
+fn source_code(emoji_by_alias: dict.Dict(String, Emoji)) -> String {
+  let assert Ok(source_code) =
+    simplifile.read(test_emojis_namespace_path <> "template.gleam")
 
-  append_types()
-  append_all_function(emoji_by_alias)
-  append_get_by_alias_function(emoji_by_alias)
-
-  Nil
+  source_code
+  |> string.replace(
+    "// all_function_emoji_list_items",
+    string.join(all_function_list_item_strings(emoji_by_alias), "\n"),
+  )
+  |> string.replace(
+    "// get_by_alias_function_emoji_case_arms",
+    get_by_alias_function_case_arm_strings(emoji_by_alias) |> string.join("\n"),
+  )
 }
 
-fn append_types() -> Nil {
-  let assert Ok(types_string) =
-    simplifile.read(test_emojis_namespace_path <> "types.gleam")
-  let assert Ok(_) =
-    simplifile.append(emojis_code_file_path, types_string <> "\n")
-
-  Nil
+fn all_function_list_item_strings(
+  emoji_by_alias: dict.Dict(String, Emoji),
+) -> List(String) {
+  dict.values(emoji_by_alias)
+  |> list.sort(fn(a, b) { string.compare(a.emoji, b.emoji) })
+  |> list.map(fn(emoji) { generate_emoji_record_string(emoji) <> ", " })
 }
 
-fn append_all_function(emoji_by_alias: dict.Dict(String, Emoji)) {
-  let doc_string =
-    [
-      "Fetch a sorted list of all emojis.", "", "```gleam", "emojis.all()",
-      "|> list.filter(fn(emoji) { emoji.category == Flags })",
-      "|> list.map(fn(emoji) { emoji.emoji })", "|> list.take(10)",
-      "[\"🇦🇨\", \"🇦🇩\", \"🇦🇪\", \"🇦🇫\", \"🇦🇬\", \"🇦🇮\", \"🇦🇱\", \"🇦🇲\", \"🇦🇴\", \"🇦🇶\"]",
-      "```", "",
-    ]
-    |> list.map(comment_string)
-    |> string.join("\n")
-
-  let assert Ok(_) =
-    simplifile.append(emojis_code_file_path, doc_string <> "\n")
-
-  let emojis =
-    dict.values(emoji_by_alias)
-    |> list.sort(fn(a, b) { string.compare(a.emoji, b.emoji) })
-  let list_item_strings =
-    emojis
-    |> list.map(fn(emoji) { generate_emoji_record_string(emoji) <> ", " })
-
-  let function_string =
-    ["pub fn all() -> List(Emoji) {", "["]
-    |> list.append(list_item_strings)
-    |> list.append(["]", "}"])
-    |> string.join("\n")
-
-  let assert Ok(_) =
-    simplifile.append(emojis_code_file_path, function_string <> "\n")
-
-  Nil
-}
-
-fn append_get_by_alias_function(emoji_by_alias: dict.Dict(String, Emoji)) -> Nil {
-  let doc_string =
-    [
-      "Fetch an emoji by alias / shortcode.", "", "```gleam",
-      "let assert Ok(rocket) = emojis.get_by_alias(\"rocket\")", "rocket.emoji",
-      "\"🚀\"", "```", "",
-    ]
-    |> list.map(comment_string)
-    |> string.join("\n")
-
-  let assert Ok(_) =
-    simplifile.append(emojis_code_file_path, doc_string <> "\n")
-
+fn get_by_alias_function_case_arm_strings(
+  emoji_by_alias: dict.Dict(String, Emoji),
+) -> List(String) {
   let aliases = dict.keys(emoji_by_alias) |> list.sort(string.compare)
-  let case_arm_strings =
-    aliases
-    |> list.map(fn(alias) {
-      let assert Ok(emoji) = dict.get(emoji_by_alias, alias)
-      let alias_string = quote_string(alias)
-      let emoji_record_string = generate_emoji_record_string(emoji)
-      alias_string <> " -> " <> "Ok(" <> emoji_record_string <> ")"
-    })
 
-  let case_arm_strings = case_arm_strings |> list.append(["_ -> Error(Nil)"])
-
-  let function_string =
-    [
-      "pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {",
-      "case alias {",
-    ]
-    |> list.append(case_arm_strings)
-    |> list.append(["}", "}"])
-    |> string.join("\n")
-
-  let assert Ok(_) =
-    simplifile.append(emojis_code_file_path, function_string <> "\n")
-
-  Nil
+  aliases
+  |> list.map(fn(alias) {
+    let assert Ok(emoji) = dict.get(emoji_by_alias, alias)
+    let alias_string = quote_string(alias)
+    let emoji_record_string = generate_emoji_record_string(emoji)
+    alias_string <> " -> " <> "Ok(" <> emoji_record_string <> ")"
+  })
 }
 
 fn generate_emoji_record_string(emoji: Emoji) -> String {
@@ -253,8 +200,4 @@ fn generate_list_string(items: List(String)) -> String {
 
 fn quote_string(string: String) -> String {
   "\"" <> string <> "\""
-}
-
-fn comment_string(string: String) -> String {
-  { "/// " <> string } |> string.trim
 }
