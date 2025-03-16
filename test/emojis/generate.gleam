@@ -25,15 +25,16 @@ pub fn main() -> Nil {
   let assert Ok(emojis) = json.parse(from: json_string, using: emojis_decoder())
   let emoji_by_alias = emoji_by_alias(emojis)
   let source_code = source_code(emoji_by_alias)
-
-  let _ = simplifile.delete(emojis_code_file_path)
-  let _ = simplifile.create_file(emojis_code_file_path)
-  let _ = simplifile.write(source_code, to: emojis_code_file_path)
-
   let assert Ok(_) =
     shellout.command(
-      run: "gleam",
-      with: ["format", emojis_code_file_path],
+      run: "sh",
+      with: [
+        "-euc",
+        "echo '"
+          <> source_code
+          <> "' | gleam format --stdin > "
+          <> emojis_code_file_path,
+      ],
       in: ".",
       opt: [],
     )
