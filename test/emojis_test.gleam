@@ -1,5 +1,6 @@
 import emojis.{Flags, SmileysAndEmotion}
 import gleam/list
+import gleam/set
 import gleam/string
 import gleeunit
 import gleeunit/should
@@ -32,4 +33,13 @@ pub fn all_test() {
   |> list.map(fn(emoji) { emoji.emoji })
   |> list.take(10)
   |> should.equal(["🇦🇨", "🇦🇩", "🇦🇪", "🇦🇫", "🇦🇬", "🇦🇮", "🇦🇱", "🇦🇲", "🇦🇴", "🇦🇶"])
+}
+
+pub fn ensure_no_dupliates_in_all_test() {
+  let emojis = emojis.all() |> list.map(fn(emoji) { emoji.emoji })
+  let emojis_before_length = emojis |> list.length
+  let emojis_after_length =
+    emojis |> set.from_list |> set.to_list |> list.length
+
+  emojis_before_length |> should.equal(emojis_after_length)
 }

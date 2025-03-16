@@ -23,8 +23,7 @@ const test_emojis_namespace_path = "./test/emojis/"
 pub fn main() -> Nil {
   let json_string = emoji_json_string()
   let assert Ok(emojis) = json.parse(from: json_string, using: emojis_decoder())
-  let emoji_by_alias = emoji_by_alias(emojis)
-  let source_code = source_code(emoji_by_alias)
+  let source_code = source_code(emojis)
   let assert Ok(_) =
     shellout.command(
       run: "sh",
@@ -121,38 +120,29 @@ fn emojis_decoder() -> decode.Decoder(List(Emoji)) {
   decode.list(emoji_decoder())
 }
 
-fn emoji_by_alias(emojis: List(Emoji)) -> dict.Dict(String, Emoji) {
-  list.fold(emojis, dict.new(), fn(d, emoji) {
-    list.fold(emoji.aliases, d, fn(d, alias) { dict.insert(d, alias, emoji) })
-  })
-}
-
-fn source_code(emoji_by_alias: dict.Dict(String, Emoji)) -> String {
+fn source_code(emojis: List(Emoji)) -> String {
   let assert Ok(source_code) =
     simplifile.read(test_emojis_namespace_path <> "template.gleam")
 
   source_code
   |> string.replace(
     "// all_function_emoji_list_items",
-    string.join(all_function_list_item_strings(emoji_by_alias), "\n"),
+    string.join(all_function_list_item_strings(emojis), "\n"),
   )
   |> string.replace(
     "// get_by_alias_function_emoji_case_arms",
-    string.join(get_by_alias_function_case_arm_strings(emoji_by_alias), "\n"),
+    string.join(get_by_alias_function_case_arm_strings(emojis), "\n"),
   )
 }
 
-fn all_function_list_item_strings(
-  emoji_by_alias: dict.Dict(String, Emoji),
-) -> List(String) {
-  dict.values(emoji_by_alias)
+fn all_function_list_item_strings(emojis: List(Emoji)) -> List(String) {
+  emojis
   |> list.sort(fn(a, b) { string.compare(a.emoji, b.emoji) })
   |> list.map(fn(emoji) { generate_emoji_record_string(emoji) <> ", " })
 }
 
-fn get_by_alias_function_case_arm_strings(
-  emoji_by_alias: dict.Dict(String, Emoji),
-) -> List(String) {
+fn get_by_alias_function_case_arm_strings(emojis: List(Emoji)) -> List(String) {
+  let emoji_by_alias = emoji_by_alias(emojis)
   let aliases = dict.keys(emoji_by_alias) |> list.sort(string.compare)
 
   aliases
@@ -161,6 +151,12 @@ fn get_by_alias_function_case_arm_strings(
     let alias_string = quote_string(alias)
     let emoji_record_string = generate_emoji_record_string(emoji)
     alias_string <> " -> " <> "Ok(" <> emoji_record_string <> ")"
+  })
+}
+
+fn emoji_by_alias(emojis: List(Emoji)) -> dict.Dict(String, Emoji) {
+  list.fold(emojis, dict.new(), fn(d, emoji) {
+    list.fold(emoji.aliases, d, fn(d, alias) { dict.insert(d, alias, emoji) })
   })
 }
 
