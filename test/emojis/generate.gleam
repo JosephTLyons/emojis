@@ -258,7 +258,3 @@ fn quote_string(string: String) -> String {
 fn comment_string(string: String) -> String {
   { "/// " <> string } |> string.trim
 }
-// Later
-// TODO: Get "https://unicode.org/Public/emoji/16.0/emoji-test.txt"
-// TODO: get()
-// TODO: Add optional skin_tone field
