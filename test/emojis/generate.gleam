@@ -134,6 +134,10 @@ fn source_code(emojis: List(Emoji)) -> String {
     "// get_by_alias_function_emoji_case_arms",
     string.join(get_by_alias_function_case_arm_strings(emojis), "\n"),
   )
+  |> string.replace(
+    "// get_function_emoji_case_arms",
+    string.join(get_function_case_arm_strings(emojis), "\n"),
+  )
 }
 
 fn all_function_list_item_strings(emojis: List(Emoji)) -> List(String) {
@@ -150,6 +154,15 @@ fn get_by_alias_function_case_arm_strings(emojis: List(Emoji)) -> List(String) {
     let alias_string = quote_string(alias)
     let emoji_record_string = generate_emoji_record_string(emoji)
     alias_string <> " -> " <> "Ok(" <> emoji_record_string <> ")"
+  })
+}
+
+fn get_function_case_arm_strings(emojis: List(Emoji)) -> List(String) {
+  emojis
+  |> list.map(fn(emoji) {
+    let emoji_string = quote_string(emoji.emoji)
+    let emoji_record_string = generate_emoji_record_string(emoji)
+    emoji_string <> " -> " <> "Ok(" <> emoji_record_string <> ")"
   })
 }
 

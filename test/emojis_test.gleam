@@ -1,4 +1,4 @@
-import emojis.{Flags, SmileysAndEmotion}
+import emojis.{Flags, SmileysAndEmotion, UnicodeVersion}
 import gleam/list
 import gleam/set
 import gleam/string
@@ -42,4 +42,10 @@ pub fn ensure_no_dupliates_in_all_test() {
     emojis |> set.from_list |> set.to_list |> list.length
 
   emojis_before_length |> should.equal(emojis_after_length)
+}
+
+pub fn get_test() {
+  let assert Ok(grinning_face) = emojis.get("😀")
+  grinning_face.unicode_version
+  |> should.equal(UnicodeVersion(major: 6, minor: 1))
 }
