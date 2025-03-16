@@ -51,7 +51,7 @@ pub type UnicodeVersion {
 ///
 pub fn all() -> List(Emoji) {
   [
-    // all()
+    // all_function_emoji_list_items
   ]
 }
 
@@ -65,7 +65,7 @@ pub fn all() -> List(Emoji) {
 ///
 pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
   case alias {
-    // get_by_alias()
+    // get_by_alias_function_emoji_case_arms
     _ -> Error(Nil)
   }
 }
