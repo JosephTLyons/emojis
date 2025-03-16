@@ -31,7 +31,7 @@ pub type UnicodeVersion {
   UnicodeVersion(major: Int, minor: Int)
 }
 
-/// Fetch a sorted list of all emojis.
+/// Fetch a sorted list of all emoji records.
 ///
 /// ```gleam
 /// emojis.all()
@@ -47,7 +47,7 @@ pub fn all() -> List(Emoji) {
   ]
 }
 
-/// Fetch an emoji by alias (shortcode).
+/// Fetch an emoji record by alias (shortcode).
 ///
 /// ```gleam
 /// let assert Ok(rocket) = emojis.get_by_alias("rocket")
@@ -58,6 +58,21 @@ pub fn all() -> List(Emoji) {
 pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
   case alias {
     // get_by_alias_function_emoji_case_arms
+    _ -> Error(Nil)
+  }
+}
+
+/// Fetch an emoji record by emoji.
+///
+/// ```gleam
+/// let assert Ok(grinning_face) = emojis.get("😀")
+/// grinning_face.unicode_version
+/// UnicodeVersion(major: 6, minor: 0)
+/// ```
+///
+pub fn get(emoji: String) -> Result(Emoji, Nil) {
+  case emoji {
+    // get_function_emoji_case_arms
     _ -> Error(Nil)
   }
 }
