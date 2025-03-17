@@ -35,7 +35,7 @@ pub fn all_test() {
   |> should.equal(["🇦🇨", "🇦🇩", "🇦🇪", "🇦🇫", "🇦🇬", "🇦🇮", "🇦🇱", "🇦🇲", "🇦🇴", "🇦🇶"])
 }
 
-pub fn ensure_no_dupliates_in_all_test() {
+pub fn ensure_no_duplicates_in_all_test() {
   let emojis = emojis.all() |> list.map(fn(emoji) { emoji.emoji })
   let emojis_before_length = emojis |> list.length
   let emojis_after_length =
