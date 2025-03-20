@@ -1,7 +1,7 @@
 name = "emojis"
 version = "1.0.1"
 
-description = "Work with emojis programmatically."
+description = "Work with emojis programmatically. 🌈"
 licences = ["Apache-2.0"]
 repository = { type = "github", user = "JosephTLyons", repo = "emojis" }
 
