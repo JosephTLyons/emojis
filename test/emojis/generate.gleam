@@ -44,25 +44,24 @@ pub fn main() -> Nil {
 
 fn emoji_json_string() -> String {
   let emoji_data_file_path = test_emojis_namespace_path <> "emojis.json"
-  simplifile.read(from: emoji_data_file_path)
-  |> result.lazy_unwrap(fn() {
-    let url = "https://github.com/github/gemoji/raw/v4.1.0/db/emoji.json"
-    let assert Ok(req) = request.to(url)
-    let config = httpc.configure() |> httpc.follow_redirects(True)
-    let assert Ok(res) = httpc.dispatch(config, req)
-    let assert 200 = res.status
-    let json_string = res.body
-    let assert Ok(json_string) =
-      shellout.command(
-        run: "sh",
-        with: ["-euc", "echo '" <> json_string <> "' | jq -r --indent 4"],
-        in: ".",
-        opt: [],
-      )
-    let assert Ok(_) = simplifile.write(json_string, to: emoji_data_file_path)
+  let emoji_data = simplifile.read(from: emoji_data_file_path)
+  use <- result.lazy_unwrap(emoji_data)
+  let url = "https://github.com/github/gemoji/raw/v4.1.0/db/emoji.json"
+  let assert Ok(req) = request.to(url)
+  let config = httpc.configure() |> httpc.follow_redirects(True)
+  let assert Ok(res) = httpc.dispatch(config, req)
+  let assert 200 = res.status
+  let json_string = res.body
+  let assert Ok(json_string) =
+    shellout.command(
+      run: "sh",
+      with: ["-euc", "echo '" <> json_string <> "' | jq -r --indent 4"],
+      in: ".",
+      opt: [],
+    )
+  let assert Ok(_) = simplifile.write(json_string, to: emoji_data_file_path)
 
-    json_string
-  })
+  json_string
 }
 
 fn string_to_category(category: String) -> Category {
@@ -141,35 +140,31 @@ fn source_code(emojis: List(Emoji)) -> String {
 }
 
 fn all_function_list_item_strings(emojis: List(Emoji)) -> List(String) {
-  emojis |> list.map(fn(emoji) { generate_emoji_record_string(emoji) <> ", " })
+  use emoji <- list.map(emojis)
+  generate_emoji_record_string(emoji) <> ", "
 }
 
 fn get_by_alias_function_case_arm_strings(emojis: List(Emoji)) -> List(String) {
   let emoji_by_alias = emoji_by_alias(emojis)
   let aliases = dict.keys(emoji_by_alias) |> list.sort(string.compare)
-
-  aliases
-  |> list.map(fn(alias) {
-    let assert Ok(emoji) = dict.get(emoji_by_alias, alias)
-    let alias_string = quote_string(alias)
-    let emoji_record_string = generate_emoji_record_string(emoji)
-    alias_string <> " -> " <> "Ok(" <> emoji_record_string <> ")"
-  })
+  use alias <- list.map(aliases)
+  let assert Ok(emoji) = dict.get(emoji_by_alias, alias)
+  let alias_string = quote_string(alias)
+  let emoji_record_string = generate_emoji_record_string(emoji)
+  alias_string <> " -> " <> "Ok(" <> emoji_record_string <> ")"
 }
 
 fn get_function_case_arm_strings(emojis: List(Emoji)) -> List(String) {
-  emojis
-  |> list.map(fn(emoji) {
-    let emoji_string = quote_string(emoji.emoji)
-    let emoji_record_string = generate_emoji_record_string(emoji)
-    emoji_string <> " -> " <> "Ok(" <> emoji_record_string <> ")"
-  })
+  use emoji <- list.map(emojis)
+  let emoji_string = quote_string(emoji.emoji)
+  let emoji_record_string = generate_emoji_record_string(emoji)
+  emoji_string <> " -> " <> "Ok(" <> emoji_record_string <> ")"
 }
 
 fn emoji_by_alias(emojis: List(Emoji)) -> dict.Dict(String, Emoji) {
-  list.fold(emojis, dict.new(), fn(d, emoji) {
-    list.fold(emoji.aliases, d, fn(d, alias) { dict.insert(d, alias, emoji) })
-  })
+  use d, emoji <- list.fold(emojis, dict.new())
+  use d, alias <- list.fold(emoji.aliases, d)
+  d |> dict.insert(alias, emoji)
 }
 
 fn generate_emoji_record_string(emoji: Emoji) -> String {
