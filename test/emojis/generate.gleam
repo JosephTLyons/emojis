@@ -44,9 +44,10 @@ pub type UnicodeEmoji {
 }
 
 pub fn main() -> Nil {
-  let github_emojis = github_emojis()
   let unicode_emojis = unicode_emojis()
+  let github_emojis = github_emojis()
   let emojis = form_emojis(github_emojis, unicode_emojis)
+  let emojis = list.sort(emojis, fn(a, b) { string.compare(a.emoji, b.emoji) })
   let source_code = source_code(emojis)
   let assert Ok(_) =
     shellout.command(
@@ -84,17 +85,21 @@ fn github_emojis() -> List(GitHubEmoji) {
 
   let assert Ok(emojis) =
     json.parse(from: data_string, using: github_emojis_decoder())
-  list.sort(emojis, fn(a, b) { string.compare(a.emoji, b.emoji) })
+  emojis
 }
 
 fn unicode_emojis() -> List(UnicodeEmoji) {
   fetch_data(
-    "https://unicode.org/Public/emoji/14.0/emoji-sequences.txt",
+    "https://unicode.org/Public/emoji/16.0/emoji-test.txt",
     "unicode.txt",
     None,
   )
 
   []
+}
+
+fn parse_unicode() {
+  todo
 }
 
 fn form_emojis(
@@ -269,3 +274,8 @@ fn generate_list_string(items: List(String)) -> String {
 fn quote_string(string: String) -> String {
   "\"" <> string <> "\""
 }
+// TODO: sub-group
+// TODO: skin-tone
+// TODO: status
+// TODO: codepoints
+// TODO: Generate mainset of emojis from unicode.txt and add in shortcodes from github
