@@ -121,21 +121,21 @@ fn emojis_decoder() -> decode.Decoder(List(Emoji)) {
 }
 
 fn source_code(emojis: List(Emoji)) -> String {
-  let assert Ok(source_code) =
-    simplifile.read(test_emojis_namespace_path <> "template.gleam")
+  let template_path = test_emojis_namespace_path <> "template.gleam"
+  let assert Ok(source_code) = simplifile.read(template_path)
 
   source_code
   |> string.replace(
     "// all_function_emoji_list_items",
-    string.join(all_function_list_item_strings(emojis), "\n"),
+    emojis |> all_function_list_item_strings |> string.join("\n"),
   )
   |> string.replace(
     "// get_by_alias_function_emoji_case_arms",
-    string.join(get_by_alias_function_case_arm_strings(emojis), "\n"),
+    emojis |> get_by_alias_function_case_arm_strings |> string.join("\n"),
   )
   |> string.replace(
     "// get_function_emoji_case_arms",
-    string.join(get_function_case_arm_strings(emojis), "\n"),
+    emojis |> get_function_case_arm_strings |> string.join("\n"),
   )
 }
 
@@ -151,14 +151,18 @@ fn get_by_alias_function_case_arm_strings(emojis: List(Emoji)) -> List(String) {
   let assert Ok(emoji) = dict.get(emoji_by_alias, alias)
   let alias_string = quote_string(alias)
   let emoji_record_string = generate_emoji_record_string(emoji)
-  alias_string <> " -> " <> "Ok(" <> emoji_record_string <> ")"
+  alias_string <> " -> " <> ok_string(emoji_record_string)
 }
 
 fn get_function_case_arm_strings(emojis: List(Emoji)) -> List(String) {
   use emoji <- list.map(emojis)
   let emoji_string = quote_string(emoji.emoji)
   let emoji_record_string = generate_emoji_record_string(emoji)
-  emoji_string <> " -> " <> "Ok(" <> emoji_record_string <> ")"
+  emoji_string <> " -> " <> ok_string(emoji_record_string)
+}
+
+fn ok_string(text: String) -> String {
+  "Ok(" <> text <> ")"
 }
 
 fn emoji_by_alias(emojis: List(Emoji)) -> dict.Dict(String, Emoji) {
