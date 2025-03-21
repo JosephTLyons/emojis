@@ -10,6 +10,7 @@ import gleam/httpc
 import gleam/int
 import gleam/json
 import gleam/list
+import gleam/option.{type Option, None, Some}
 import gleam/result
 import gleam/string
 import gleamsver.{parse_loosely}
@@ -21,8 +22,10 @@ const emojis_code_file_path = "./src/emojis.gleam"
 const test_emojis_namespace_path = "./test/emojis/"
 
 pub fn main() -> Nil {
-  let json_string = emoji_json_string()
-  let assert Ok(emojis) = json.parse(from: json_string, using: emojis_decoder())
+  let github_emoji_json_string = github_emoji_json_string()
+  let unicode_emoji_text_string = unicode_emoji_text_string()
+  let assert Ok(emojis) =
+    json.parse(from: github_emoji_json_string, using: emojis_decoder())
   let emojis = list.sort(emojis, fn(a, b) { string.compare(a.emoji, b.emoji) })
   let source_code = source_code(emojis)
   let assert Ok(_) =
@@ -42,26 +45,49 @@ pub fn main() -> Nil {
   Nil
 }
 
-fn emoji_json_string() -> String {
-  let emoji_data_file_path = test_emojis_namespace_path <> "emojis.json"
-  let emoji_data = simplifile.read(from: emoji_data_file_path)
+fn github_emoji_json_string() -> String {
+  fetch_data(
+    "https://github.com/github/gemoji/raw/v4.1.0/db/emoji.json",
+    "github.json",
+    Some(fn(data_string) {
+      let assert Ok(data_string) =
+        shellout.command(
+          run: "sh",
+          with: ["-euc", "echo '" <> data_string <> "' | jq -r --indent 4"],
+          in: ".",
+          opt: [],
+        )
+      data_string
+    }),
+  )
+}
+
+fn unicode_emoji_text_string() -> String {
+  fetch_data(
+    "https://unicode.org/Public/emoji/14.0/emoji-sequences.txt",
+    "unicode.txt",
+    None,
+  )
+}
+
+fn fetch_data(
+  source_url: String,
+  cache_file_name: String,
+  format_function: Option(fn(String) -> String),
+) {
+  let cache_file_path = test_emojis_namespace_path <> cache_file_name
+  let emoji_data = simplifile.read(from: cache_file_path)
   use <- result.lazy_unwrap(emoji_data)
-  let url = "https://github.com/github/gemoji/raw/v4.1.0/db/emoji.json"
-  let assert Ok(req) = request.to(url)
+  let assert Ok(req) = request.to(source_url)
   let config = httpc.configure() |> httpc.follow_redirects(True)
   let assert Ok(res) = httpc.dispatch(config, req)
   let assert 200 = res.status
-  let json_string = res.body
-  let assert Ok(json_string) =
-    shellout.command(
-      run: "sh",
-      with: ["-euc", "echo '" <> json_string <> "' | jq -r --indent 4"],
-      in: ".",
-      opt: [],
-    )
-  let assert Ok(_) = simplifile.write(json_string, to: emoji_data_file_path)
-
-  json_string
+  let data_string = case format_function {
+    Some(func) -> func(res.body)
+    None -> res.body
+  }
+  let assert Ok(_) = simplifile.write(data_string, to: cache_file_path)
+  data_string
 }
 
 fn string_to_category(category: String) -> Category {

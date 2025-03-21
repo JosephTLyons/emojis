@@ -25,6 +25,37 @@ pub type Emoji {
   )
 }
 
+/// The skin tone of an emoji.
+///
+pub type SkinTone {
+  Default
+  Light
+  MediumLight
+  Medium
+  MediumDark
+  Dark
+  LightAndMediumLight
+  LightAndMedium
+  LightAndMediumDark
+  LightAndDark
+  MediumLightAndLight
+  MediumLightAndMedium
+  MediumLightAndMediumDark
+  MediumLightAndDark
+  MediumAndLight
+  MediumAndMediumLight
+  MediumAndMediumDark
+  MediumAndDark
+  MediumDarkAndLight
+  MediumDarkAndMediumLight
+  MediumDarkAndMedium
+  MediumDarkAndDark
+  DarkAndLight
+  DarkAndMediumLight
+  DarkAndMedium
+  DarkAndMediumDark
+}
+
 /// The version in which an emoji was added.
 ///
 pub type UnicodeVersion {

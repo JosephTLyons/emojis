@@ -1,6 +1,7 @@
 *.beam
 *.ez
+.DS_Store
 /build
 erl_crash.dump
-emojis.json
-.DS_Store
+github.json
+unicode.txt
