@@ -21,12 +21,32 @@ const emojis_code_file_path = "./src/emojis.gleam"
 
 const test_emojis_namespace_path = "./test/emojis/"
 
+pub type GitHubEmoji {
+  GitHubEmoji(
+    emoji: String,
+    description: String,
+    category: Category,
+    aliases: List(String),
+    tags: List(String),
+    unicode_version: UnicodeVersion,
+  )
+}
+
+pub type UnicodeEmoji {
+  UnicodeEmoji(
+    emoji: String,
+    description: String,
+    category: Category,
+    aliases: List(String),
+    tags: List(String),
+    unicode_version: UnicodeVersion,
+  )
+}
+
 pub fn main() -> Nil {
-  let github_emoji_json_string = github_emoji_json_string()
-  let unicode_emoji_text_string = unicode_emoji_text_string()
-  let assert Ok(emojis) =
-    json.parse(from: github_emoji_json_string, using: emojis_decoder())
-  let emojis = list.sort(emojis, fn(a, b) { string.compare(a.emoji, b.emoji) })
+  let github_emojis = github_emojis()
+  let unicode_emojis = unicode_emojis()
+  let emojis = form_emojis(github_emojis, unicode_emojis)
   let source_code = source_code(emojis)
   let assert Ok(_) =
     shellout.command(
@@ -45,29 +65,43 @@ pub fn main() -> Nil {
   Nil
 }
 
-fn github_emoji_json_string() -> String {
-  fetch_data(
-    "https://github.com/github/gemoji/raw/v4.1.0/db/emoji.json",
-    "github.json",
-    Some(fn(data_string) {
-      let assert Ok(data_string) =
-        shellout.command(
-          run: "sh",
-          with: ["-euc", "echo '" <> data_string <> "' | jq -r --indent 4"],
-          in: ".",
-          opt: [],
-        )
-      data_string
-    }),
-  )
+fn github_emojis() -> List(GitHubEmoji) {
+  let data_string =
+    fetch_data(
+      "https://github.com/github/gemoji/raw/v4.1.0/db/emoji.json",
+      "github.json",
+      Some(fn(data_string) {
+        let assert Ok(data_string) =
+          shellout.command(
+            run: "sh",
+            with: ["-euc", "echo '" <> data_string <> "' | jq -r --indent 4"],
+            in: ".",
+            opt: [],
+          )
+        data_string
+      }),
+    )
+
+  let assert Ok(emojis) =
+    json.parse(from: data_string, using: github_emojis_decoder())
+  list.sort(emojis, fn(a, b) { string.compare(a.emoji, b.emoji) })
 }
 
-fn unicode_emoji_text_string() -> String {
+fn unicode_emojis() -> List(UnicodeEmoji) {
   fetch_data(
     "https://unicode.org/Public/emoji/14.0/emoji-sequences.txt",
     "unicode.txt",
     None,
   )
+
+  []
+}
+
+fn form_emojis(
+  github_emojis: List(GitHubEmoji),
+  unicode_emojis: List(UnicodeEmoji),
+) -> List(Emoji) {
+  []
 }
 
 fn fetch_data(
@@ -119,7 +153,7 @@ fn category_to_string(category: Category) -> String {
   }
 }
 
-fn emoji_decoder() -> decode.Decoder(Emoji) {
+fn github_emoji_decoder() -> decode.Decoder(GitHubEmoji) {
   use emoji <- decode.field("emoji", decode.string)
   use description <- decode.field("description", decode.string)
   use category <- decode.field("category", decode.string)
@@ -132,7 +166,7 @@ fn emoji_decoder() -> decode.Decoder(Emoji) {
   let unicode_version =
     UnicodeVersion(unicode_version.major, unicode_version.minor)
 
-  decode.success(Emoji(
+  decode.success(GitHubEmoji(
     emoji:,
     description:,
     category:,
@@ -142,8 +176,8 @@ fn emoji_decoder() -> decode.Decoder(Emoji) {
   ))
 }
 
-fn emojis_decoder() -> decode.Decoder(List(Emoji)) {
-  decode.list(emoji_decoder())
+fn github_emojis_decoder() -> decode.Decoder(List(GitHubEmoji)) {
+  decode.list(github_emoji_decoder())
 }
 
 fn source_code(emojis: List(Emoji)) -> String {
