@@ -1,4 +1,4 @@
-import emojis.{Flags, SmileysAndEmotion, UnicodeVersion}
+import emojis.{Emoji, Flags, FullyQualified, SmileysAndEmotion, UnicodeVersion}
 import gleam/list
 import gleam/set
 import gleam/string
@@ -26,7 +26,7 @@ pub fn all_test() {
   |> list.map(fn(emoji) { emoji.emoji })
   |> list.sort(string.compare)
   |> list.take(10)
-  |> should.equal(["☠️", "☹️", "☺️", "❣️", "❤️", "❤️‍🔥", "❤️‍🩹", "👁️‍🗨️", "👹", "👺"])
+  |> should.equal(["☠", "☠️", "☹", "☹️", "☺", "☺️", "❣", "❣️", "❤", "❤‍🔥"])
 
   emojis.all()
   |> list.filter(fn(emoji) { emoji.category == Flags })
@@ -41,11 +41,27 @@ pub fn ensure_no_duplicates_in_all_test() {
   let emojis_after_length =
     emojis |> set.from_list |> set.to_list |> list.length
 
-  emojis_before_length |> should.equal(emojis_after_length)
+  should.equal(emojis_before_length, emojis_after_length)
+}
+
+pub fn ensure_full_description_test() {
+  let assert Ok(emoji) = emojis.get("🫸🏿")
+  should.equal(emoji.description, "rightwards pushing hand: dark skin tone")
+
+  let assert Ok(emoji) = emojis.get("🇦🇬")
+  should.equal(emoji.description, "flag: Antigua & Barbuda")
 }
 
 pub fn get_test() {
   let assert Ok(grinning_face) = emojis.get("😀")
-  grinning_face.unicode_version
-  |> should.equal(UnicodeVersion(major: 6, minor: 1))
+  grinning_face
+  |> should.equal(Emoji(
+    emoji: "😀",
+    description: "grinning face",
+    category: SmileysAndEmotion,
+    aliases: ["grinning"],
+    tags: ["smile", "happy"],
+    status: FullyQualified,
+    unicode_version: UnicodeVersion(major: 1, minor: 0),
+  ))
 }
