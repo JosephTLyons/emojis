@@ -60,7 +60,7 @@ pub fn get_test() {
     description: "grinning face",
     category: SmileysAndEmotion,
     aliases: ["grinning"],
-    tags: ["smile", "happy"],
+    tags: ["happy", "smile"],
     status: FullyQualified,
     unicode_version: UnicodeVersion(major: 1, minor: 0),
   ))

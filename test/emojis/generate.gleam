@@ -46,7 +46,7 @@ pub fn main() -> Nil {
   let unicode_emojis = unicode_emojis()
   let github_emojis = github_emojis()
   let emojis = merge_emojis(unicode_emojis, github_emojis)
-  let emojis = list.sort(emojis, fn(a, b) { string.compare(a.emoji, b.emoji) })
+  let emojis = sort_emoji_data(emojis)
   let source_code = source_code(emojis)
   let assert Ok(_) = simplifile.write(source_code, to: emojis_code_file_path)
   let assert Ok(_) =
@@ -98,6 +98,18 @@ fn merge_emojis(
       unicode_version: unicode_emoji.unicode_version,
     )
   })
+}
+
+fn sort_emoji_data(emojis: List(Emoji)) -> List(Emoji) {
+  let emojis = {
+    use emoji <- list.map(emojis)
+    let aliases = list.sort(emoji.aliases, string.compare)
+    let tags = list.sort(emoji.tags, string.compare)
+    Emoji(..emoji, aliases:, tags:)
+  }
+
+  use a, b <- list.sort(emojis)
+  string.compare(a.emoji, b.emoji)
 }
 
 fn fetch_data(cache_file_name: String) -> String {
