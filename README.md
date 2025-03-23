@@ -35,10 +35,6 @@ Further documentation can be found at <https://hexdocs.pm/emojis>.
 - Fetch the data: `./test/emojis/fetch.sh` (requires `jq` and `curl`)
 - Generate the Gleam code: `gleam run -m emojis/generate`
 
-```sh
-gleam run -m emojis/generate
-```
-
 ## Inspiration
 
 The feature set, and some of the design, is inspired by the
