@@ -167,7 +167,7 @@ fn github_emojis_decoder() -> decode.Decoder(List(GitHubEmoji)) {
   decode.list(github_emoji_decoder())
 }
 
-fn parse_unicode_data(data: String) -> List(UnicodeEmoji) {
+pub fn parse_unicode_data(data: String) -> List(UnicodeEmoji) {
   data |> string.split("\n") |> parse_unicode_lines_loop(None, [])
 }
 
@@ -209,7 +209,7 @@ fn parse_github_data(data: String) -> List(GitHubEmoji) {
 }
 
 // Parsing is ugly, but will do!
-pub fn parse_unicode_line(line: String, category: Category) -> UnicodeEmoji {
+fn parse_unicode_line(line: String, category: Category) -> UnicodeEmoji {
   let assert Ok(#(_, rest)) = string.split_once(line, ";")
   let assert Ok(#(status, rest)) = string.split_once(rest, "#")
   let assert Ok(#(emoji, rest)) =
