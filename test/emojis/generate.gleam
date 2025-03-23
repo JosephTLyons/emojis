@@ -58,24 +58,22 @@ fn merge_emojis(
 ) -> List(Emoji) {
   let github_emoji_by_emoji = github_emoji_by_emoji(github_emojis)
 
-  unicode_emojis
-  |> list.map(fn(unicode_emoji) {
-    let github_emoji = dict.get(github_emoji_by_emoji, unicode_emoji.emoji)
-    let #(aliases, tags) = case github_emoji {
-      Ok(emoji) -> #(emoji.aliases, emoji.tags)
-      Error(_) -> #([], [])
-    }
+  use unicode_emoji <- list.map(unicode_emojis)
+  let github_emoji = dict.get(github_emoji_by_emoji, unicode_emoji.emoji)
+  let #(aliases, tags) = case github_emoji {
+    Ok(emoji) -> #(emoji.aliases, emoji.tags)
+    Error(_) -> #([], [])
+  }
 
-    Emoji(
-      emoji: unicode_emoji.emoji,
-      description: unicode_emoji.description,
-      category: unicode_emoji.category,
-      aliases:,
-      tags:,
-      status: unicode_emoji.status,
-      unicode_version: unicode_emoji.unicode_version,
-    )
-  })
+  Emoji(
+    emoji: unicode_emoji.emoji,
+    description: unicode_emoji.description,
+    category: unicode_emoji.category,
+    aliases:,
+    tags:,
+    status: unicode_emoji.status,
+    unicode_version: unicode_emoji.unicode_version,
+  )
 }
 
 fn sort_emoji_data(emojis: List(Emoji)) -> List(Emoji) {
