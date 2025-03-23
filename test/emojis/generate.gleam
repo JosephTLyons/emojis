@@ -5,12 +5,9 @@ import emojis/template.{
 }
 import gleam/dict
 import gleam/dynamic/decode
-import gleam/http/request
-import gleam/httpc
 import gleam/int
 import gleam/json
 import gleam/list
-import gleam/result
 import gleam/string
 import gleamsver.{parse_loosely}
 import shellout
@@ -45,22 +42,7 @@ pub fn main() -> Nil {
 fn emoji_json_string() -> String {
   let emoji_data_file_path = test_emojis_namespace_path <> "emojis.json"
   let emoji_data = simplifile.read(from: emoji_data_file_path)
-  use <- result.lazy_unwrap(emoji_data)
-  let url = "https://github.com/github/gemoji/raw/v4.1.0/db/emoji.json"
-  let assert Ok(req) = request.to(url)
-  let config = httpc.configure() |> httpc.follow_redirects(True)
-  let assert Ok(res) = httpc.dispatch(config, req)
-  let assert 200 = res.status
-  let json_string = res.body
-  let assert Ok(json_string) =
-    shellout.command(
-      run: "sh",
-      with: ["-euc", "echo '" <> json_string <> "' | jq -r --indent 4"],
-      in: ".",
-      opt: [],
-    )
-  let assert Ok(_) = simplifile.write(json_string, to: emoji_data_file_path)
-
+  let assert Ok(json_string) = emoji_data
   json_string
 }
 
