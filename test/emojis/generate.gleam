@@ -43,35 +43,13 @@ type GitHubEmoji {
 }
 
 pub fn main() -> Nil {
-  let unicode_emojis = unicode_emojis()
-  let github_emojis = github_emojis()
-  let emojis = merge_emojis(unicode_emojis, github_emojis)
-  let emojis = sort_emoji_data(emojis)
-  let source_code = source_code(emojis)
-  let assert Ok(_) = simplifile.write(source_code, to: emojis_code_file_path)
-  let assert Ok(_) =
-    shellout.command(
-      run: "gleam",
-      with: ["format", emojis_code_file_path],
-      in: ".",
-      opt: [],
-    )
+  let unicode_emojis = "unicode.txt" |> read_data |> parse_unicode_data
+  let github_emojis = "github.json" |> read_data |> parse_github_data
 
-  Nil
-}
-
-fn unicode_emojis() -> List(UnicodeEmoji) {
-  let data = fetch_data("unicode.txt")
-  parse_unicode_data(data)
-}
-
-fn github_emojis() -> List(GitHubEmoji) {
-  let data_string = fetch_data("github.json")
-
-  let assert Ok(emojis) =
-    json.parse(from: data_string, using: github_emojis_decoder())
-
-  emojis
+  merge_emojis(unicode_emojis, github_emojis)
+  |> sort_emoji_data
+  |> source_code
+  |> write_source_code
 }
 
 fn merge_emojis(
@@ -112,7 +90,7 @@ fn sort_emoji_data(emojis: List(Emoji)) -> List(Emoji) {
   string.compare(a.emoji, b.emoji)
 }
 
-fn fetch_data(cache_file_name: String) -> String {
+fn read_data(cache_file_name: String) -> String {
   let cache_file_path = cache_path <> cache_file_name
   let emoji_data = simplifile.read(from: cache_file_path)
   let assert Ok(json_string) = emoji_data
@@ -227,6 +205,11 @@ fn parse_unicode_lines_loop(
   }
 }
 
+fn parse_github_data(data: String) -> List(GitHubEmoji) {
+  let assert Ok(emojis) = json.parse(from: data, using: github_emojis_decoder())
+  emojis
+}
+
 // Parsing is ugly, but will do!
 pub fn parse_unicode_line(line: String, category: Category) -> UnicodeEmoji {
   let assert Ok(#(_, rest)) = string.split_once(line, ";")
@@ -262,6 +245,19 @@ fn source_code(emojis: List(Emoji)) -> String {
     "// get_function_emoji_case_arms",
     emojis |> get_function_case_arm_strings |> string.join("\n"),
   )
+}
+
+fn write_source_code(source_code: String) -> Nil {
+  let assert Ok(_) = simplifile.write(source_code, to: emojis_code_file_path)
+  let assert Ok(_) =
+    shellout.command(
+      run: "gleam",
+      with: ["format", emojis_code_file_path],
+      in: ".",
+      opt: [],
+    )
+
+  Nil
 }
 
 fn all_function_list_item_strings(emojis: List(Emoji)) -> List(String) {
