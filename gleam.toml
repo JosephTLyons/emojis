@@ -9,8 +9,6 @@ repository = { type = "github", user = "JosephTLyons", repo = "emojis" }
 gleam_stdlib = ">= 0.44.0 and < 2.0.0"
 
 [dev-dependencies]
-gleam_http = ">= 4.0.0 and < 5.0.0"
-gleam_httpc = ">= 4.1.0 and < 5.0.0"
 gleam_json = ">= 2.3.0 and < 3.0.0"
 gleamsver = ">= 1.0.1 and < 2.0.0"
 gleeunit = ">= 1.0.0 and < 2.0.0"

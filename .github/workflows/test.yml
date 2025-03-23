@@ -20,7 +20,5 @@ jobs:
           # elixir-version: "1"
       - run: gleam deps download
       - run: gleam test --target erlang
-      # The `emojis/generate.gleam` module fails during testing on the JavaScript target
-      - run: rm -rf ./test/emojis
       - run: gleam test --target javascript
       - run: gleam format --check src test
