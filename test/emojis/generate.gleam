@@ -270,13 +270,23 @@ fn all_function_list_item_strings(emojis: List(Emoji)) -> List(String) {
 }
 
 fn get_by_alias_function_case_arm_strings(emojis: List(Emoji)) -> List(String) {
-  let emoji_by_alias = emoji_by_alias(emojis)
-  let aliases = dict.keys(emoji_by_alias) |> list.sort(string.compare)
-  use alias <- list.map(aliases)
-  let assert Ok(emoji) = dict.get(emoji_by_alias, alias)
-  let alias_string = quote_string(alias)
-  let emoji_record_string = emoji_record_string(emoji)
-  alias_string <> " -> " <> ok_string(emoji_record_string)
+  list.filter_map(emojis, fn(emoji) {
+    let aliases = emoji.aliases
+    case !list.is_empty(aliases) {
+      True -> Ok(#(aliases, emoji))
+      False -> Error(Nil)
+    }
+  })
+  |> list.sort(fn(a, b) {
+    let assert Ok(alias_a) = list.first(a.0)
+    let assert Ok(alias_b) = list.first(b.0)
+    string.compare(alias_a, alias_b)
+  })
+  |> list.map(fn(a) {
+    let aliases_string = a.0 |> list.map(quote_string) |> string.join(" | ")
+    let emoji_record_string = emoji_record_string(a.1)
+    aliases_string <> " -> " <> ok_string(emoji_record_string)
+  })
 }
 
 fn get_function_case_arm_strings(emojis: List(Emoji)) -> List(String) {
@@ -288,12 +298,6 @@ fn get_function_case_arm_strings(emojis: List(Emoji)) -> List(String) {
 
 fn ok_string(text: String) -> String {
   "Ok(" <> text <> ")"
-}
-
-fn emoji_by_alias(emojis: List(Emoji)) -> dict.Dict(String, Emoji) {
-  use d, emoji <- list.fold(emojis, dict.new())
-  use d, alias <- list.fold(emoji.aliases, d)
-  d |> dict.insert(alias, emoji)
 }
 
 fn github_emoji_by_emoji(

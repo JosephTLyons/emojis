@@ -45362,7 +45362,7 @@ pub fn all() -> List(Emoji) {
 ///
 pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
   case alias {
-    "+1" ->
+    "+1" | "thumbsup" ->
       Ok(Emoji(
         emoji: "👍",
         description: "thumbs up",
@@ -45372,7 +45372,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "-1" ->
+    "-1" | "thumbsdown" ->
       Ok(Emoji(
         emoji: "👎",
         description: "thumbs down",
@@ -46532,7 +46532,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "basketball_man" ->
+    "basketball_man" | "bouncing_ball_man" ->
       Ok(Emoji(
         emoji: "⛹️‍♂️",
         description: "man bouncing ball",
@@ -46542,7 +46542,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 4, minor: 0),
       ))
-    "basketball_woman" ->
+    "basketball_woman" | "bouncing_ball_woman" ->
       Ok(Emoji(
         emoji: "⛹️‍♀️",
         description: "woman bouncing ball",
@@ -46652,7 +46652,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 7),
       ))
-    "bee" ->
+    "bee" | "honeybee" ->
       Ok(Emoji(
         emoji: "🐝",
         description: "honeybee",
@@ -47062,17 +47062,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "blond_haired_woman" ->
-      Ok(Emoji(
-        emoji: "👱‍♀️",
-        description: "woman: blond hair",
-        category: PeopleAndBody,
-        aliases: ["blond_haired_woman", "blonde_woman"],
-        tags: [],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 4, minor: 0),
-      ))
-    "blonde_woman" ->
+    "blond_haired_woman" | "blonde_woman" ->
       Ok(Emoji(
         emoji: "👱‍♀️",
         description: "woman: blond hair",
@@ -47172,7 +47162,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "boat" ->
+    "boat" | "sailboat" ->
       Ok(Emoji(
         emoji: "⛵",
         description: "sailboat",
@@ -47212,7 +47202,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
-    "book" ->
+    "book" | "open_book" ->
       Ok(Emoji(
         emoji: "📖",
         description: "open book",
@@ -47252,7 +47242,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "boom" ->
+    "boom" | "collision" ->
       Ok(Emoji(
         emoji: "💥",
         description: "collision",
@@ -47302,16 +47292,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 2, minor: 0),
       ))
-    "bouncing_ball_man" ->
-      Ok(Emoji(
-        emoji: "⛹️‍♂️",
-        description: "man bouncing ball",
-        category: PeopleAndBody,
-        aliases: ["basketball_man", "bouncing_ball_man"],
-        tags: [],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 4, minor: 0),
-      ))
     "bouncing_ball_person" ->
       Ok(Emoji(
         emoji: "⛹️",
@@ -47321,16 +47301,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         tags: ["basketball"],
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 7),
-      ))
-    "bouncing_ball_woman" ->
-      Ok(Emoji(
-        emoji: "⛹️‍♀️",
-        description: "woman bouncing ball",
-        category: PeopleAndBody,
-        aliases: ["basketball_woman", "bouncing_ball_woman"],
-        tags: [],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 4, minor: 0),
       ))
     "bouquet" ->
       Ok(Emoji(
@@ -47482,7 +47452,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
-    "bride_with_veil" ->
+    "bride_with_veil" | "woman_with_veil" ->
       Ok(Emoji(
         emoji: "👰‍♀️",
         description: "woman with veil",
@@ -48002,7 +47972,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "car" ->
+    "car" | "red_car" ->
       Ok(Emoji(
         emoji: "🚗",
         description: "automobile",
@@ -48992,16 +48962,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "collision" ->
-      Ok(Emoji(
-        emoji: "💥",
-        description: "collision",
-        category: SmileysAndEmotion,
-        aliases: ["boom", "collision"],
-        tags: ["explode"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
     "colombia" ->
       Ok(Emoji(
         emoji: "🇨🇴",
@@ -49222,7 +49182,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "cop" ->
+    "cop" | "police_officer" ->
       Ok(Emoji(
         emoji: "👮",
         description: "police officer",
@@ -49782,7 +49742,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 7),
       ))
-    "dancer" ->
+    "dancer" | "woman_dancing" ->
       Ok(Emoji(
         emoji: "💃",
         description: "woman dancing",
@@ -50182,7 +50142,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "dolphin" ->
+    "dolphin" | "flipper" ->
       Ok(Emoji(
         emoji: "🐬",
         description: "dolphin",
@@ -50372,7 +50332,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "e-mail" ->
+    "e-mail" | "email" ->
       Ok(Emoji(
         emoji: "📧",
         description: "e-mail",
@@ -50602,16 +50562,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 5, minor: 0),
       ))
-    "email" ->
-      Ok(Emoji(
-        emoji: "📧",
-        description: "e-mail",
-        category: Objects,
-        aliases: ["e-mail", "email"],
-        tags: [],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
     "empty_nest" ->
       Ok(Emoji(
         emoji: "🪹",
@@ -50712,7 +50662,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 2, minor: 0),
       ))
-    "eu" ->
+    "eu" | "european_union" ->
       Ok(Emoji(
         emoji: "🇪🇺",
         description: "flag: European Union",
@@ -50752,16 +50702,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 1, minor: 0),
       ))
-    "european_union" ->
-      Ok(Emoji(
-        emoji: "🇪🇺",
-        description: "flag: European Union",
-        category: Flags,
-        aliases: ["eu", "european_union"],
-        tags: [],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 2, minor: 0),
-      ))
     "evergreen_tree" ->
       Ok(Emoji(
         emoji: "🌲",
@@ -50772,7 +50712,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 1, minor: 0),
       ))
-    "exclamation" ->
+    "exclamation" | "heavy_exclamation_mark" ->
       Ok(Emoji(
         emoji: "❗",
         description: "red exclamation mark",
@@ -50942,7 +50882,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 3, minor: 0),
       ))
-    "facepunch" ->
+    "facepunch" | "fist_oncoming" | "punch" ->
       Ok(Emoji(
         emoji: "👊",
         description: "oncoming fist",
@@ -51352,7 +51292,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
-    "feet" ->
+    "feet" | "paw_prints" ->
       Ok(Emoji(
         emoji: "🐾",
         description: "paw prints",
@@ -51582,7 +51522,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "fist" ->
+    "fist" | "fist_raised" ->
       Ok(Emoji(
         emoji: "✊",
         description: "raised fist",
@@ -51601,26 +51541,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         tags: [],
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 3, minor: 0),
-      ))
-    "fist_oncoming" ->
-      Ok(Emoji(
-        emoji: "👊",
-        description: "oncoming fist",
-        category: PeopleAndBody,
-        aliases: ["facepunch", "fist_oncoming", "punch"],
-        tags: ["attack"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
-    "fist_raised" ->
-      Ok(Emoji(
-        emoji: "✊",
-        description: "raised fist",
-        category: PeopleAndBody,
-        aliases: ["fist", "fist_raised"],
-        tags: ["power"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
     "fist_right" ->
       Ok(Emoji(
@@ -51721,16 +51641,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         tags: [],
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 1, minor: 0),
-      ))
-    "flipper" ->
-      Ok(Emoji(
-        emoji: "🐬",
-        description: "dolphin",
-        category: AnimalsAndNature,
-        aliases: ["dolphin", "flipper"],
-        tags: [],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
     "floppy_disk" ->
       Ok(Emoji(
@@ -52092,7 +52002,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 4, minor: 0),
       ))
-    "fu" ->
+    "fu" | "middle_finger" ->
       Ok(Emoji(
         emoji: "🖕",
         description: "middle finger",
@@ -52182,7 +52092,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
-    "gb" ->
+    "gb" | "uk" ->
       Ok(Emoji(
         emoji: "🇬🇧",
         description: "flag: United Kingdom",
@@ -52852,7 +52762,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "hand" ->
+    "hand" | "raised_hand" ->
       Ok(Emoji(
         emoji: "✋",
         description: "raised hand",
@@ -52912,7 +52822,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 3, minor: 0),
       ))
-    "hankey" ->
+    "hankey" | "poop" | "shit" ->
       Ok(Emoji(
         emoji: "💩",
         description: "pile of poo",
@@ -53132,16 +53042,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
-    "heavy_exclamation_mark" ->
-      Ok(Emoji(
-        emoji: "❗",
-        description: "red exclamation mark",
-        category: Symbols,
-        aliases: ["exclamation", "heavy_exclamation_mark"],
-        tags: ["bang"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
     "heavy_heart_exclamation" ->
       Ok(Emoji(
         emoji: "❣️",
@@ -53272,7 +53172,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
-    "hocho" ->
+    "hocho" | "knife" ->
       Ok(Emoji(
         emoji: "🔪",
         description: "kitchen knife",
@@ -53308,16 +53208,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         description: "honey pot",
         category: FoodAndDrink,
         aliases: ["honey_pot"],
-        tags: [],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
-    "honeybee" ->
-      Ok(Emoji(
-        emoji: "🐝",
-        description: "honeybee",
-        category: AnimalsAndNature,
-        aliases: ["bee", "honeybee"],
         tags: [],
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
@@ -53682,7 +53572,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
-    "information_desk_person" ->
+    "information_desk_person" | "tipping_hand_person" ->
       Ok(Emoji(
         emoji: "💁",
         description: "person tipping hand",
@@ -53792,7 +53682,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "izakaya_lantern" ->
+    "izakaya_lantern" | "lantern" ->
       Ok(Emoji(
         emoji: "🏮",
         description: "red paper lantern",
@@ -54202,16 +54092,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
-    "knife" ->
-      Ok(Emoji(
-        emoji: "🔪",
-        description: "kitchen knife",
-        category: FoodAndDrink,
-        aliases: ["hocho", "knife"],
-        tags: ["chop", "cut"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
     "knot" ->
       Ok(Emoji(
         emoji: "🪢",
@@ -54332,16 +54212,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "lantern" ->
-      Ok(Emoji(
-        emoji: "🏮",
-        description: "red paper lantern",
-        category: Objects,
-        aliases: ["izakaya_lantern", "lantern"],
-        tags: [],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
     "laos" ->
       Ok(Emoji(
         emoji: "🇱🇦",
@@ -54422,7 +54292,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 2, minor: 0),
       ))
-    "laughing" ->
+    "laughing" | "satisfied" ->
       Ok(Emoji(
         emoji: "😆",
         description: "grinning squinting face",
@@ -55512,7 +55382,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
-    "mandarin" ->
+    "mandarin" | "orange" | "tangerine" ->
       Ok(Emoji(
         emoji: "🍊",
         description: "tangerine",
@@ -55532,7 +55402,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 11, minor: 0),
       ))
-    "mans_shoe" ->
+    "mans_shoe" | "shoe" ->
       Ok(Emoji(
         emoji: "👞",
         description: "man’s shoe",
@@ -55792,7 +55662,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
-    "memo" ->
+    "memo" | "pencil" ->
       Ok(Emoji(
         emoji: "📝",
         description: "memo",
@@ -55939,16 +55809,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         category: Objects,
         aliases: ["microscope"],
         tags: ["investigate", "laboratory", "science"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 1, minor: 0),
-      ))
-    "middle_finger" ->
-      Ok(Emoji(
-        emoji: "🖕",
-        description: "middle finger",
-        category: PeopleAndBody,
-        aliases: ["fu", "middle_finger"],
-        tags: [],
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 1, minor: 0),
       ))
@@ -56152,7 +56012,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 2, minor: 0),
       ))
-    "moon" ->
+    "moon" | "waxing_gibbous_moon" ->
       Ok(Emoji(
         emoji: "🌔",
         description: "waxing gibbous moon",
@@ -56742,7 +56602,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "ng_man" ->
+    "ng_man" | "no_good_man" ->
       Ok(Emoji(
         emoji: "🙅‍♂️",
         description: "man gesturing NO",
@@ -56752,7 +56612,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 4, minor: 0),
       ))
-    "ng_woman" ->
+    "ng_woman" | "no_good_woman" ->
       Ok(Emoji(
         emoji: "🙅‍♀️",
         description: "woman gesturing NO",
@@ -56881,26 +56741,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         tags: ["denied", "halt", "stop"],
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
-    "no_good_man" ->
-      Ok(Emoji(
-        emoji: "🙅‍♂️",
-        description: "man gesturing NO",
-        category: PeopleAndBody,
-        aliases: ["ng_man", "no_good_man"],
-        tags: ["denied", "halt", "stop"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 4, minor: 0),
-      ))
-    "no_good_woman" ->
-      Ok(Emoji(
-        emoji: "🙅‍♀️",
-        description: "woman gesturing NO",
-        category: PeopleAndBody,
-        aliases: ["ng_woman", "no_good_woman"],
-        tags: ["denied", "halt", "stop"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 4, minor: 0),
       ))
     "no_mobile_phones" ->
       Ok(Emoji(
@@ -57322,16 +57162,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
-    "open_book" ->
-      Ok(Emoji(
-        emoji: "📖",
-        description: "open book",
-        category: Objects,
-        aliases: ["book", "open_book"],
-        tags: [],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
     "open_file_folder" ->
       Ok(Emoji(
         emoji: "📂",
@@ -57378,16 +57208,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         description: "Ophiuchus",
         category: Symbols,
         aliases: ["ophiuchus"],
-        tags: [],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
-    "orange" ->
-      Ok(Emoji(
-        emoji: "🍊",
-        description: "tangerine",
-        category: FoodAndDrink,
-        aliases: ["mandarin", "orange", "tangerine"],
         tags: [],
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
@@ -57792,16 +57612,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 7),
       ))
-    "paw_prints" ->
-      Ok(Emoji(
-        emoji: "🐾",
-        description: "paw prints",
-        category: AnimalsAndNature,
-        aliases: ["feet", "paw_prints"],
-        tags: [],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
     "pea_pod" ->
       Ok(Emoji(
         emoji: "🫛",
@@ -57871,16 +57681,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         tags: [],
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 7),
-      ))
-    "pencil" ->
-      Ok(Emoji(
-        emoji: "📝",
-        description: "memo",
-        category: Objects,
-        aliases: ["memo", "pencil"],
-        tags: ["document", "note"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
     "pencil2" ->
       Ok(Emoji(
@@ -58112,7 +57912,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 2, minor: 0),
       ))
-    "phone" ->
+    "phone" | "telephone" ->
       Ok(Emoji(
         emoji: "☎️",
         description: "telephone",
@@ -58452,16 +58252,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "police_officer" ->
-      Ok(Emoji(
-        emoji: "👮",
-        description: "police officer",
-        category: PeopleAndBody,
-        aliases: ["cop", "police_officer"],
-        tags: ["law"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
     "policeman" ->
       Ok(Emoji(
         emoji: "👮‍♂️",
@@ -58489,16 +58279,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         category: AnimalsAndNature,
         aliases: ["poodle"],
         tags: ["dog"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
-    "poop" ->
-      Ok(Emoji(
-        emoji: "💩",
-        description: "pile of poo",
-        category: SmileysAndEmotion,
-        aliases: ["hankey", "poop", "shit"],
-        tags: ["crap"],
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
@@ -58622,7 +58402,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 14, minor: 0),
       ))
-    "pout" ->
+    "pout" | "rage" ->
       Ok(Emoji(
         emoji: "😡",
         description: "enraged face",
@@ -58792,16 +58572,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 2, minor: 0),
       ))
-    "punch" ->
-      Ok(Emoji(
-        emoji: "👊",
-        description: "oncoming fist",
-        category: PeopleAndBody,
-        aliases: ["facepunch", "fist_oncoming", "punch"],
-        tags: ["attack"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
     "purple_circle" ->
       Ok(Emoji(
         emoji: "🟣",
@@ -58962,16 +58732,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 1, minor: 0),
       ))
-    "rage" ->
-      Ok(Emoji(
-        emoji: "😡",
-        description: "enraged face",
-        category: SmileysAndEmotion,
-        aliases: ["pout", "rage"],
-        tags: ["angry"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
     "railway_car" ->
       Ok(Emoji(
         emoji: "🚃",
@@ -59031,16 +58791,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         tags: ["suspicious"],
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 5, minor: 0),
-      ))
-    "raised_hand" ->
-      Ok(Emoji(
-        emoji: "✋",
-        description: "raised hand",
-        category: PeopleAndBody,
-        aliases: ["hand", "raised_hand"],
-        tags: ["highfive", "stop"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
     "raised_hand_with_fingers_splayed" ->
       Ok(Emoji(
@@ -59159,16 +58909,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         category: Symbols,
         aliases: ["recycle"],
         tags: ["environment", "green"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
-    "red_car" ->
-      Ok(Emoji(
-        emoji: "🚗",
-        description: "automobile",
-        category: TravelAndPlaces,
-        aliases: ["car", "red_car"],
-        tags: [],
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
@@ -59642,17 +59382,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 1, minor: 0),
       ))
-    "runner" ->
-      Ok(Emoji(
-        emoji: "🏃",
-        description: "person running",
-        category: PeopleAndBody,
-        aliases: ["runner", "running"],
-        tags: ["exercise", "marathon", "workout"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
-    "running" ->
+    "runner" | "running" ->
       Ok(Emoji(
         emoji: "🏃",
         description: "person running",
@@ -59738,16 +59468,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         description: "Sagittarius",
         category: Symbols,
         aliases: ["sagittarius"],
-        tags: [],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
-    "sailboat" ->
-      Ok(Emoji(
-        emoji: "⛵",
-        description: "sailboat",
-        category: TravelAndPlaces,
-        aliases: ["boat", "sailboat"],
         tags: [],
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
@@ -59852,7 +59572,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 12, minor: 0),
       ))
-    "sassy_man" ->
+    "sassy_man" | "tipping_hand_man" ->
       Ok(Emoji(
         emoji: "💁‍♂️",
         description: "man tipping hand",
@@ -59862,7 +59582,7 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 4, minor: 0),
       ))
-    "sassy_woman" ->
+    "sassy_woman" | "tipping_hand_woman" ->
       Ok(Emoji(
         emoji: "💁‍♀️",
         description: "woman tipping hand",
@@ -59879,16 +59599,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         category: Objects,
         aliases: ["satellite"],
         tags: ["signal"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
-    "satisfied" ->
-      Ok(Emoji(
-        emoji: "😆",
-        description: "grinning squinting face",
-        category: SmileysAndEmotion,
-        aliases: ["laughing", "satisfied"],
-        tags: ["haha", "happy"],
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
@@ -60292,32 +60002,12 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "shirt" ->
+    "shirt" | "tshirt" ->
       Ok(Emoji(
         emoji: "👕",
         description: "t-shirt",
         category: Objects,
         aliases: ["shirt", "tshirt"],
-        tags: [],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
-    "shit" ->
-      Ok(Emoji(
-        emoji: "💩",
-        description: "pile of poo",
-        category: SmileysAndEmotion,
-        aliases: ["hankey", "poop", "shit"],
-        tags: ["crap"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
-    "shoe" ->
-      Ok(Emoji(
-        emoji: "👞",
-        description: "man’s shoe",
-        category: Objects,
-        aliases: ["mans_shoe", "shoe"],
         tags: [],
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
@@ -61972,16 +61662,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "tangerine" ->
-      Ok(Emoji(
-        emoji: "🍊",
-        description: "tangerine",
-        category: FoodAndDrink,
-        aliases: ["mandarin", "orange", "tangerine"],
-        tags: [],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
     "tanzania" ->
       Ok(Emoji(
         emoji: "🇹🇿",
@@ -62061,16 +61741,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         tags: [],
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 11, minor: 0),
-      ))
-    "telephone" ->
-      Ok(Emoji(
-        emoji: "☎️",
-        description: "telephone",
-        category: Objects,
-        aliases: ["phone", "telephone"],
-        tags: [],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
     "telephone_receiver" ->
       Ok(Emoji(
@@ -62192,26 +61862,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "thumbsdown" ->
-      Ok(Emoji(
-        emoji: "👎",
-        description: "thumbs down",
-        category: PeopleAndBody,
-        aliases: ["-1", "thumbsdown"],
-        tags: ["bury", "disapprove"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
-    "thumbsup" ->
-      Ok(Emoji(
-        emoji: "👍",
-        description: "thumbs up",
-        category: PeopleAndBody,
-        aliases: ["+1", "thumbsup"],
-        tags: ["approve", "ok"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
     "ticket" ->
       Ok(Emoji(
         emoji: "🎫",
@@ -62271,36 +61921,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         tags: [],
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 2, minor: 0),
-      ))
-    "tipping_hand_man" ->
-      Ok(Emoji(
-        emoji: "💁‍♂️",
-        description: "man tipping hand",
-        category: PeopleAndBody,
-        aliases: ["sassy_man", "tipping_hand_man"],
-        tags: ["information"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 4, minor: 0),
-      ))
-    "tipping_hand_person" ->
-      Ok(Emoji(
-        emoji: "💁",
-        description: "person tipping hand",
-        category: PeopleAndBody,
-        aliases: ["information_desk_person", "tipping_hand_person"],
-        tags: [],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
-    "tipping_hand_woman" ->
-      Ok(Emoji(
-        emoji: "💁‍♀️",
-        description: "woman tipping hand",
-        category: PeopleAndBody,
-        aliases: ["sassy_woman", "tipping_hand_woman"],
-        tags: ["information"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 4, minor: 0),
       ))
     "tired_face" ->
       Ok(Emoji(
@@ -62672,16 +62292,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
-    "tshirt" ->
-      Ok(Emoji(
-        emoji: "👕",
-        description: "t-shirt",
-        category: Objects,
-        aliases: ["shirt", "tshirt"],
-        tags: [],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
     "tulip" ->
       Ok(Emoji(
         emoji: "🌷",
@@ -62941,16 +62551,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         tags: [],
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 2, minor: 0),
-      ))
-    "uk" ->
-      Ok(Emoji(
-        emoji: "🇬🇧",
-        description: "flag: United Kingdom",
-        category: Flags,
-        aliases: ["gb", "uk"],
-        tags: ["british", "flag"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
       ))
     "ukraine" ->
       Ok(Emoji(
@@ -63472,16 +63072,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 1, minor: 0),
       ))
-    "waxing_gibbous_moon" ->
-      Ok(Emoji(
-        emoji: "🌔",
-        description: "waxing gibbous moon",
-        category: TravelAndPlaces,
-        aliases: ["moon", "waxing_gibbous_moon"],
-        tags: [],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
     "wc" ->
       Ok(Emoji(
         emoji: "🚾",
@@ -63872,16 +63462,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 4, minor: 0),
       ))
-    "woman_dancing" ->
-      Ok(Emoji(
-        emoji: "💃",
-        description: "woman dancing",
-        category: PeopleAndBody,
-        aliases: ["dancer", "woman_dancing"],
-        tags: ["dress"],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 0, minor: 6),
-      ))
     "woman_facepalming" ->
       Ok(Emoji(
         emoji: "🤦‍♀️",
@@ -64131,16 +63711,6 @@ pub fn get_by_alias(alias: String) -> Result(Emoji, Nil) {
         tags: [],
         status: FullyQualified,
         unicode_version: UnicodeVersion(major: 4, minor: 0),
-      ))
-    "woman_with_veil" ->
-      Ok(Emoji(
-        emoji: "👰‍♀️",
-        description: "woman with veil",
-        category: PeopleAndBody,
-        aliases: ["bride_with_veil", "woman_with_veil"],
-        tags: [],
-        status: FullyQualified,
-        unicode_version: UnicodeVersion(major: 13, minor: 0),
       ))
     "womans_clothes" ->
       Ok(Emoji(
