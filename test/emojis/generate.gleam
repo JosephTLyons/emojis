@@ -307,7 +307,7 @@ fn emoji_record_string(emoji: Emoji) -> String {
   let category_string = category_to_string(emoji.category)
   let aliases_list_string = list_string(emoji.aliases)
   let tags_list_string = list_string(emoji.tags)
-  let status = status_to_string(emoji.status)
+  let status_string = status_to_string(emoji.status)
   let unicode_record_string = unicode_record_string(emoji.unicode_version)
 
   let fields = [
@@ -316,7 +316,7 @@ fn emoji_record_string(emoji: Emoji) -> String {
     { "category:" <> category_string },
     { "aliases:" <> aliases_list_string },
     { "tags:" <> tags_list_string },
-    { "status:" <> status },
+    { "status:" <> status_string },
     { "unicode_version:" <> unicode_record_string },
   ]
 
