@@ -3,7 +3,7 @@
 [![Package Version](https://img.shields.io/hexpm/v/emojis)](https://hex.pm/packages/emojis)
 [![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/emojis/)
 
-Work with emojis programmatically. 🌈
+Work with 5000+ emojis programmatically. 🌈
 
 ```sh
 gleam add emojis

@@ -21,8 +21,17 @@ pub type Emoji {
     category: Category,
     aliases: List(String),
     tags: List(String),
+    status: Status,
     unicode_version: UnicodeVersion,
   )
+}
+
+/// The status of an emoji.
+///
+pub type Status {
+  Unqualified
+  MinimallyQualified
+  FullyQualified
 }
 
 /// The version in which an emoji was added.
