@@ -1,5 +1,11 @@
-import emojis.{Emoji, Flags, FullyQualified, SmileysAndEmotion, UnicodeVersion}
+import emojis.{
+  Activities, AnimalsAndNature, Emoji, Flags, FoodAndDrink, FullyQualified,
+  Objects, PeopleAndBody, SmileysAndEmotion, Symbols, TravelAndPlaces,
+  UnicodeVersion,
+}
+import gleam/int
 import gleam/list
+import gleam/pair
 import gleam/set
 import gleam/string
 import gleeunit
@@ -44,6 +50,41 @@ pub fn ensure_no_duplicates_in_all_test() {
   should.equal(emojis_before_length, emojis_after_length)
 }
 
+pub fn ensure_emoji_set_sizes_do_not_change_test() {
+  let emojis = emojis.all()
+
+  let category_sizes = [
+    #(Activities, 96),
+    #(AnimalsAndNature, 166),
+    #(Flags, 276),
+    #(FoodAndDrink, 133),
+    #(Objects, 314),
+    #(PeopleAndBody, 3291),
+    #(SmileysAndEmotion, 185),
+    #(Symbols, 305),
+    #(TravelAndPlaces, 267),
+  ]
+
+  category_sizes
+  |> list.each(fn(category_sizes) {
+    let #(category, size) = category_sizes
+
+    emojis
+    |> list.filter(fn(emoji) { emoji.category == category })
+    |> list.length
+    |> should.equal(size)
+  })
+
+  let total_size =
+    category_sizes
+    |> list.map(pair.second)
+    |> int.sum
+
+  emojis
+  |> list.length
+  |> should.equal(total_size)
+}
+
 pub fn ensure_full_description_test() {
   let assert Ok(emoji) = emojis.get("🫸🏿")
   should.equal(emoji.description, "rightwards pushing hand: dark skin tone")
@@ -65,3 +106,4 @@ pub fn get_test() {
     unicode_version: UnicodeVersion(major: 1, minor: 0),
   ))
 }
+// TODO: Some get tests on emojis with skin tone after code changes
