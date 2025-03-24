@@ -266,9 +266,9 @@ fn all_function_list_item_strings(emojis: List(Emoji)) -> List(String) {
 fn get_by_alias_function_case_arm_strings(emojis: List(Emoji)) -> List(String) {
   list.filter_map(emojis, fn(emoji) {
     let aliases = emoji.aliases
-    case !list.is_empty(aliases) {
-      True -> Ok(#(aliases, emoji))
-      False -> Error(Nil)
+    case list.is_empty(aliases) {
+      True -> Error(Nil)
+      False -> Ok(#(aliases, emoji))
     }
   })
   |> list.sort(fn(a, b) {
